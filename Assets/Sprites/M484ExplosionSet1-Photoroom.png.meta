@@ -1,0 +1,6110 @@
+fileFormatVersion: 2
+guid: 04da03fe98cffbd4a953ed3d4caf698c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3440359990727635787
+    second: M484ExplosionSet1-Photoroom_0
+  - first:
+      213: 1049509639013396227
+    second: M484ExplosionSet1-Photoroom_1
+  - first:
+      213: -2691644133879720408
+    second: M484ExplosionSet1-Photoroom_2
+  - first:
+      213: -536610771080487241
+    second: M484ExplosionSet1-Photoroom_3
+  - first:
+      213: 2889027478818104724
+    second: M484ExplosionSet1-Photoroom_4
+  - first:
+      213: -6294810089163438423
+    second: M484ExplosionSet1-Photoroom_5
+  - first:
+      213: -3919416773630630134
+    second: M484ExplosionSet1-Photoroom_6
+  - first:
+      213: 7376678084315110209
+    second: M484ExplosionSet1-Photoroom_7
+  - first:
+      213: -6715564262291750385
+    second: M484ExplosionSet1-Photoroom_8
+  - first:
+      213: -8064873458939017785
+    second: M484ExplosionSet1-Photoroom_9
+  - first:
+      213: 8689744131630171462
+    second: M484ExplosionSet1-Photoroom_10
+  - first:
+      213: 380311102867775947
+    second: M484ExplosionSet1-Photoroom_11
+  - first:
+      213: -3460303279082771608
+    second: M484ExplosionSet1-Photoroom_12
+  - first:
+      213: 2572768446367897402
+    second: M484ExplosionSet1-Photoroom_13
+  - first:
+      213: 2248468651308775790
+    second: M484ExplosionSet1-Photoroom_14
+  - first:
+      213: -7245612456137086014
+    second: M484ExplosionSet1-Photoroom_15
+  - first:
+      213: -4674601889527010174
+    second: M484ExplosionSet1-Photoroom_16
+  - first:
+      213: 6107113744816380305
+    second: M484ExplosionSet1-Photoroom_17
+  - first:
+      213: 4235466692373434714
+    second: M484ExplosionSet1-Photoroom_18
+  - first:
+      213: -8047707823176741489
+    second: M484ExplosionSet1-Photoroom_19
+  - first:
+      213: -3781204402934657935
+    second: M484ExplosionSet1-Photoroom_20
+  - first:
+      213: -5322174959719663496
+    second: M484ExplosionSet1-Photoroom_21
+  - first:
+      213: 2887562112595499435
+    second: M484ExplosionSet1-Photoroom_22
+  - first:
+      213: 5139333445020863081
+    second: M484ExplosionSet1-Photoroom_23
+  - first:
+      213: -7388995696564180842
+    second: M484ExplosionSet1-Photoroom_24
+  - first:
+      213: -1558189653888850710
+    second: M484ExplosionSet1-Photoroom_25
+  - first:
+      213: 4934257850191411318
+    second: M484ExplosionSet1-Photoroom_26
+  - first:
+      213: 6000314718493840855
+    second: M484ExplosionSet1-Photoroom_27
+  - first:
+      213: -2162130381865741925
+    second: M484ExplosionSet1-Photoroom_28
+  - first:
+      213: 8062852942922228006
+    second: M484ExplosionSet1-Photoroom_29
+  - first:
+      213: 4582102270824498396
+    second: M484ExplosionSet1-Photoroom_30
+  - first:
+      213: -4882451737328158068
+    second: M484ExplosionSet1-Photoroom_31
+  - first:
+      213: 2348638356406544392
+    second: M484ExplosionSet1-Photoroom_32
+  - first:
+      213: 8038808090543550960
+    second: M484ExplosionSet1-Photoroom_33
+  - first:
+      213: 2876663290351437747
+    second: M484ExplosionSet1-Photoroom_34
+  - first:
+      213: 7624416409346934170
+    second: M484ExplosionSet1-Photoroom_35
+  - first:
+      213: 3802397382617247020
+    second: M484ExplosionSet1-Photoroom_36
+  - first:
+      213: -478812622700796886
+    second: M484ExplosionSet1-Photoroom_37
+  - first:
+      213: -8645751237229260938
+    second: M484ExplosionSet1-Photoroom_38
+  - first:
+      213: 4600535371087834141
+    second: M484ExplosionSet1-Photoroom_39
+  - first:
+      213: 2312385089871811287
+    second: M484ExplosionSet1-Photoroom_40
+  - first:
+      213: -7557263047171884042
+    second: M484ExplosionSet1-Photoroom_41
+  - first:
+      213: -5191740368091628318
+    second: M484ExplosionSet1-Photoroom_42
+  - first:
+      213: -1162651269790694150
+    second: M484ExplosionSet1-Photoroom_43
+  - first:
+      213: -6291277122216009146
+    second: M484ExplosionSet1-Photoroom_44
+  - first:
+      213: -140490135573499309
+    second: M484ExplosionSet1-Photoroom_45
+  - first:
+      213: -3916168890113799864
+    second: M484ExplosionSet1-Photoroom_46
+  - first:
+      213: -7713001114640234792
+    second: M484ExplosionSet1-Photoroom_47
+  - first:
+      213: -5619459215550004905
+    second: M484ExplosionSet1-Photoroom_48
+  - first:
+      213: -3285446561719670193
+    second: M484ExplosionSet1-Photoroom_49
+  - first:
+      213: -130889621555079124
+    second: M484ExplosionSet1-Photoroom_50
+  - first:
+      213: -1029790509248503124
+    second: M484ExplosionSet1-Photoroom_51
+  - first:
+      213: -6046721128401283322
+    second: M484ExplosionSet1-Photoroom_52
+  - first:
+      213: 2702174852671965579
+    second: M484ExplosionSet1-Photoroom_53
+  - first:
+      213: -6572794473396397607
+    second: M484ExplosionSet1-Photoroom_54
+  - first:
+      213: 6677369215765608828
+    second: M484ExplosionSet1-Photoroom_55
+  - first:
+      213: -1858129067598457641
+    second: M484ExplosionSet1-Photoroom_56
+  - first:
+      213: -8154595204939644082
+    second: M484ExplosionSet1-Photoroom_57
+  - first:
+      213: 3970725205286978754
+    second: M484ExplosionSet1-Photoroom_58
+  - first:
+      213: -1200599890132690958
+    second: M484ExplosionSet1-Photoroom_59
+  - first:
+      213: -8934117623822678657
+    second: M484ExplosionSet1-Photoroom_60
+  - first:
+      213: 4865997946524168917
+    second: M484ExplosionSet1-Photoroom_61
+  - first:
+      213: -4817163125624504299
+    second: M484ExplosionSet1-Photoroom_62
+  - first:
+      213: -4817276873218425403
+    second: M484ExplosionSet1-Photoroom_63
+  - first:
+      213: -5581978058379971024
+    second: M484ExplosionSet1-Photoroom_64
+  - first:
+      213: 4883566509145333487
+    second: M484ExplosionSet1-Photoroom_65
+  - first:
+      213: -682938158249647237
+    second: M484ExplosionSet1-Photoroom_66
+  - first:
+      213: 8303997901279487380
+    second: M484ExplosionSet1-Photoroom_67
+  - first:
+      213: 6239138013242095563
+    second: M484ExplosionSet1-Photoroom_68
+  - first:
+      213: 5799779282401323910
+    second: M484ExplosionSet1-Photoroom_69
+  - first:
+      213: 1126960132963652175
+    second: M484ExplosionSet1-Photoroom_70
+  - first:
+      213: -5329272920903121468
+    second: M484ExplosionSet1-Photoroom_71
+  - first:
+      213: 5028059374467799113
+    second: M484ExplosionSet1-Photoroom_72
+  - first:
+      213: -2358211696574720083
+    second: M484ExplosionSet1-Photoroom_73
+  - first:
+      213: -3510851008123334520
+    second: M484ExplosionSet1-Photoroom_74
+  - first:
+      213: -8148123452809655202
+    second: M484ExplosionSet1-Photoroom_75
+  - first:
+      213: 5414674901929972138
+    second: M484ExplosionSet1-Photoroom_76
+  - first:
+      213: 3184762834447367252
+    second: M484ExplosionSet1-Photoroom_77
+  - first:
+      213: 1958837165423011088
+    second: M484ExplosionSet1-Photoroom_78
+  - first:
+      213: 7439623392505625286
+    second: M484ExplosionSet1-Photoroom_79
+  - first:
+      213: -8771442372943349874
+    second: M484ExplosionSet1-Photoroom_80
+  - first:
+      213: 9094823518556717476
+    second: M484ExplosionSet1-Photoroom_81
+  - first:
+      213: -3583665576823584850
+    second: M484ExplosionSet1-Photoroom_82
+  - first:
+      213: -2649855941764774890
+    second: M484ExplosionSet1-Photoroom_83
+  - first:
+      213: -3184865508205467574
+    second: M484ExplosionSet1-Photoroom_84
+  - first:
+      213: 7896976717633958673
+    second: M484ExplosionSet1-Photoroom_85
+  - first:
+      213: -7874826982526047861
+    second: M484ExplosionSet1-Photoroom_86
+  - first:
+      213: -1926133166794521134
+    second: M484ExplosionSet1-Photoroom_87
+  - first:
+      213: 5764362900414121539
+    second: M484ExplosionSet1-Photoroom_88
+  - first:
+      213: -4579488034616870003
+    second: M484ExplosionSet1-Photoroom_89
+  - first:
+      213: -8133836718140837738
+    second: M484ExplosionSet1-Photoroom_90
+  - first:
+      213: -3052547843303673404
+    second: M484ExplosionSet1-Photoroom_91
+  - first:
+      213: -8189655784878416043
+    second: M484ExplosionSet1-Photoroom_92
+  - first:
+      213: 8568338004700141122
+    second: M484ExplosionSet1-Photoroom_93
+  - first:
+      213: -5139396816055511999
+    second: M484ExplosionSet1-Photoroom_94
+  - first:
+      213: 2943987622299373995
+    second: M484ExplosionSet1-Photoroom_95
+  - first:
+      213: -8219116367388827746
+    second: M484ExplosionSet1-Photoroom_96
+  - first:
+      213: 3484753502353385749
+    second: M484ExplosionSet1-Photoroom_97
+  - first:
+      213: -6699916312715585401
+    second: M484ExplosionSet1-Photoroom_98
+  - first:
+      213: 225457447040187209
+    second: M484ExplosionSet1-Photoroom_99
+  - first:
+      213: 7739445785546158563
+    second: M484ExplosionSet1-Photoroom_100
+  - first:
+      213: -5062351987800493488
+    second: M484ExplosionSet1-Photoroom_101
+  - first:
+      213: -2436949632988296170
+    second: M484ExplosionSet1-Photoroom_102
+  - first:
+      213: 7382484832313477343
+    second: M484ExplosionSet1-Photoroom_103
+  - first:
+      213: 3728280265439485296
+    second: M484ExplosionSet1-Photoroom_104
+  - first:
+      213: 2887239190731379027
+    second: M484ExplosionSet1-Photoroom_105
+  - first:
+      213: 3662752043146072140
+    second: M484ExplosionSet1-Photoroom_106
+  - first:
+      213: 5526365163039457617
+    second: M484ExplosionSet1-Photoroom_107
+  - first:
+      213: -769254460610636621
+    second: M484ExplosionSet1-Photoroom_108
+  - first:
+      213: 7498002545161278988
+    second: M484ExplosionSet1-Photoroom_109
+  - first:
+      213: 2939689540413410104
+    second: M484ExplosionSet1-Photoroom_110
+  - first:
+      213: 11062491463581785
+    second: M484ExplosionSet1-Photoroom_111
+  - first:
+      213: -7407991878182983224
+    second: M484ExplosionSet1-Photoroom_112
+  - first:
+      213: 4103845116534024389
+    second: M484ExplosionSet1-Photoroom_113
+  - first:
+      213: -2351053538832105151
+    second: M484ExplosionSet1-Photoroom_114
+  - first:
+      213: 4685838849587130790
+    second: M484ExplosionSet1-Photoroom_115
+  - first:
+      213: -8577063088677802751
+    second: M484ExplosionSet1-Photoroom_116
+  - first:
+      213: -1910566299846896925
+    second: M484ExplosionSet1-Photoroom_117
+  - first:
+      213: 1774824959804510100
+    second: M484ExplosionSet1-Photoroom_118
+  - first:
+      213: -4873779850439477579
+    second: M484ExplosionSet1-Photoroom_119
+  - first:
+      213: -685474288562362710
+    second: M484ExplosionSet1-Photoroom_120
+  - first:
+      213: 1293587311186741613
+    second: M484ExplosionSet1-Photoroom_121
+  - first:
+      213: 4978853856369489848
+    second: M484ExplosionSet1-Photoroom_122
+  - first:
+      213: 8236571563684468001
+    second: M484ExplosionSet1-Photoroom_123
+  - first:
+      213: 4680471586118124660
+    second: M484ExplosionSet1-Photoroom_124
+  - first:
+      213: 4997050693704806242
+    second: M484ExplosionSet1-Photoroom_125
+  - first:
+      213: 2300128928802111472
+    second: M484ExplosionSet1-Photoroom_126
+  - first:
+      213: 386758368202818476
+    second: M484ExplosionSet1-Photoroom_127
+  - first:
+      213: -9217990034585954823
+    second: M484ExplosionSet1-Photoroom_128
+  - first:
+      213: -608656027341945490
+    second: M484ExplosionSet1-Photoroom_129
+  - first:
+      213: 336038423844527884
+    second: M484ExplosionSet1-Photoroom_130
+  - first:
+      213: -1405415101021293075
+    second: M484ExplosionSet1-Photoroom_131
+  - first:
+      213: -3737864241216109148
+    second: M484ExplosionSet1-Photoroom_132
+  - first:
+      213: -94707994739634543
+    second: M484ExplosionSet1-Photoroom_133
+  - first:
+      213: 6762622212517890599
+    second: M484ExplosionSet1-Photoroom_134
+  - first:
+      213: -7686341909004499007
+    second: M484ExplosionSet1-Photoroom_135
+  - first:
+      213: 7576191612913441804
+    second: M484ExplosionSet1-Photoroom_136
+  - first:
+      213: 923129520626980186
+    second: M484ExplosionSet1-Photoroom_137
+  - first:
+      213: -4632912528579180458
+    second: M484ExplosionSet1-Photoroom_138
+  - first:
+      213: 349339007882475327
+    second: M484ExplosionSet1-Photoroom_139
+  - first:
+      213: -4602626313721936000
+    second: M484ExplosionSet1-Photoroom_140
+  - first:
+      213: -1281810440407285707
+    second: M484ExplosionSet1-Photoroom_141
+  - first:
+      213: 6769129469818835893
+    second: M484ExplosionSet1-Photoroom_142
+  - first:
+      213: -3554913864173836937
+    second: M484ExplosionSet1-Photoroom_143
+  - first:
+      213: 6398611657794164860
+    second: M484ExplosionSet1-Photoroom_144
+  - first:
+      213: 6298140553161035865
+    second: M484ExplosionSet1-Photoroom_145
+  - first:
+      213: 602077908955360162
+    second: M484ExplosionSet1-Photoroom_146
+  - first:
+      213: -59695830619640546
+    second: M484ExplosionSet1-Photoroom_147
+  - first:
+      213: -8241328200137832843
+    second: M484ExplosionSet1-Photoroom_148
+  - first:
+      213: -869577443648464698
+    second: M484ExplosionSet1-Photoroom_149
+  - first:
+      213: 7515460754289675125
+    second: M484ExplosionSet1-Photoroom_150
+  - first:
+      213: -8474612474541488232
+    second: M484ExplosionSet1-Photoroom_151
+  - first:
+      213: 4143354992886665939
+    second: M484ExplosionSet1-Photoroom_152
+  - first:
+      213: -1973550270560838241
+    second: M484ExplosionSet1-Photoroom_153
+  - first:
+      213: 6901742698989208279
+    second: M484ExplosionSet1-Photoroom_154
+  - first:
+      213: 5623604718633761319
+    second: M484ExplosionSet1-Photoroom_155
+  - first:
+      213: 39682021465388881
+    second: M484ExplosionSet1-Photoroom_156
+  - first:
+      213: -7870178391094341961
+    second: M484ExplosionSet1-Photoroom_157
+  - first:
+      213: -3742282818193338286
+    second: M484ExplosionSet1-Photoroom_158
+  - first:
+      213: 8621211470670342995
+    second: M484ExplosionSet1-Photoroom_159
+  - first:
+      213: -5900169276470434801
+    second: M484ExplosionSet1-Photoroom_160
+  - first:
+      213: 7583360192964687504
+    second: M484ExplosionSet1-Photoroom_161
+  - first:
+      213: 8654067626641097835
+    second: M484ExplosionSet1-Photoroom_162
+  - first:
+      213: 4345096694039504067
+    second: M484ExplosionSet1-Photoroom_163
+  - first:
+      213: -4260440062577820845
+    second: M484ExplosionSet1-Photoroom_164
+  - first:
+      213: 3470130240845099776
+    second: M484ExplosionSet1-Photoroom_165
+  - first:
+      213: 8338075842574160243
+    second: M484ExplosionSet1-Photoroom_166
+  - first:
+      213: 6302444529643922317
+    second: M484ExplosionSet1-Photoroom_167
+  - first:
+      213: -7984933738738819998
+    second: M484ExplosionSet1-Photoroom_168
+  - first:
+      213: -1863460708195119358
+    second: M484ExplosionSet1-Photoroom_169
+  - first:
+      213: -1384063380172417275
+    second: M484ExplosionSet1-Photoroom_170
+  - first:
+      213: 7492279260654077798
+    second: M484ExplosionSet1-Photoroom_171
+  - first:
+      213: -5457487126156153806
+    second: M484ExplosionSet1-Photoroom_172
+  - first:
+      213: -4769268497978710487
+    second: M484ExplosionSet1-Photoroom_173
+  - first:
+      213: -1455296698045273848
+    second: M484ExplosionSet1-Photoroom_174
+  - first:
+      213: 2147825330877913217
+    second: M484ExplosionSet1-Photoroom_175
+  - first:
+      213: -7589601174320081208
+    second: M484ExplosionSet1-Photoroom_176
+  - first:
+      213: -4252478544211037932
+    second: M484ExplosionSet1-Photoroom_177
+  - first:
+      213: -2635397901061356954
+    second: M484ExplosionSet1-Photoroom_178
+  - first:
+      213: -7052790193214673233
+    second: M484ExplosionSet1-Photoroom_179
+  - first:
+      213: -7508259666359244710
+    second: M484ExplosionSet1-Photoroom_180
+  - first:
+      213: 8221199415017902095
+    second: M484ExplosionSet1-Photoroom_181
+  - first:
+      213: 134268818059185773
+    second: M484ExplosionSet1-Photoroom_182
+  - first:
+      213: 961021955814180026
+    second: M484ExplosionSet1-Photoroom_183
+  - first:
+      213: -7362007524695383927
+    second: M484ExplosionSet1-Photoroom_184
+  - first:
+      213: -2125260825931892984
+    second: M484ExplosionSet1-Photoroom_185
+  - first:
+      213: 9168090591343131469
+    second: M484ExplosionSet1-Photoroom_186
+  - first:
+      213: 334260667283941767
+    second: M484ExplosionSet1-Photoroom_187
+  - first:
+      213: 6832668094624115876
+    second: M484ExplosionSet1-Photoroom_188
+  - first:
+      213: -3369824843820170767
+    second: M484ExplosionSet1-Photoroom_189
+  - first:
+      213: 633270476793856254
+    second: M484ExplosionSet1-Photoroom_190
+  - first:
+      213: 6455151051696367172
+    second: M484ExplosionSet1-Photoroom_191
+  - first:
+      213: -7996675887870823950
+    second: M484ExplosionSet1-Photoroom_192
+  - first:
+      213: 84618896103982731
+    second: M484ExplosionSet1-Photoroom_193
+  - first:
+      213: -1890822564730849217
+    second: M484ExplosionSet1-Photoroom_194
+  - first:
+      213: 5290558088603529758
+    second: M484ExplosionSet1-Photoroom_195
+  - first:
+      213: 1969052275408837441
+    second: M484ExplosionSet1-Photoroom_196
+  - first:
+      213: -1186536628904744247
+    second: M484ExplosionSet1-Photoroom_197
+  - first:
+      213: -4284490912578332334
+    second: M484ExplosionSet1-Photoroom_198
+  - first:
+      213: 929124946769286067
+    second: M484ExplosionSet1-Photoroom_199
+  - first:
+      213: 3612435090863956744
+    second: M484ExplosionSet1-Photoroom_200
+  - first:
+      213: -1705609003937265852
+    second: M484ExplosionSet1-Photoroom_201
+  - first:
+      213: -7698696936328644662
+    second: M484ExplosionSet1-Photoroom_202
+  - first:
+      213: -866984419280147529
+    second: M484ExplosionSet1-Photoroom_203
+  - first:
+      213: 491962801592141978
+    second: M484ExplosionSet1-Photoroom_204
+  - first:
+      213: -1751398331934971825
+    second: M484ExplosionSet1-Photoroom_205
+  - first:
+      213: -222561262414739290
+    second: M484ExplosionSet1-Photoroom_206
+  - first:
+      213: 719069965151003657
+    second: M484ExplosionSet1-Photoroom_207
+  - first:
+      213: -8260585453444299978
+    second: M484ExplosionSet1-Photoroom_208
+  - first:
+      213: -199596803618686470
+    second: M484ExplosionSet1-Photoroom_209
+  - first:
+      213: 5563327829071323408
+    second: M484ExplosionSet1-Photoroom_210
+  - first:
+      213: 4012923296537024682
+    second: M484ExplosionSet1-Photoroom_211
+  - first:
+      213: 5776178092941159429
+    second: M484ExplosionSet1-Photoroom_212
+  - first:
+      213: -4648945257441855972
+    second: M484ExplosionSet1-Photoroom_213
+  - first:
+      213: -9025271064565562710
+    second: M484ExplosionSet1-Photoroom_214
+  - first:
+      213: -7368415936659114402
+    second: M484ExplosionSet1-Photoroom_215
+  - first:
+      213: 299399668416695891
+    second: M484ExplosionSet1-Photoroom_216
+  - first:
+      213: -6031545480861162661
+    second: M484ExplosionSet1-Photoroom_217
+  - first:
+      213: -4275878291884971997
+    second: M484ExplosionSet1-Photoroom_218
+  - first:
+      213: -5162105960467604481
+    second: M484ExplosionSet1-Photoroom_219
+  - first:
+      213: 4457494869139401222
+    second: M484ExplosionSet1-Photoroom_220
+  - first:
+      213: 3475870129670589387
+    second: M484ExplosionSet1-Photoroom_221
+  - first:
+      213: -6227797943065750628
+    second: M484ExplosionSet1-Photoroom_222
+  - first:
+      213: 5531234253526217440
+    second: M484ExplosionSet1-Photoroom_223
+  - first:
+      213: -5161214820132431487
+    second: M484ExplosionSet1-Photoroom_224
+  - first:
+      213: 6569666177506494174
+    second: M484ExplosionSet1-Photoroom_225
+  - first:
+      213: 5848666662633603199
+    second: M484ExplosionSet1-Photoroom_226
+  - first:
+      213: -4224354293668774671
+    second: M484ExplosionSet1-Photoroom_227
+  - first:
+      213: 8758813635585996958
+    second: M484ExplosionSet1-Photoroom_228
+  - first:
+      213: 5402834928267580954
+    second: M484ExplosionSet1-Photoroom_229
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 399
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2a5044e347a1d34da9ba017bc157cf9
+      internalID: -1144912042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_1
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 399
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e74aeb615febd14c8a93ed2bf46f531
+      internalID: -1407747374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_2
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 399
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20befbd120d82ff4d9e5d619a5a9d843
+      internalID: 164927419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_3
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 399
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7139cf3a33f57d49b2f05c40b741820
+      internalID: -1672045395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_4
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 399
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b21c23a974317c4fb4bee3d69c61611
+      internalID: 856597756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_5
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 399
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c91acd91079ee944a46d2db22b39ce0
+      internalID: 247606748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_6
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 399
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eb19a2c0b7e68b43b0db2d5f11a6ada
+      internalID: -815997650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_7
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 399
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d155c769adefa5e44b309fd4ef632be6
+      internalID: 1340573737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_8
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 399
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b397670f18fe2f9438f147ff0f6357a9
+      internalID: 1675789649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_9
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 399
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1ec6841b30f3a54cbc44b83495e758e
+      internalID: 1650150527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_10
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 399
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 542a1674d981a75498f146736b7acb9f
+      internalID: 1052346903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_11
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 399
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c9182382ad564e4e8aa8eb3647fbdd0
+      internalID: -676360030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_12
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 399
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eb6b50f301310f4496caceafca52130
+      internalID: -1531282791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_13
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 399
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d978ba07c6db814aa302ddfb929701c
+      internalID: 584386226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_14
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 399
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fc98a7bec9f2784c9ac985465d4d240
+      internalID: -833880959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_15
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 399
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3ea83ad48b905c4bae59be452e8d785
+      internalID: -1495904187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_16
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 410
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7692206d6c973e418ac026057139677
+      internalID: -244484902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_17
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 410
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8286eb6920e35043ace0b1184ec74a6
+      internalID: -174471291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_18
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 410
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c65c5d8ba5f157744bb37b24887d2d9a
+      internalID: -85334502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_19
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 410
+        width: 39
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a114ebbf28d0f4d4785939a01bd8c6c3
+      internalID: 1270557466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_20
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 410
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0976c34fcede3eb41b9b67381d797d4a
+      internalID: -63857080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_21
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 360
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aca0ee13322f35542b48170239e11674
+      internalID: 521388608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_22
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 360
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f6b3b9a479e8d04393428c73344867a
+      internalID: -465066029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_23
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 360
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43a22034aaf8afe40b599c24d609d8c1
+      internalID: -1378035677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_24
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 360
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa471246b8f1010459fcf1a5f7adf22b
+      internalID: 343975551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_25
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 360
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c90753a47d09cec489aec7069c7e502e
+      internalID: -835872782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_26
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 360
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c74d9ad30dee69e4c8dfca9198e4fe98
+      internalID: -510385047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_27
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 360
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea11554f2cfe21940a2488034a3fc786
+      internalID: 87903216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_28
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 360
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b04b8a994cd9d0347b1da49b1c732000
+      internalID: -1501755687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_29
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 360
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e8fd90fa6873814c85726e81310098d
+      internalID: -1838372269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_30
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 363
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 746271f23720f0c47881530e178c3adc
+      internalID: -657195918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_31
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 362
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea6dc55083032b341aa768c193c4d947
+      internalID: -1742786062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_32
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 362
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd2459ea174fa704da6118e88c516371
+      internalID: -1587609629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_33
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 362
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 891e18a510c58c6439a8fcc361ffa72e
+      internalID: 164352488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_34
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 362
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c7858355aba6ab4cb0b9b0b8f9b8216
+      internalID: 2145572201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_35
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 362
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53ce47e8135bc6f40ab9c0d854df20ba
+      internalID: 1895346533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_36
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 362
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc378ac375879da42a067c2b5a00d008
+      internalID: 277114092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_37
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 388
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87dabde3c116e9d4e80bdb19fb278f7d
+      internalID: -2007145779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_38
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 388
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ba2f910bee1ef84a89a3e08b5aa93a6
+      internalID: -1903687325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_39
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 388
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b69f308243b9b646b80a943038d0624
+      internalID: 119421017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_40
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 388
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74a929a5249598c4c93b27fb850f00fd
+      internalID: -1274525411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_41
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 388
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d66aa9fdc0290e4e801eaf67183876f
+      internalID: 1547908146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_42
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 388
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc2253ec0eaedd4418b69a0ce2f443fa
+      internalID: 533718791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_43
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 366
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83e8110790290944ca61f016f51661f3
+      internalID: -1028432094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_44
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 366
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2059ae7c8cfa5b4f9be37cdb5855f80
+      internalID: -2139895081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_45
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 366
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94d6c13f6c48ab84a9467ebbea3beaec
+      internalID: 1826740935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_46
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 366
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ca3008054478f249921819dd49feaeb
+      internalID: 480071838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_47
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 366
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3918434ef1bc0654bbd098a434c56135
+      internalID: -1682146028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_48
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 366
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 666953c58d597b34f9b4b7bcdac6b41a
+      internalID: -817132224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_49
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 329
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2de03152ecc3ba44cbd2f8e09fc3a46b
+      internalID: 481091441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_50
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 329
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f662f5531cb771846b37a5aa30d61125
+      internalID: -261326497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_51
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 329
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38107096b6e7b5a418888e920be0ac0d
+      internalID: 1452536201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_52
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 329
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f0bd1932bf830f4a8446062f45279f0
+      internalID: 1877643941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_53
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 329
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e7729ba3be40c409af6a6b88d37321
+      internalID: 1705243509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_54
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 329
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66581d08d99e6014abd51b0e23c86cdf
+      internalID: 1168046075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_55
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 329
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfd8566ebcfd2bf4e93cb2a9eb6e41f5
+      internalID: 604766476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_56
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 329
+        width: 10
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 292a00520381c1746beac474052a8307
+      internalID: -2029767036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_57
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 349
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6bdbd720acfbdb4591fa065f8b7a9cf
+      internalID: -642693088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_58
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 331
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cedae121671e4184eb1e72ac08e0a541
+      internalID: -1846948596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_59
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 330
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1618548e9133e1f44a7e3436ebf4ca45
+      internalID: 1717942526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_60
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 330
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82fc2c451cb621141bc367f95506be5f
+      internalID: 578996065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_61
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 330
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38c44676e74d5b64c8c33b5f1fd432c3
+      internalID: -736706428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_62
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 330
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df34f5bace1401147a8659d1c87f0cfa
+      internalID: 1814464402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_63
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 330
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29f04de57f485094699634d1810f1992
+      internalID: -1294673989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_64
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 330
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e980cf95f7ec3584282b909aade71e07
+      internalID: -2042477919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_65
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 345
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e9d3a99eb5d35747b77617dcb27dcab
+      internalID: -1424638616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_66
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 345
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f3edf1480a3100428e341c94446990e
+      internalID: 286782937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_67
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 345
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 740967e2c14330e47b6efdd331b6ae08
+      internalID: -2009537937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_68
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 345
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4c56b2c75ab2e5408ad169189d4b851
+      internalID: -440978708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_69
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 345
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0aef743c8a8704448829a2eccbad676
+      internalID: -532919416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_70
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 345
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55a42afd013a98b4890cdf6bc0f59c6b
+      internalID: 987058269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_71
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 329
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 506ba4a5016cadd4cbb7dc5e550853a5
+      internalID: 1655785976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_72
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 332
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 393f331c1788b3e41b32e4551126d6d5
+      internalID: -1111911198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_73
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 330
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b49df3a3b296faa42a80876687e9b035
+      internalID: 711180102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_74
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 307
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae30ded347d280047b07b3c7cd5c6621
+      internalID: -1634388407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_75
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 307
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c3a665c64e069344841b8ce6c9b363d
+      internalID: 991464944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_76
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 307
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac8e44328e31a5f45b1c116bb28e9918
+      internalID: -1428063360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_77
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 307
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ac687b58d1e5d343a246d01e1574131
+      internalID: 79619937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_78
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 307
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b52948fbf302ffb45a54870566fc0727
+      internalID: 563233703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_79
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 307
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70c31eeabb3057a4f8e0a125be5a4704
+      internalID: -1009910072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_80
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 307
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db63fc120d3e99349b59f306458ef553
+      internalID: -1912822584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_81
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 307
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eca24524c1a1c9c4ead7fc1e547ca44d
+      internalID: -1002502887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_82
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 307
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7893336f122a664ebec3b8394448167
+      internalID: -616563949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_83
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 307
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be41328030ec40c4ea918321a88e9f8d
+      internalID: -1613209312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_84
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 257
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcfab64dbb34b9d408afe2ba0eb49ed3
+      internalID: -810153484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_85
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 257
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 937da1b9c84e8604cb632f8e1ae3c488
+      internalID: 754265588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_86
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 257
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05044b85decc9764eb5b7c6bd9c2a012
+      internalID: -737401946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_87
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 257
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5da3d0b915d4d7e47bf1112fc94f502f
+      internalID: 1957896535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_88
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 257
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b8923b22b2f7c74690cb22213782d0e
+      internalID: -1346006059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_89
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 257
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0312852bc5c48ee478e519c3cbdc6f07
+      internalID: -1596106941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_90
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 257
+        width: 17
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02490a5036053b448b9fc3a8499992b9
+      internalID: 503844423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_91
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 258
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a08116c6898d32d4e9846f440f2b84b1
+      internalID: -1829527124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_92
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 258
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99b0fe01a5c72b848ae5628c9bac20dc
+      internalID: 268369222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_93
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 258
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9220b0ea515a05749919b1fb780a7b27
+      internalID: 687959362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_94
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 258
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d18c6c0845f589e4a82877eb62fe55a2
+      internalID: 2104925249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_95
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 258
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b334157ff059384dab9bde35dc0167d
+      internalID: -2121811546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_96
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 258
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 551d374e41327424682685357fc2547b
+      internalID: 1312608300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_97
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 258
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de325a3d94955914dbe9e73fa7f74ebd
+      internalID: -157444957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_98
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 269
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 293253c439e17f0448f80c0e438f5c02
+      internalID: -1690719335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_99
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 269
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e23e3eb80ab1b04f96269912985b183
+      internalID: 1344250927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_100
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 269
+        width: 59
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c04695fa87315eb4cacd94ab033ad76d
+      internalID: 1645211624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_101
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 269
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31e91be706b251340a9d88e2180bbf99
+      internalID: 939101070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_102
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 257
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21fbc19c475d80444bb061757f80b26d
+      internalID: 961048573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_103
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 246
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 581e26e5f6fec54459ed4fe4fc473252
+      internalID: 1711705000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_104
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 246
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 935836eb3cbd9924e9a9d984b9bbcbb5
+      internalID: 1129216683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_105
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 246
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0db0fec90b5062b4ba53aa7fc8a0b974
+      internalID: -1509860477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_106
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 246
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca694c6a14c79ac4dbf7715cc2be3e9d
+      internalID: -212429896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_107
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 246
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 367ef110e2c34074694b4e84ea2b1fe0
+      internalID: 779046793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_108
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 246
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef2a0480b20458744b9380ab295c78ff
+      internalID: -588116821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_109
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 218
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70b84af883c4e0f4fb36a7ce8b46f3cb
+      internalID: 740008928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_110
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 218
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17f05e4aa47a90c46a1be8ae8f7b6659
+      internalID: 301771313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_111
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 218
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 030cd175b77ad40439ec677771dc565b
+      internalID: 1372567803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_112
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 218
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb427259fe24d7f4493ba3427bd4bf0e
+      internalID: -1890569021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_113
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 218
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79b9c56c817edc842be25ddbbdf81422
+      internalID: -1281326790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_114
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 218
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb9bad3787851f946989fa4a6ba422bd
+      internalID: -1185625505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_115
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 218
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23a69300ab326994aa629ee8344652e6
+      internalID: 1837168209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_116
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 222
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3dc27be48ecdac41b3c4ba5cce49251
+      internalID: -1408489628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_117
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 222
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da736a9ce8584f6469cb8e086e888137
+      internalID: -1572436273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_118
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 222
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aae70c748504d9645b817737c2774312
+      internalID: -109757961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_119
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 222
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3120677ddb029a74a8cb95893dc42811
+      internalID: 83419899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_120
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 222
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1277c7274b7c5f14997b5eea64acc53d
+      internalID: -1015382934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_121
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 221
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10bad46a1f2e3d3438731247a7704fdf
+      internalID: 1422884217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_122
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 221
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9c3db93117e0274a83aa9c44e42a220
+      internalID: -557447315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_123
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 224
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf310a851369be4288c602b82172b0a
+      internalID: 1862657040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_124
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 224
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a80a57ff22c96924e892cdcab6e03471
+      internalID: -1314080963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_125
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 224
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f0ac414ad47e404589e7715020b9a2a
+      internalID: 2121139773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_126
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 224
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d22366cb48730a488caf921534aae54
+      internalID: -2038742847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_127
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 224
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ab32b884d744da47b0b5a0b2d84da76
+      internalID: -611769473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_128
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 224
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec14990dd977b6c4085e46ea8da478a4
+      internalID: -1655463301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_129
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 189
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf4a9e1ffae9454c861367661bdabf9
+      internalID: -84173401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_130
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 189
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51ee7011d54fd7b4ea01796c331dbedf
+      internalID: -1921182599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_131
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 188
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc8ab635b11d77d4b932347b282417a9
+      internalID: -638013438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_132
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 188
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f36d5f4757eb8a4c8383664e5b2287f
+      internalID: -332012802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_133
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 188
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16f99b7f42c25143a4dfb4fbc1b4079
+      internalID: -610380075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_134
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 188
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd195f3a5f61e3e40aa674b11517c4ac
+      internalID: 971289995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_135
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 190
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e821d369f6ef2724eb1f16569320ff3c
+      internalID: -735896890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_136
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 190
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b094fa968599e84280d72c027fc5ac2
+      internalID: 2045106717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_137
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 190
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ccbdcbbc1cf7434c9b489f7d6d67216
+      internalID: 1247577747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_138
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 190
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db09af5095463904ea79947eb0d28836
+      internalID: -1323929315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_139
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 190
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bed208ae3aeea14eade48235d592c41
+      internalID: 781263402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_140
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 189
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 818c902979c177e4385e554f06a0b3f1
+      internalID: 73308672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_141
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 190
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae1228bc1a1118f4dbbae1ffc216a4ec
+      internalID: -216731458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_142
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 204
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 696b29e15ed7bed4ca15685e169ac43e
+      internalID: 838242326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_143
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 204
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d17d4e52c92c8dc498f24f0483d60eb1
+      internalID: 1472197936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_144
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 204
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc0417317165257408329c2db86be5f6
+      internalID: -2146862701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_145
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 205
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f72060c818b67841b64e6d94471a899
+      internalID: -1131859504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_146
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 204
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc3340f58ac6a724a9d66633d9345adb
+      internalID: -1386046676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_147
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 204
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1842cbbfdaf05fa46b7713c7fe778cb6
+      internalID: 548722545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_148
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 188
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d5e5b805f74c7444b42fab35d635d9d
+      internalID: 194887649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_150
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 166
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f409cbf059b66964781556d4b2435d90
+      internalID: -1667905682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_151
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 166
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f94c6e7ab382034ca33d0bef423bc8a
+      internalID: -1738044856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_152
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 166
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6d9c7c2f557b444ba642ec3fba19866
+      internalID: -1542670539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_153
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 166
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a45be294b9da0c4cad1791c51e45e68
+      internalID: 1572224309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_154
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 166
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0865957fb69022142ac0e29617de0424
+      internalID: 979586968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_155
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 166
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 495bb493fa2b4d94eb637e65d44289df
+      internalID: -270492144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_156
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 111
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da948ebca22bda44bbcdf1b153f5f2a5
+      internalID: 1915045433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_157
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 111
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5774c71cc314f50459502d008f4574c7
+      internalID: 1346926388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_158
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 111
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 454fe7ed8c68bd044b78baae88c61bb2
+      internalID: -1490729472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_159
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 111
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19d4c4a160c195f4184b08fcb02108b1
+      internalID: 1941269645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_160
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 110
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cf70735686cadf49899a3a9b5d1889a
+      internalID: -226086677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_161
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 110
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b774ee94dd9b4204e9f8f25a2e14c5aa
+      internalID: 1024422646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_162
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 110
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d16fac6fb8d0314ca13a3104d3f2652
+      internalID: 1345826720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_163
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 112
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d4e9c277f7d6034b8d0ecfa10989883
+      internalID: 542446926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_164
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 111
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b0c3852383bc304fad1aec400526682
+      internalID: 1917371701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_165
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 112
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8c5545a99366d842bc93b7330405e5a
+      internalID: -1943759681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_166
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 112
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 451026115657dc8429cb5e2af581e5da
+      internalID: 1811592556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_167
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 111
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5d0af893f110044683ba9cc741988cc
+      internalID: -2001835853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_168
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 111
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 341bb66905b151248b1bd2ab1ce2b0b3
+      internalID: -915387498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_169
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 111
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b44db227fe0006f4e91dfc01617e391f
+      internalID: 1985041584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_170
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 123
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d64470878039ea4da6aea3472463413
+      internalID: -110031255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_171
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 123
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3f107820b384e044b2c632d937253a3
+      internalID: 600863771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_172
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 123
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 872f176b4bfbb6c4cbcad8a7e800abf7
+      internalID: -936779378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_173
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 123
+        width: 40
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51de4b098205c4b498d9556d3dada236
+      internalID: -1965738065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_174
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 123
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6623662f80766674480210ab62cf444f
+      internalID: -811998908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_175
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 72
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd68083cd6c69d49b218d28affb709a
+      internalID: 1429929942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_176
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 72
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4245abc13020e2468728587a8425f69
+      internalID: 236914838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_177
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 72
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c2ee19d3966dfa4bb7e60655dd0e578
+      internalID: -1057652721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_178
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 72
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fee723bb05c935d4a9319c5ee7b86e19
+      internalID: -1597284073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_179
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 72
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 628042521dbc4e44782318f8d77ecbb8
+      internalID: 366502873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_180
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 71
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcedc92e7b50bb745bb363f168fcf0d2
+      internalID: 1930693073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_181
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 74
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cf7b6cc8114bde40b50064ad3d1c387
+      internalID: -1273161493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_182
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 74
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee1c9b532fc5b1b41b627df6ea97ab45
+      internalID: 721218511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_183
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 74
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3530d97cb96967f49ae12d5c4c1e2ca3
+      internalID: -1574937643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_184
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 74
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 359403b6d4ec8f143a32772d4cbdd710
+      internalID: 27090073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_185
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 74
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3c8d34a1ea552e4e9bf04d09570c7b2
+      internalID: 353808140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_186
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 74
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b608a5256ef37844ab3c03be420c3dc
+      internalID: 1326695330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_187
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 74
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9484811e48dc144aa6e681e5444d13b
+      internalID: -1528317106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_188
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 100
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a5f267bdcb4e174280378577c8e7ba9
+      internalID: -1319468601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_189
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 100
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da107e97b9abfb24884f97c3084805ad
+      internalID: 85116986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_190
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 100
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80004d4bcd122ae49a2200ec730c4886
+      internalID: 999650462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_191
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 100
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d018a984ce8338649bb1c8cb733405c9
+      internalID: -1793090321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_192
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 100
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be732e56b423134428f3d1a1de14b72f
+      internalID: 2108154291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_193
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 100
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72e93136bf815d24daede2c64d4c99e5
+      internalID: 213571357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_194
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 71
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6ef375862cadad48aec02ee3c7b3d2d
+      internalID: 253697558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_196
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 77
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c8253ae20ef8554db964eb8230a86a5
+      internalID: 402318284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_197
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 78
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a96c22fe4b363d9498895535f1cdafd6
+      internalID: 341167076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_198
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 78
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cad0bff2e65aa2048952dfb3be0ef2b1
+      internalID: 991083361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_199
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 78
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 070b9bb1bf3f8424a8d52073a898fd5f
+      internalID: -1059023605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_200
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 78
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7683ec5ba8eea324cbf6b3382f1cb5b1
+      internalID: -1431759297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_201
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 77
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e28fe3cc4d767240bf58aeaa68a5038
+      internalID: 1416395029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_202
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 41
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 986be0b05c75e7c44b9a6c3322c708c6
+      internalID: 378715478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_203
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 41
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d483a7c61709cf46b5a7248cc96cb8a
+      internalID: -1532785206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_204
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 41
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 996b8d656ee7cb846aba3130817b8d1d
+      internalID: -254119051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_205
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 41
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f1d6f3da0d8b2c4388f0dd88ac19a22
+      internalID: -911797997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_206
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 41
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b233b9d97aa75884a9b21a083ccbc739
+      internalID: -1638714487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_207
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 41
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 357fd75c0044af442b4c8c563b1b3a59
+      internalID: -925533162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_208
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 41
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e674ed1a615774144b241f8789a61630
+      internalID: 979295804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_209
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 42
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59c86b0a36b76564ba165debfa33b7a0
+      internalID: -1814259518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_210
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 42
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de7e4240f6e3bf546ab39bd5a5620977
+      internalID: 600466738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_211
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 42
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bce443772f13fdb4eacb10c4a8d9721b
+      internalID: 2083380673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_212
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 42
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 468e36a40c20f3943901790e2c2fe3e8
+      internalID: 1003394345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_213
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 42
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37653fed56bcf33468ac60ab4561888a
+      internalID: -285075768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_214
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 42
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b36e208c064a5864b91bf106eea0ae4b
+      internalID: 2081026054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_215
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 42
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab79978092d838548868988e58842420
+      internalID: -1086936146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_216
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 58
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98f8c8aa02fe184419d4c6d024667c83
+      internalID: 739911426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_217
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 58
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fab4f25009c94474897eb9a4abcad4f7
+      internalID: -1427404999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_218
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 58
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4677741f4683b5642a6ccbf60e766faa
+      internalID: 1166306058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_219
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 58
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72b3475a81e255840a1ef56d993971bc
+      internalID: -1048241950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_220
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 58
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc95eeeb9da6d74bb25df5289f1191d
+      internalID: -1442296559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_221
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 58
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b6a090dbad533a40b33a3e20c60edc7
+      internalID: 544361635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_223
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 19
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1de205c87da8cbc4dbe7bfeeb3c4abca
+      internalID: -13542840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_224
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 19
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eebc5c93443be7a4ebcb33826581a294
+      internalID: 1099489234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_225
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 19
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84034ef7f7ba6da4283da43db5df535b
+      internalID: 2105482766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_226
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 19
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 122c04c210187064eb2a9023db309ac0
+      internalID: -1222729689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_227
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 19
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 446e8f474ddcbba43a84d577e261e281
+      internalID: -2032323831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_228
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 19
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c45baef76b0b8fd4e817b7b4d02cfb85
+      internalID: -285194511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_229
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 19
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f56bc47b252bd0458c9affe90b6c931
+      internalID: -751261410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_149
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 166
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c245636b3329448b21344270c66a2e
+      internalID: 1577591889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_195
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 166
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3da51e7e9462554b960fb0d8eee735f
+      internalID: -936253930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: M484ExplosionSet1-Photoroom_222
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 19
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dd00ae1497d50b43afe84da2e0f2635
+      internalID: 498962737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: acfd5c5e293914b40bcde35ea127fa74
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      M484ExplosionSet1-Photoroom_0: -1144912042
+      M484ExplosionSet1-Photoroom_1: -1407747374
+      M484ExplosionSet1-Photoroom_10: 1052346903
+      M484ExplosionSet1-Photoroom_100: 1645211624
+      M484ExplosionSet1-Photoroom_101: 939101070
+      M484ExplosionSet1-Photoroom_102: 961048573
+      M484ExplosionSet1-Photoroom_103: 1711705000
+      M484ExplosionSet1-Photoroom_104: 1129216683
+      M484ExplosionSet1-Photoroom_105: -1509860477
+      M484ExplosionSet1-Photoroom_106: -212429896
+      M484ExplosionSet1-Photoroom_107: 779046793
+      M484ExplosionSet1-Photoroom_108: -588116821
+      M484ExplosionSet1-Photoroom_109: 740008928
+      M484ExplosionSet1-Photoroom_11: -676360030
+      M484ExplosionSet1-Photoroom_110: 301771313
+      M484ExplosionSet1-Photoroom_111: 1372567803
+      M484ExplosionSet1-Photoroom_112: -1890569021
+      M484ExplosionSet1-Photoroom_113: -1281326790
+      M484ExplosionSet1-Photoroom_114: -1185625505
+      M484ExplosionSet1-Photoroom_115: 1837168209
+      M484ExplosionSet1-Photoroom_116: -1408489628
+      M484ExplosionSet1-Photoroom_117: -1572436273
+      M484ExplosionSet1-Photoroom_118: -109757961
+      M484ExplosionSet1-Photoroom_119: 83419899
+      M484ExplosionSet1-Photoroom_12: -1531282791
+      M484ExplosionSet1-Photoroom_120: -1015382934
+      M484ExplosionSet1-Photoroom_121: 1422884217
+      M484ExplosionSet1-Photoroom_122: -557447315
+      M484ExplosionSet1-Photoroom_123: 1862657040
+      M484ExplosionSet1-Photoroom_124: -1314080963
+      M484ExplosionSet1-Photoroom_125: 2121139773
+      M484ExplosionSet1-Photoroom_126: -2038742847
+      M484ExplosionSet1-Photoroom_127: -611769473
+      M484ExplosionSet1-Photoroom_128: -1655463301
+      M484ExplosionSet1-Photoroom_129: -84173401
+      M484ExplosionSet1-Photoroom_13: 584386226
+      M484ExplosionSet1-Photoroom_130: -1921182599
+      M484ExplosionSet1-Photoroom_131: -638013438
+      M484ExplosionSet1-Photoroom_132: -332012802
+      M484ExplosionSet1-Photoroom_133: -610380075
+      M484ExplosionSet1-Photoroom_134: 971289995
+      M484ExplosionSet1-Photoroom_135: -735896890
+      M484ExplosionSet1-Photoroom_136: 2045106717
+      M484ExplosionSet1-Photoroom_137: 1247577747
+      M484ExplosionSet1-Photoroom_138: -1323929315
+      M484ExplosionSet1-Photoroom_139: 781263402
+      M484ExplosionSet1-Photoroom_14: -833880959
+      M484ExplosionSet1-Photoroom_140: 73308672
+      M484ExplosionSet1-Photoroom_141: -216731458
+      M484ExplosionSet1-Photoroom_142: 838242326
+      M484ExplosionSet1-Photoroom_143: 1472197936
+      M484ExplosionSet1-Photoroom_144: -2146862701
+      M484ExplosionSet1-Photoroom_145: -1131859504
+      M484ExplosionSet1-Photoroom_146: -1386046676
+      M484ExplosionSet1-Photoroom_147: 548722545
+      M484ExplosionSet1-Photoroom_148: 194887649
+      M484ExplosionSet1-Photoroom_149: 1577591889
+      M484ExplosionSet1-Photoroom_15: -1495904187
+      M484ExplosionSet1-Photoroom_150: -1667905682
+      M484ExplosionSet1-Photoroom_151: -1738044856
+      M484ExplosionSet1-Photoroom_152: -1542670539
+      M484ExplosionSet1-Photoroom_153: 1572224309
+      M484ExplosionSet1-Photoroom_154: 979586968
+      M484ExplosionSet1-Photoroom_155: -270492144
+      M484ExplosionSet1-Photoroom_156: 1915045433
+      M484ExplosionSet1-Photoroom_157: 1346926388
+      M484ExplosionSet1-Photoroom_158: -1490729472
+      M484ExplosionSet1-Photoroom_159: 1941269645
+      M484ExplosionSet1-Photoroom_16: -244484902
+      M484ExplosionSet1-Photoroom_160: -226086677
+      M484ExplosionSet1-Photoroom_161: 1024422646
+      M484ExplosionSet1-Photoroom_162: 1345826720
+      M484ExplosionSet1-Photoroom_163: 542446926
+      M484ExplosionSet1-Photoroom_164: 1917371701
+      M484ExplosionSet1-Photoroom_165: -1943759681
+      M484ExplosionSet1-Photoroom_166: 1811592556
+      M484ExplosionSet1-Photoroom_167: -2001835853
+      M484ExplosionSet1-Photoroom_168: -915387498
+      M484ExplosionSet1-Photoroom_169: 1985041584
+      M484ExplosionSet1-Photoroom_17: -174471291
+      M484ExplosionSet1-Photoroom_170: -110031255
+      M484ExplosionSet1-Photoroom_171: 600863771
+      M484ExplosionSet1-Photoroom_172: -936779378
+      M484ExplosionSet1-Photoroom_173: -1965738065
+      M484ExplosionSet1-Photoroom_174: -811998908
+      M484ExplosionSet1-Photoroom_175: 1429929942
+      M484ExplosionSet1-Photoroom_176: 236914838
+      M484ExplosionSet1-Photoroom_177: -1057652721
+      M484ExplosionSet1-Photoroom_178: -1597284073
+      M484ExplosionSet1-Photoroom_179: 366502873
+      M484ExplosionSet1-Photoroom_18: -85334502
+      M484ExplosionSet1-Photoroom_180: 1930693073
+      M484ExplosionSet1-Photoroom_181: -1273161493
+      M484ExplosionSet1-Photoroom_182: 721218511
+      M484ExplosionSet1-Photoroom_183: -1574937643
+      M484ExplosionSet1-Photoroom_184: 27090073
+      M484ExplosionSet1-Photoroom_185: 353808140
+      M484ExplosionSet1-Photoroom_186: 1326695330
+      M484ExplosionSet1-Photoroom_187: -1528317106
+      M484ExplosionSet1-Photoroom_188: -1319468601
+      M484ExplosionSet1-Photoroom_189: 85116986
+      M484ExplosionSet1-Photoroom_19: 1270557466
+      M484ExplosionSet1-Photoroom_190: 999650462
+      M484ExplosionSet1-Photoroom_191: -1793090321
+      M484ExplosionSet1-Photoroom_192: 2108154291
+      M484ExplosionSet1-Photoroom_193: 213571357
+      M484ExplosionSet1-Photoroom_194: 253697558
+      M484ExplosionSet1-Photoroom_195: -936253930
+      M484ExplosionSet1-Photoroom_196: 402318284
+      M484ExplosionSet1-Photoroom_197: 341167076
+      M484ExplosionSet1-Photoroom_198: 991083361
+      M484ExplosionSet1-Photoroom_199: -1059023605
+      M484ExplosionSet1-Photoroom_2: 164927419
+      M484ExplosionSet1-Photoroom_20: -63857080
+      M484ExplosionSet1-Photoroom_200: -1431759297
+      M484ExplosionSet1-Photoroom_201: 1416395029
+      M484ExplosionSet1-Photoroom_202: 378715478
+      M484ExplosionSet1-Photoroom_203: -1532785206
+      M484ExplosionSet1-Photoroom_204: -254119051
+      M484ExplosionSet1-Photoroom_205: -911797997
+      M484ExplosionSet1-Photoroom_206: -1638714487
+      M484ExplosionSet1-Photoroom_207: -925533162
+      M484ExplosionSet1-Photoroom_208: 979295804
+      M484ExplosionSet1-Photoroom_209: -1814259518
+      M484ExplosionSet1-Photoroom_21: 521388608
+      M484ExplosionSet1-Photoroom_210: 600466738
+      M484ExplosionSet1-Photoroom_211: 2083380673
+      M484ExplosionSet1-Photoroom_212: 1003394345
+      M484ExplosionSet1-Photoroom_213: -285075768
+      M484ExplosionSet1-Photoroom_214: 2081026054
+      M484ExplosionSet1-Photoroom_215: -1086936146
+      M484ExplosionSet1-Photoroom_216: 739911426
+      M484ExplosionSet1-Photoroom_217: -1427404999
+      M484ExplosionSet1-Photoroom_218: 1166306058
+      M484ExplosionSet1-Photoroom_219: -1048241950
+      M484ExplosionSet1-Photoroom_22: -465066029
+      M484ExplosionSet1-Photoroom_220: -1442296559
+      M484ExplosionSet1-Photoroom_221: 544361635
+      M484ExplosionSet1-Photoroom_222: 498962737
+      M484ExplosionSet1-Photoroom_223: -13542840
+      M484ExplosionSet1-Photoroom_224: 1099489234
+      M484ExplosionSet1-Photoroom_225: 2105482766
+      M484ExplosionSet1-Photoroom_226: -1222729689
+      M484ExplosionSet1-Photoroom_227: -2032323831
+      M484ExplosionSet1-Photoroom_228: -285194511
+      M484ExplosionSet1-Photoroom_229: -751261410
+      M484ExplosionSet1-Photoroom_23: -1378035677
+      M484ExplosionSet1-Photoroom_24: 343975551
+      M484ExplosionSet1-Photoroom_25: -835872782
+      M484ExplosionSet1-Photoroom_26: -510385047
+      M484ExplosionSet1-Photoroom_27: 87903216
+      M484ExplosionSet1-Photoroom_28: -1501755687
+      M484ExplosionSet1-Photoroom_29: -1838372269
+      M484ExplosionSet1-Photoroom_3: -1672045395
+      M484ExplosionSet1-Photoroom_30: -657195918
+      M484ExplosionSet1-Photoroom_31: -1742786062
+      M484ExplosionSet1-Photoroom_32: -1587609629
+      M484ExplosionSet1-Photoroom_33: 164352488
+      M484ExplosionSet1-Photoroom_34: 2145572201
+      M484ExplosionSet1-Photoroom_35: 1895346533
+      M484ExplosionSet1-Photoroom_36: 277114092
+      M484ExplosionSet1-Photoroom_37: -2007145779
+      M484ExplosionSet1-Photoroom_38: -1903687325
+      M484ExplosionSet1-Photoroom_39: 119421017
+      M484ExplosionSet1-Photoroom_4: 856597756
+      M484ExplosionSet1-Photoroom_40: -1274525411
+      M484ExplosionSet1-Photoroom_41: 1547908146
+      M484ExplosionSet1-Photoroom_42: 533718791
+      M484ExplosionSet1-Photoroom_43: -1028432094
+      M484ExplosionSet1-Photoroom_44: -2139895081
+      M484ExplosionSet1-Photoroom_45: 1826740935
+      M484ExplosionSet1-Photoroom_46: 480071838
+      M484ExplosionSet1-Photoroom_47: -1682146028
+      M484ExplosionSet1-Photoroom_48: -817132224
+      M484ExplosionSet1-Photoroom_49: 481091441
+      M484ExplosionSet1-Photoroom_5: 247606748
+      M484ExplosionSet1-Photoroom_50: -261326497
+      M484ExplosionSet1-Photoroom_51: 1452536201
+      M484ExplosionSet1-Photoroom_52: 1877643941
+      M484ExplosionSet1-Photoroom_53: 1705243509
+      M484ExplosionSet1-Photoroom_54: 1168046075
+      M484ExplosionSet1-Photoroom_55: 604766476
+      M484ExplosionSet1-Photoroom_56: -2029767036
+      M484ExplosionSet1-Photoroom_57: -642693088
+      M484ExplosionSet1-Photoroom_58: -1846948596
+      M484ExplosionSet1-Photoroom_59: 1717942526
+      M484ExplosionSet1-Photoroom_6: -815997650
+      M484ExplosionSet1-Photoroom_60: 578996065
+      M484ExplosionSet1-Photoroom_61: -736706428
+      M484ExplosionSet1-Photoroom_62: 1814464402
+      M484ExplosionSet1-Photoroom_63: -1294673989
+      M484ExplosionSet1-Photoroom_64: -2042477919
+      M484ExplosionSet1-Photoroom_65: -1424638616
+      M484ExplosionSet1-Photoroom_66: 286782937
+      M484ExplosionSet1-Photoroom_67: -2009537937
+      M484ExplosionSet1-Photoroom_68: -440978708
+      M484ExplosionSet1-Photoroom_69: -532919416
+      M484ExplosionSet1-Photoroom_7: 1340573737
+      M484ExplosionSet1-Photoroom_70: 987058269
+      M484ExplosionSet1-Photoroom_71: 1655785976
+      M484ExplosionSet1-Photoroom_72: -1111911198
+      M484ExplosionSet1-Photoroom_73: 711180102
+      M484ExplosionSet1-Photoroom_74: -1634388407
+      M484ExplosionSet1-Photoroom_75: 991464944
+      M484ExplosionSet1-Photoroom_76: -1428063360
+      M484ExplosionSet1-Photoroom_77: 79619937
+      M484ExplosionSet1-Photoroom_78: 563233703
+      M484ExplosionSet1-Photoroom_79: -1009910072
+      M484ExplosionSet1-Photoroom_8: 1675789649
+      M484ExplosionSet1-Photoroom_80: -1912822584
+      M484ExplosionSet1-Photoroom_81: -1002502887
+      M484ExplosionSet1-Photoroom_82: -616563949
+      M484ExplosionSet1-Photoroom_83: -1613209312
+      M484ExplosionSet1-Photoroom_84: -810153484
+      M484ExplosionSet1-Photoroom_85: 754265588
+      M484ExplosionSet1-Photoroom_86: -737401946
+      M484ExplosionSet1-Photoroom_87: 1957896535
+      M484ExplosionSet1-Photoroom_88: -1346006059
+      M484ExplosionSet1-Photoroom_89: -1596106941
+      M484ExplosionSet1-Photoroom_9: 1650150527
+      M484ExplosionSet1-Photoroom_90: 503844423
+      M484ExplosionSet1-Photoroom_91: -1829527124
+      M484ExplosionSet1-Photoroom_92: 268369222
+      M484ExplosionSet1-Photoroom_93: 687959362
+      M484ExplosionSet1-Photoroom_94: 2104925249
+      M484ExplosionSet1-Photoroom_95: -2121811546
+      M484ExplosionSet1-Photoroom_96: 1312608300
+      M484ExplosionSet1-Photoroom_97: -157444957
+      M484ExplosionSet1-Photoroom_98: -1690719335
+      M484ExplosionSet1-Photoroom_99: 1344250927
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

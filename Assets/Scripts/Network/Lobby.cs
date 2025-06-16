@@ -10,50 +10,61 @@ using UnityEngine.SceneManagement;
 // A utility class which defines the behaviour of the various buttons and input fields found in the Menu scene
 public class StartMenu : MonoBehaviour
 {
-    [SerializeField] private NetworkRunner _networkRunnerPrefab = null;
+    [SerializeField] private NetworkRunner m_NetworkRunnerPrefab = null;
 
+    [Space(10)]
+    [SerializeField] private TMP_InputField m_RoomName = null;
+    [SerializeField] private string m_GameSceneName = null;
 
-    [SerializeField] private TMP_InputField _roomName = null;
-    [SerializeField] private string _gameSceneName = null;
+    [Space(10)]
+    [SerializeField] private SoundManager m_SoundManagerPrefab;
+    private NetworkRunner m_RunnerInstance = null;
 
-    private NetworkRunner _runnerInstance = null;
+    private void Awake()
+    {
+        if (SoundManager.Instance == null)
+        {
+            Instantiate(m_SoundManagerPrefab);
+        }
+    }
 
     // Attempts to start a new game session 
     public void StartHost()
     {
-        StartGame(GameMode.AutoHostOrClient, "TEST", _gameSceneName);
+        StartGame(GameMode.AutoHostOrClient, "TEST", m_GameSceneName);
     }
 
     public void StartClient()
     {
-        StartGame(GameMode.Client, "TEST", _gameSceneName);
+        StartGame(GameMode.Client, "TEST", m_GameSceneName);
     }
 
     private async void StartGame(GameMode mode, string roomName, string sceneName)
     {
-        _runnerInstance = FindFirstObjectByType<NetworkRunner>();
-        if (_runnerInstance == null)
+        m_RunnerInstance = FindFirstObjectByType<NetworkRunner>();
+        if (m_RunnerInstance == null)
         {
-            _runnerInstance = Instantiate(_networkRunnerPrefab);
+            m_RunnerInstance = Instantiate(m_NetworkRunnerPrefab);
         }
 
         // Let the Fusion Runner know that we will be providing user input
-        _runnerInstance.ProvideInput = true;
+        m_RunnerInstance.ProvideInput = true;
 
         var startGameArgs = new StartGameArgs()
         {
             GameMode = mode,
             SessionName = roomName,
-            ObjectProvider = _runnerInstance.GetComponent<NetworkObjectPoolDefault>(),
+            PlayerCount = 4, // √÷¥Î 4∏Ì
+            ObjectProvider = m_RunnerInstance.GetComponent<NetworkObjectPoolDefault>(),
         };
 
         // GameMode.Host = Start a session with a specific name
         // GameMode.Client = Join a session with a specific name
-        await _runnerInstance.StartGame(startGameArgs);
+        await m_RunnerInstance.StartGame(startGameArgs);
 
-        if (_runnerInstance.IsServer)
+        if (m_RunnerInstance.IsServer)
         {
-            _runnerInstance.LoadScene(sceneName);
+            m_RunnerInstance.LoadScene(sceneName);
         }
     }
 }

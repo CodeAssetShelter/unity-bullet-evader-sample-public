@@ -35,6 +35,8 @@ public class LocalObjectPool : MonoBehaviour
             obj.SetActive(false);
             m_Pools[key].Enqueue(obj);
         }
+
+        Debug.Log($"{prefab.name} registered");
     }
 
     public GameObject Get(string key, Vector3 position, Quaternion rotation)
@@ -50,14 +52,6 @@ public class LocalObjectPool : MonoBehaviour
         obj.transform.SetPositionAndRotation(position, rotation);
         obj.SetActive(true);
 
-        // Bullet ID µî·Ï
-        Bullet bullet = obj.GetComponent<Bullet>();
-        if (bullet != null)
-        {
-            //bullet.AssignId();
-            //m_ActiveBulletsById[bullet.BulletId] = obj;
-        }
-
         return obj;
     }
 
@@ -65,12 +59,6 @@ public class LocalObjectPool : MonoBehaviour
     {
         string key = obj.name;
         obj.SetActive(false);
-
-        Bullet bullet = obj.GetComponent<Bullet>();
-        if (bullet != null)
-        {
-            //m_ActiveBulletsById.Remove(bullet.BulletId);
-        }
 
         if (!m_Pools.ContainsKey(key))
         {

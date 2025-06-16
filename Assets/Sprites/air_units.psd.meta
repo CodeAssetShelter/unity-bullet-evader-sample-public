@@ -1,0 +1,924 @@
+fileFormatVersion: 2
+guid: 1c0f466013f780849a6a6a3c22c5cf4b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7270671544747189959
+    second: air_units_0
+  - first:
+      213: 2440835988456750040
+    second: air_units_1
+  - first:
+      213: -5882842588956736612
+    second: air_units_2
+  - first:
+      213: 2736908221900380247
+    second: air_units_3
+  - first:
+      213: 8281929395565655876
+    second: air_units_4
+  - first:
+      213: -5730897400362823434
+    second: air_units_5
+  - first:
+      213: 615557918476017154
+    second: air_units_6
+  - first:
+      213: -6756157351946010779
+    second: air_units_7
+  - first:
+      213: -9067889524816941808
+    second: air_units_8
+  - first:
+      213: 2537864416806415369
+    second: air_units_9
+  - first:
+      213: 3645446358797546843
+    second: air_units_10
+  - first:
+      213: 5406741407888132316
+    second: air_units_11
+  - first:
+      213: 8646307060494064272
+    second: air_units_12
+  - first:
+      213: -257581589742888845
+    second: air_units_13
+  - first:
+      213: -5286856216781359843
+    second: air_units_14
+  - first:
+      213: -8753781592397943797
+    second: air_units_15
+  - first:
+      213: 6756839449722943808
+    second: air_units_16
+  - first:
+      213: -5645802902476649756
+    second: air_units_17
+  - first:
+      213: -36893566243088394
+    second: air_units_18
+  - first:
+      213: 4973264830548294677
+    second: air_units_19
+  - first:
+      213: 653791481185771863
+    second: air_units_20
+  - first:
+      213: -7275549517765386250
+    second: air_units_21
+  - first:
+      213: -1151431646647271756
+    second: air_units_22
+  - first:
+      213: -6935169885934776429
+    second: air_units_23
+  - first:
+      213: 7013981520739958748
+    second: air_units_24
+  - first:
+      213: 763756466452931860
+    second: air_units_25
+  - first:
+      213: 2554381327674646008
+    second: air_units_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: air_units_0
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 146
+        width: 58
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5093338, y: 0.63782364}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da4f6ad4a5d6f7143a94967e02a04f4c
+      internalID: 1077580260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_1
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 148
+        width: 57
+        height: 40
+      alignment: 9
+      pivot: {x: 0.4978766, y: 0.6482197}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb09af3d1ee2ae74585f1a74a2a59447
+      internalID: 696038029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_2
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 146
+        width: 59
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5, y: 0.63875616}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 534ef324f0fe6904ebbc7f609d3a223f
+      internalID: -1687530911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_3
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 146
+        width: 58
+        height: 45
+      alignment: 9
+      pivot: {x: 0.51079166, y: 0.6380581}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b29531af937e7404bb86168eb373c21f
+      internalID: -949014950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 140
+        width: 65
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce301219d55e5544d94b79b416fdf544
+      internalID: -1824146671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_5
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 141
+        width: 69
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b70d0e4884b4c1c47bbef5cb465f6b79
+      internalID: 1965533160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_6
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 140
+        width: 66
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1af6e959acf7a1942967519dc5549efd
+      internalID: -284751159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_7
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 140
+        width: 66
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 242009abbf573554e9a426c9322533a8
+      internalID: -28492492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_8
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 142
+        width: 67
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6097cba6120c6d2479ccc81ab8832eb7
+      internalID: -1863092817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_9
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 135
+        width: 87
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aeaa7bf8caa0cb4abae989a73a73ce4
+      internalID: -1810720386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_10
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 136
+        width: 83
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 900deabe77a22f54eb166da4ff28ca54
+      internalID: 438872619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_11
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 136
+        width: 85
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f2e9a46c296f74fad7a49e2266c2cf
+      internalID: 872074692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_12
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 136
+        width: 83
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca572abc13ea06d45a5467e1b6c4dda2
+      internalID: -68229897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_13
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 78
+        width: 57
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c8bb8829b4ec834ca91942fdedf55e9
+      internalID: -1477079099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_14
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 78
+        width: 57
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 290b47ac7f81f7f4b9fa888b81089deb
+      internalID: -221400990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_15
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 78
+        width: 57
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa0ac3e1503142247bc150b4ccedb3bf
+      internalID: 1004926345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_16
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 78
+        width: 57
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3928ffcde466ce4b83f6119db0ef102
+      internalID: 1911102921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_17
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 78
+        width: 57
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 459828b2ae42da947906c326cbf7c6e1
+      internalID: 591611761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_18
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 71
+        width: 63
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1adebe658ca432f4fa8b4a076f62a9f9
+      internalID: 1102333760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_19
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 71
+        width: 63
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 408da89d424676c498b0dff88f71c784
+      internalID: 237854973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_20
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 71
+        width: 63
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5683f1b27a920d549976df32054ce5c4
+      internalID: 1475570235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_21
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 71
+        width: 63
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 631236084a525534eb136f563c56fd1f
+      internalID: -1779032001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_22
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 71
+        width: 63
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5418a98aa2c1d224487c7f49409459f8
+      internalID: -383035733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_23
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 66
+        width: 82
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6ef754c5019d3843a1bc3cdcc1b890d
+      internalID: -1576715263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_24
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 66
+        width: 82
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 793c9def6ff326047812014e84c483a8
+      internalID: -1883568786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_25
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 66
+        width: 82
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e70748a0c0b8a448841094bbc3ff269
+      internalID: 1634703722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_26
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 66
+        width: 82
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87ef414908fc2ca45ab7d1b1cd3e48ab
+      internalID: -1413644763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wing_002
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 39
+        width: 17
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8dfaecc4c748144ba9b25a84ef5b9f5
+      internalID: -615134124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wing_001
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 54
+        width: 17
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65c64fa70bc9b07408e3483ac35fe4ca
+      internalID: -942253662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wing_000
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 67
+        width: 17
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b69f62b097af13045982327e11cf6e9d
+      internalID: -1966457570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: air_units_27
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 147
+        width: 57
+        height: 41
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6516165}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7713e6260a230f479430e929cc14f5d
+      internalID: -1898073853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 730a2d768a18ad54c977f4856f8b43f3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      air_units_0: 1077580260
+      air_units_1: 696038029
+      air_units_10: 438872619
+      air_units_11: 872074692
+      air_units_12: -68229897
+      air_units_13: -1477079099
+      air_units_14: -221400990
+      air_units_15: 1004926345
+      air_units_16: 1911102921
+      air_units_17: 591611761
+      air_units_18: 1102333760
+      air_units_19: 237854973
+      air_units_2: -1687530911
+      air_units_20: 1475570235
+      air_units_21: -1779032001
+      air_units_22: -383035733
+      air_units_23: -1576715263
+      air_units_24: -1883568786
+      air_units_25: 1634703722
+      air_units_26: -1413644763
+      air_units_27: -1898073853
+      air_units_3: -949014950
+      air_units_4: -1824146671
+      air_units_5: 1965533160
+      air_units_6: -284751159
+      air_units_7: -28492492
+      air_units_8: -1863092817
+      air_units_9: -1810720386
+      wing_000: -1966457570
+      wing_001: -942253662
+      wing_002: -615134124
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -73,7 +73,6 @@ public class BulletSpawner : NetworkBehaviour
     private void Awake()
     {
         Instance = Instance != null ? Instance : this;
-
     }
 
     public void Start()
@@ -81,6 +80,29 @@ public class BulletSpawner : NetworkBehaviour
         m_LocalObjectPool = gameObject.AddComponent<LocalObjectPool>();
         m_LocalObjectPool.RegisterPrefab(m_BulletPrefab);
         StartCoroutine(CorTest());
+    }
+
+    public Queue<BulletSpawnData> m_BulletSpawnDataQueue = new();
+
+    public void AddBulletData(BulletSpawnData _data)
+    {
+        m_BulletSpawnDataQueue.Enqueue(_data);
+    }
+
+    IEnumerator CorSendBulletScheduler()
+    {
+        WaitForSeconds wait = new WaitForSeconds(0.15f);
+
+        while (true)
+        {
+            yield return wait;
+
+            var list = m_BulletSpawnDataQueue.DequeueSafe(30);
+            if (list != null)
+            {
+                RPC_SpawnBullets(BulletPacketEncoder.EncodeBulletSpawn(list));
+            }
+        }
     }
 
     IEnumerator CorTest()
@@ -118,7 +140,7 @@ public class BulletSpawner : NetworkBehaviour
                 position = CompressedVector2.FromVector2(pos),
                 direction = CompressedVector2.FromVector2(direction),
                 //patternIndex = (byte)(Random.Range(0, (int)BulletPattern.State_Count))
-                patternIndex = (byte)BulletPattern.Fan
+                patternIndex = (byte)BulletPattern.Normal
             });
 
             //Debug.Log((BulletPattern)data.Last().patternIndex);
@@ -126,6 +148,7 @@ public class BulletSpawner : NetworkBehaviour
             yield return wait;
         }
     }
+
     public T GetRandomEnumValueUnity<T>() where T : Enum
     {
         var values = Enum.GetValues(typeof(T));
