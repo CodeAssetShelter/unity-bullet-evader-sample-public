@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using Fusion;
 using UnityEngine;
@@ -15,7 +15,7 @@ public class GameButtonController : NetworkBehaviour
 
     public override void FixedUpdateNetwork()
     {
-        // GetInput() Àº ´Ù¸¥ À¯Àú°¡ ¾Æ´Ñ ³» ÀÔ·Â±ÇÇÑ¸¸ °Ë»ç
+        // GetInput() ì€ ë‹¤ë¥¸ ìœ ì €ê°€ ì•„ë‹Œ ë‚´ ì…ë ¥ê¶Œí•œë§Œ ê²€ì‚¬
         if (GetInput<PlayerInputBase>(out var input))
         {
             Button(input);

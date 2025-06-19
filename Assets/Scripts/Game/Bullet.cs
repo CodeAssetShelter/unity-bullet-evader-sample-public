@@ -6,7 +6,7 @@ public enum BulletPattern
     Normal,
     Spread,
     Fan,
-    Homing,
+    Winder,
     State_Count
 }
 
@@ -65,8 +65,8 @@ public class Bullet : MonoBehaviour
                 break;
         }
 
-        if (m_Pattern == BulletPattern.Homing && m_PlayerTransform)
-            ApplyHomingRotation();
+        //if (m_Pattern == BulletPattern.Homing && m_PlayerTransform)
+        //    ApplyHomingRotation();
 
         if (m_Pattern == BulletPattern.Spread && m_Launch)
         {
@@ -142,7 +142,7 @@ public class Bullet : MonoBehaviour
             m_BulletId = _id;
     }
 
-    public void SetPattern(BulletPattern pattern, Vector2 dir, float levelSpeed, Transform target = null, Vector2 center = default)
+    public void SetPattern(BulletPattern pattern, Vector2 dir, float levelSpeed)
     {
         m_Dir = dir.normalized;
         m_LevelSpeed = levelSpeed;
@@ -157,16 +157,11 @@ public class Bullet : MonoBehaviour
                 m_SpreadTimer = 0f;
                 break;
             case BulletPattern.Fan:
-                m_FanCenter = CommonUtil.GetRandomCornerPosition();
-                Debug.Log(m_FanCenter);
                 float baseAngularDeg = 45f + levelSpeed;
-                Vector2 offset = (Vector2)transform.position - center;
+                Vector2 offset = (Vector2)transform.position - Vector2.zero;
                 Vector2 dirToZero = Vector2.zero - (Vector2)transform.position;
                 float signed = Vector2.SignedAngle(offset.normalized, dirToZero.normalized);
                 m_FanAngularSpeedDeg = baseAngularDeg * Mathf.Sign(signed);
-                break;
-            case BulletPattern.Homing:
-                m_PlayerTransform = target;
                 break;
         }
     }
