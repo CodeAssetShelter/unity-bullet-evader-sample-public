@@ -24,8 +24,6 @@ public class ExplosionSetter : MonoBehaviour
 
         m_Animator.speed = Random.Range(m_AnimatorSpeed.x, m_AnimatorSpeed.y);
         m_Animator.SetFloat("Blend", Random.Range(0, 1.0f));
-
-        Debug.Log($"{transform.position} // {xGap}, {yGap}");
     }
 
     public void EndAnim()

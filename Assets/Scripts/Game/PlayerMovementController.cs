@@ -1,10 +1,10 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using Fusion;
 using UnityEngine;
 
 // The class is dedicated to controlling the Spaceship's movement
-public class SpaceshipMovementController : NetworkBehaviour
+public class PlayerMovementController : NetworkBehaviour
 {
     // Game Session AGNOSTIC Settings
     [SerializeField] private float _rotationSpeed = 10f;
@@ -50,18 +50,22 @@ public class SpaceshipMovementController : NetworkBehaviour
         // This will only return true on the Client with InputAuthority for this Object and the Host.
         //if (Runner.TryGetInputForPlayer<PlayerInputBase>(Object.InputAuthority, out var input))
 
-        // GetInput() ¿∫ ¥Ÿ∏• ¿Ø¿˙∞° æ∆¥— ≥ª ¿‘∑¬±««—∏∏ ∞ÀªÁ
-        if (m_MainController.m_IsAlive && m_MainController. GetInput<PlayerInputBase>(out var input))
-        {
-            Move(input);
-        }
+        // GetInput() ÏùÄ Îã§Î•∏ Ïú†Ï†ÄÍ∞Ä ÏïÑÎãå ÎÇ¥ ÏûÖÎ†•Í∂åÌïúÎßå Í≤ÄÏÇ¨
+        //if (m_MainController.m_IsAlive && GetInput<PlayerInputBase>(out var input))
+        //{
+        //    Move(input);
+        //}
     }
 
     // Moves the spaceship RB using the input for the client with InputAuthority over the object
-    private void Move(PlayerInputBase input)
+    public void Move(PlayerInputBase input)
     {
+        Debug.Log("GOGOGO");
+        if (!m_MainController.m_IsAlive) return;
+
         float dx = input.x * _movementSpeed;
         float dy = input.y * _movementSpeed;
+        Debug.Log($"{dx}, {dy}");
 
         Vector3 nextPos = transform.position + new Vector3(dx, dy) * Runner.DeltaTime;
         Vector3 view = Camera.main.WorldToViewportPoint(nextPos);

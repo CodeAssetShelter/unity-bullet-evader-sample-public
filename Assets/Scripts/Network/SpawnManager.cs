@@ -1,10 +1,9 @@
-using Fusion;
+﻿using Fusion;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,7 +12,7 @@ public class SpawnManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft
     public static SpawnManager Instance;
 
     public GameObject m_PlayerPrefab;
-    public GameObject m_PressSpace;
+    public GameObject m_MasterInputManagerPrefab;
 
     public List<Sprite> m_AircraftSprites;
     private int m_AircraftIdx = 0;
@@ -34,7 +33,8 @@ public class SpawnManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft
     {
         LocalObjectPool.Instance.RegisterPrefab(m_ExplosionPrefab);
     }
-    public void SpawnPlayer(PlayerRef _playerRef)
+
+    public NetworkObject SpawnPlayer(PlayerRef _playerRef)
     {
         var playerObject = Runner.Spawn(m_PlayerPrefab, Vector2.zero, Quaternion.identity, _playerRef, 
             (runner, obj) => 
@@ -45,11 +45,21 @@ public class SpawnManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft
 
         Runner.SetPlayerObject(_playerRef, playerObject);
         m_PlayerList.Add(_playerRef, playerObject.transform);
+
+        return playerObject;
     }
 
     public void PlayerJoined(PlayerRef player)
     {
-        SpawnPlayer(player);
+        // 테스트용
+        //SpawnPlayer(player);
+        var playerObject = Runner.Spawn(m_MasterInputManagerPrefab, Vector2.zero, Quaternion.identity, player,
+        (runner, obj) =>
+        {
+            Debug.Log($"{obj.name} // {runner.LocalPlayer.PlayerId} is spawned.");
+        });
+
+        Runner.SetPlayerObject(player, playerObject);
     }
 
     public void PlayerLeft(PlayerRef player)

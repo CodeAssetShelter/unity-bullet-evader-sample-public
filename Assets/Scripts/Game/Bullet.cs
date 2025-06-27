@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public enum BulletPattern
 {
@@ -7,6 +7,7 @@ public enum BulletPattern
     Spread,
     Fan,
     Winder,
+    Cage,
     State_Count
 }
 
@@ -28,10 +29,9 @@ public class Bullet : MonoBehaviour
     private bool m_Launch = false;
     private bool m_WasInScreen = false;
 
-    private float m_SpreadTimer = 0f;
-    private const float SPREAD_INTERVAL = 0.8f;
+    private float m_SpreadTimer = 4f;
+    private float m_SpreadTimeStamp = 0;
 
-    private bool m_UseFan = false;
     private Vector2 m_FanCenter;
     private float m_FanAngularSpeedDeg;
 
@@ -39,9 +39,12 @@ public class Bullet : MonoBehaviour
 
     public ushort m_BulletId = 0;
 
+    private float m_InvFixedDT = 0.02f;
+
     private void Awake()
     {
         m_Cam = Camera.main;
+        m_InvFixedDT = 1f / Time.fixedDeltaTime;
     }
 
     private void OnEnable()
@@ -60,22 +63,13 @@ public class Bullet : MonoBehaviour
             case BulletPattern.Fan:
                 UpdateFan();
                 break;
-            default:
-                m_Rb.linearVelocity = m_Dir * m_Speed * m_LevelSpeed;
+            case BulletPattern.Spread:
+                UpdateSpread();
+                MoveBullet();
                 break;
-        }
-
-        //if (m_Pattern == BulletPattern.Homing && m_PlayerTransform)
-        //    ApplyHomingRotation();
-
-        if (m_Pattern == BulletPattern.Spread && m_Launch)
-        {
-            m_SpreadTimer += Time.fixedDeltaTime;
-            if (m_SpreadTimer >= SPREAD_INTERVAL)
-            {
-                m_SpreadTimer = 0f;
-                FireSpread();
-            }
+            default:
+                MoveBullet();
+                break;
         }
 
         CheckScreenBoundary();
@@ -85,12 +79,20 @@ public class Bullet : MonoBehaviour
             ReleaseObject();
     }
 
+    private void MoveBullet()
+    {
+        m_Rb.linearVelocity = m_Dir * m_Speed * m_LevelSpeed;
+    }
+
+    const float VIEWPORT_MARGIN = 0.08f;
     private void CheckScreenBoundary()
     {
         if (m_Cam == null) return;
 
         Vector3 vp = m_Cam.WorldToViewportPoint(transform.position);
-        bool isInScreen = vp.x >= 0f && vp.x <= 1f && vp.y >= 0f && vp.y <= 1f && vp.z > 0f;
+        bool isInScreen = vp.z > 0f &&
+                          vp.x >= -VIEWPORT_MARGIN && vp.x <= 1f + VIEWPORT_MARGIN &&
+                          vp.y >= -VIEWPORT_MARGIN && vp.y <= 1f + VIEWPORT_MARGIN;
 
         if (!m_WasInScreen && isInScreen)
         {
@@ -115,25 +117,37 @@ public class Bullet : MonoBehaviour
 
     private void UpdateFan()
     {
-        Vector2 offset = (Vector2)transform.position - m_FanCenter;
-        float radius = offset.magnitude;
-        if (radius < 0.01f)
-        {
-            m_Dir = Vector2.right;
-            return;
-        }
-        Vector2 radial = offset / radius;
-        Vector2 tangent = new Vector2(-radial.y, radial.x);
-        float omega = m_FanAngularSpeedDeg * Mathf.Deg2Rad;
-        float v = omega * radius;
-        m_Dir = tangent * v;
-        m_Rb.linearVelocity = m_Dir;
+        float dt = Time.fixedDeltaTime;
+
+        /* 1) 현재 위치와 pivot-to-bullet 벡터 r' */
+        Vector2 curPos = m_Rb.position;
+        Vector2 offset = curPos - m_FanCenter;
+
+        /* 3) 이번 스텝 회전각 Δθ = ω·Δt (deg → rad) */
+        float deltaRad = m_FanAngularSpeedDeg * Mathf.Deg2Rad * dt;
+
+        /* 4) r⃗ 를 Δθ 만큼 회전 : r' = R(Δθ)·r  */
+        float cos = Mathf.Cos(deltaRad);
+        float sin = Mathf.Sin(deltaRad);
+        Vector2 rotatedOffset = new Vector2(
+            offset.x * cos - offset.y * sin,
+            offset.x * sin + offset.y * cos);
+
+        /* 5) 목표 위치 = pivot + r' */
+        Vector2 targetPos = m_FanCenter + rotatedOffset;
+
+        /* 6) v = Δp / Δt  →  linearVelocity 적용 */
+        m_Rb.linearVelocity = ((targetPos - curPos) * m_InvFixedDT) * (0.4f + (m_LevelSpeed * 0.1f));
     }
 
-    private void FireSpread()
+    private void UpdateSpread()
     {
-        Vector2 right = Quaternion.Euler(0, 0, 90) * m_Dir;
-        Vector2 left = Quaternion.Euler(0, 0, -90) * m_Dir;
+        if (m_SpreadTimeStamp > m_SpreadTimer)
+        {
+            m_SpreadTimeStamp = 0;
+            BulletSpawner.Instance.RequestSpreadShot(transform.position, m_Dir);
+        }
+        m_SpreadTimeStamp += Time.fixedDeltaTime;
     }
 
     public void SetId(ushort _id)
@@ -142,7 +156,7 @@ public class Bullet : MonoBehaviour
             m_BulletId = _id;
     }
 
-    public void SetPattern(BulletPattern pattern, Vector2 dir, float levelSpeed)
+    public void SetPattern(BulletPattern pattern, Vector2 dir, float levelSpeed, float bulletOffset = -1)
     {
         m_Dir = dir.normalized;
         m_LevelSpeed = levelSpeed;
@@ -151,16 +165,33 @@ public class Bullet : MonoBehaviour
 
         switch (pattern)
         {
+            // Normal : 일반탄
+            // Spread : 확산탄, 일반탄 알고리즘에 확산탄 생성은 BulletSpawner 에서 관리
+            // Cage : 가두기, 일반탄 알고리즘 따름
+            // Winder : 와인더, 일반탄 알고리즘 따름
             case BulletPattern.Normal:
                 break;
             case BulletPattern.Spread:
-                m_SpreadTimer = 0f;
+                if (bulletOffset > 0)
+                {
+                    m_SpreadTimer = bulletOffset * 0.1f;
+                }
+                break;
+            case BulletPattern.Cage:
+            case BulletPattern.Winder:
                 break;
             case BulletPattern.Fan:
+                // pivot = 뷰포트 (dir) → 월드 좌표
+                m_FanCenter = dir;
+
+                // 회전 속도 및 방향 결정
                 float baseAngularDeg = 45f + levelSpeed;
-                Vector2 offset = (Vector2)transform.position - Vector2.zero;
-                Vector2 dirToZero = Vector2.zero - (Vector2)transform.position;
-                float signed = Vector2.SignedAngle(offset.normalized, dirToZero.normalized);
+
+                Vector2 offset = (Vector2)transform.position - m_FanCenter;  // pivot → bullet
+                Vector2 dirToScreenCtr = Vector2.zero - m_FanCenter;                 // pivot → (0,0)
+
+                float signed = Vector2.SignedAngle(offset.normalized,
+                                                   dirToScreenCtr.normalized);        // CCW 양수
                 m_FanAngularSpeedDeg = baseAngularDeg * Mathf.Sign(signed);
                 break;
         }

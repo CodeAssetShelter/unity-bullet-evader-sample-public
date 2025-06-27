@@ -28,6 +28,7 @@ public static class CommonUtil
     {
         UP, DOWN, LEFT, RIGHT
     }
+
     /// <summary>
     /// 뷰포트의 양 꼭짓점을 지정해서 받아오는 함수
     /// </summary>
@@ -108,5 +109,36 @@ public static class CommonUtil
         }
 
         return buffer;
+    }
+
+    /// <summary>
+    /// start-end 구간을 동일 간격으로 분할,
+    /// 시작과 끝을 제외한 <paramref name="innerCount"/> 개의 지점을 반환
+    /// </summary>
+    public static List<Vector2> GetInnerPoints(Vector2 start, Vector2 end, int innerCount)
+    {
+        if (innerCount <= 0) return new List<Vector2>();   // 필요 없으면 빈 리스트
+
+        Vector2 diff = end - start;                       // 전체 벡터
+        float total = diff.magnitude;                    // 전체 길이
+        Vector2 unit = diff / total;                      // 단위 방향
+        float step = total / (innerCount + 1);          // n+1 칸
+
+        var points = new List<Vector2>(innerCount);
+        for (int i = 1; i <= innerCount; i++)
+            points.Add(start + unit * (step * i));
+
+        return points;                                     // Count == innerCount
+    }
+
+    /// <summary>
+    /// enum 랜덤값 호출
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    public static T GetRandomEnumValueUnity<T>(int _max = -1) where T : Enum
+    {
+        var values = Enum.GetValues(typeof(T));
+        return (T)values.GetValue(Random.Range(0, _max == -1 ? values.Length : _max));
     }
 }

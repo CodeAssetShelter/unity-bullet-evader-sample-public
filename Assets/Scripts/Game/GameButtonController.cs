@@ -26,7 +26,7 @@ public class GameButtonController : NetworkBehaviour
     {
         if (input.buttons.WasReleased(m_ButtonsPrevious, PlayerInputBase.GameButtons.Spacebar))
         {
-            GetComponent<CapsuleCollider2D>().enabled = true;
+            //GetComponent<CapsuleCollider2D>().enabled = true;
         }
 
         m_ButtonsPrevious = input.buttons;
