@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Fusion;
 
 public enum BulletPattern
 {
@@ -81,7 +82,14 @@ public class Bullet : MonoBehaviour
 
     private void MoveBullet()
     {
-        m_Rb.linearVelocity = m_Dir * m_Speed * m_LevelSpeed;
+        //m_Rb.linearVelocity = m_Dir * m_Speed * m_LevelSpeed;
+        transform.position += m_LevelSpeed * m_Speed * Time.fixedDeltaTime * (Vector3)m_Dir;
+    }
+
+    private void MoveBullet(Vector2 _vector)
+    {
+        //m_Rb.linearVelocity = _vector;
+        transform.position += (Vector3)_vector * Time.fixedDeltaTime;
     }
 
     const float VIEWPORT_MARGIN = 0.08f;
@@ -137,7 +145,7 @@ public class Bullet : MonoBehaviour
         Vector2 targetPos = m_FanCenter + rotatedOffset;
 
         /* 6) v = Δp / Δt  →  linearVelocity 적용 */
-        m_Rb.linearVelocity = ((targetPos - curPos) * m_InvFixedDT) * (0.4f + (m_LevelSpeed * 0.1f));
+        MoveBullet(((targetPos - curPos) * m_InvFixedDT) * (0.4f + (m_LevelSpeed * 0.1f)));
     }
 
     private void UpdateSpread()

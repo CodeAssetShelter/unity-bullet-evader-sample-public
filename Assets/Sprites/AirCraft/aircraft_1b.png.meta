@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      aircraft_1b_0: -1422458312975870363
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

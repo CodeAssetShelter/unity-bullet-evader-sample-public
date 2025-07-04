@@ -336,7 +336,6 @@ GameObject:
   - component: {fileID: 795527194762533837}
   - component: {fileID: 1524465185508497859}
   - component: {fileID: 8664843213800700637}
-  - component: {fileID: 5059938716196830119}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -381,7 +380,6 @@ MonoBehaviour:
   - {fileID: 795527194762533837}
   - {fileID: 1524465185508497859}
   - {fileID: 8664843213800700637}
-  - {fileID: 5059938716196830119}
   ForceRemoteRenderTimeframe: 0
 --- !u!50 &8596498499161817408
 Rigidbody2D:
@@ -426,6 +424,7 @@ MonoBehaviour:
   m_Collider: {fileID: 7719609310829030041}
   m_Rigidbody: {fileID: 8596498499161817408}
   m_IsAlive: 0
+  m_IsMine: 0
 --- !u!114 &1524465185508497859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,15 +464,3 @@ MonoBehaviour:
     Position: 0.01
     Rotation: 0.01
     Scale: 0.01
---- !u!114 &5059938716196830119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8074526386374853640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 831f3909d09209840b4380bf8df8d196, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

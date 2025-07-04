@@ -7,12 +7,10 @@ using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class SpawnManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft
+public class SpawnManager : NetworkBehaviour
 {
-    public static SpawnManager Instance;
-
     public GameObject m_PlayerPrefab;
-    public GameObject m_MasterInputManagerPrefab;
+    public MasterInputController m_MasterInputManagerPrefab;
 
     public List<Sprite> m_AircraftSprites;
     private int m_AircraftIdx = 0;
@@ -20,36 +18,45 @@ public class SpawnManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft
     [Header("- EFX")]
     public GameObject m_ExplosionPrefab;
 
-    public Dictionary<PlayerRef, Transform> m_PlayerList = new();
 
     // Game Session SPECIFIC Settings
     [Networked] private NetworkButtons m_ButtonsPrevious { get; set; }
 
-    private void Awake()
-    {
-        Instance = this;
-    }
     private void Start()
     {
         LocalObjectPool.Instance.RegisterPrefab(m_ExplosionPrefab);
     }
 
-    public NetworkObject SpawnPlayer(PlayerRef _playerRef)
+
+    public void RequestSpawnPlayer(PlayerRef _playerRef)
     {
-        var playerObject = Runner.Spawn(m_PlayerPrefab, Vector2.zero, Quaternion.identity, _playerRef, 
-            (runner, obj) => 
-            {
-                obj.GetComponent<SpaceshipController>().SetAircraft(m_AircraftSprites[m_AircraftIdx++ % m_AircraftSprites.Count]);
-                Debug.Log($"{obj.name} // {runner.LocalPlayer.PlayerId} is spawned.");
-            });
-
-        Runner.SetPlayerObject(_playerRef, playerObject);
-        m_PlayerList.Add(_playerRef, playerObject.transform);
-
-        return playerObject;
+        if (Runner.IsServer)
+        {
+            SpawnPlayer(_playerRef);
+        }
+        else
+        {
+            RpcRequestSpawnPlayer(_playerRef);
+        }
     }
 
-    public void PlayerJoined(PlayerRef player)
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    public void RpcRequestSpawnPlayer(PlayerRef _playerRef)
+    {
+        SpawnPlayer(_playerRef);
+    }
+
+    private void SpawnPlayer(PlayerRef _playerRef)
+    {
+        var playerObject = Runner.Spawn(m_PlayerPrefab, Vector2.zero, Quaternion.identity, _playerRef,
+        (runner, obj) =>
+        {
+            obj.GetComponent<SpaceshipController>().SetAircraft(m_AircraftSprites[m_AircraftIdx++ % m_AircraftSprites.Count]);
+            Debug.Log($"{obj.name} // {runner.LocalPlayer.PlayerId} is spawned.");
+        });
+    }
+
+    public NetworkObject SpawnPlayerMasterController(PlayerRef player)
     {
         // 테스트용
         //SpawnPlayer(player);
@@ -59,25 +66,16 @@ public class SpawnManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft
             Debug.Log($"{obj.name} // {runner.LocalPlayer.PlayerId} is spawned.");
         });
 
-        Runner.SetPlayerObject(player, playerObject);
+        var no = playerObject.GetComponent<NetworkObject>();
+        Runner.SetPlayerObject(player, no);
+        return no;
     }
 
-    public void PlayerLeft(PlayerRef player)
-    {
-        m_PlayerList.Remove(player);
-    }
 
-    public Transform GetRandomPlayerTransform()
+    public void PlayDestroyAnim(PlayerRef _playerRef)
     {
-        if (m_PlayerList.Count == 0) return null;
-        var res = m_PlayerList.FirstOrDefault();
-        return res.Value != null ? res.Value : null;
-    }
-
-    [Rpc(RpcSources.All, RpcTargets.All)]
-    public void RPC_DestroyAnim(PlayerRef _playerRef)
-    {
-        StartCoroutine(CorPlayDestroyAnim(Runner.GetPlayerObject(_playerRef).transform));
+        var po = Runner.GetPlayerObject(_playerRef);
+        StartCoroutine(CorPlayDestroyAnim(po.transform));
     }
 
     IEnumerator CorPlayDestroyAnim(Transform _target)
@@ -87,13 +85,17 @@ public class SpawnManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft
         float timeStamp = 0;
         Vector2 pos = _target.position;
 
-        _target.GetComponent<SpaceshipController>().PlayDestroyAnim();
-        
+        // 기존
+        //_target.GetComponent<SpaceshipController>().PlayDestroyAnim();
+
+        // MIC -> m_Player -> DestroyAnim();
+        Transform p = _target.GetComponent<MasterInputController>().Player.transform;
+
         while (timeStamp  <= 2.0f)
         {
-            if (_target != null)
+            if (p != null)
             {
-                pos = _target.position;
+                pos = p.position;
             }
 
             var explosion = LocalObjectPool.Instance.Get(m_ExplosionPrefab.name, pos, quaternion.identity);

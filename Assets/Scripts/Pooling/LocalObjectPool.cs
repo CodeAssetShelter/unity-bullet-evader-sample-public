@@ -47,7 +47,8 @@ public class LocalObjectPool : MonoBehaviour
             return null;
         }
 
-        GameObject obj = m_Pools[key].Count > 0 ? m_Pools[key].Dequeue() : Instantiate(m_PrefabMap[key]);
+        GameObject obj = m_Pools[key].Count > 0 ? m_Pools[key].Dequeue() : 
+            Instantiate(m_PrefabMap[key]);
         obj.name = key;
         obj.transform.SetPositionAndRotation(position, rotation);
         obj.SetActive(true);

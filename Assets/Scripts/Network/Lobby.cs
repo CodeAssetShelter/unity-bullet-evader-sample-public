@@ -52,8 +52,8 @@ public class StartMenu : MonoBehaviour
 
         var startGameArgs = new StartGameArgs()
         {
-            //GameMode = mode,
-            GameMode =  GameMode.Single,
+            GameMode = mode,
+            //GameMode =  GameMode.Single,
             SessionName = roomName,
             PlayerCount = 4, // √÷¥Î 4∏Ì
             ObjectProvider = m_RunnerInstance.GetComponent<NetworkObjectPoolDefault>(),

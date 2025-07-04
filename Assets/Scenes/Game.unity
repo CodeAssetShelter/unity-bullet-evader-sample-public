@@ -167,7 +167,7 @@ MonoBehaviour:
   m_BulletPrefab: {fileID: 6792278177781029641, guid: 5d56b9d394f79d34885380df4d003ac4, type: 3}
   m_BulletId: 0
   m_LocalObjectPool: {fileID: 0}
-  maxsender: 30
+  m_MaxPacketSendCount: 30
 --- !u!114 &358230548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerPrefab: {fileID: 8074526386374853640, guid: 92731de2f5afad04c969ae4e1e0458fb, type: 3}
-  m_MasterInputManagerPrefab: {fileID: 1810757498849408889, guid: 19a1c01d9fcc9414ea30b3d3a08fd27b, type: 3}
+  m_MasterInputManagerPrefab: {fileID: 306659845268661903, guid: 19a1c01d9fcc9414ea30b3d3a08fd27b, type: 3}
   m_AircraftSprites:
   - {fileID: 1077580260, guid: 1c0f466013f780849a6a6a3c22c5cf4b, type: 3}
   - {fileID: 696038029, guid: 1c0f466013f780849a6a6a3c22c5cf4b, type: 3}
@@ -844,8 +844,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_State: 0
   m_ReadyText: {fileID: 839534020}
+  m_SpawnManager: {fileID: 590228307}
   ScoreTail: 0
   ScoreHead: 0
+  m_Life: 3
+  m_MyPlayer: {fileID: 0}
 --- !u!1 &1683875753
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,7 +922,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 888503096}
-  - {fileID: 590228308}
   - {fileID: 1386503000}
   - {fileID: 1683875756}
   - {fileID: 358230546}
@@ -927,3 +929,4 @@ SceneRoots:
   - {fileID: 652133255}
   - {fileID: 735872111}
   - {fileID: 1478280666}
+  - {fileID: 590228308}

@@ -204,7 +204,7 @@ public class BulletSpawner : NetworkBehaviour
 
         float interval_min = 0.2f;
 
-        yield return new WaitUntil(() => SpawnManager.Instance.GetRandomPlayerTransform() != null);
+        yield return new WaitUntil(() => GameManager.Instance.GetRandomPlayerTransform() != null);
 
         while (true)
         {
@@ -217,7 +217,7 @@ public class BulletSpawner : NetworkBehaviour
             }
             timeStamp = 0;
 
-            Transform player = SpawnManager.Instance.GetRandomPlayerTransform();
+            Transform player = GameManager.Instance.GetRandomPlayerTransform();
 
             // interval 만큼 쉬기
             if (player == null)
@@ -249,7 +249,7 @@ public class BulletSpawner : NetworkBehaviour
         float spreadIntervalMin = 1.0f;
         float spreadIntervalMax = 2.5f;
 
-        yield return new WaitUntil(() => SpawnManager.Instance.GetRandomPlayerTransform() != null);
+        yield return new WaitUntil(() => GameManager.Instance.GetRandomPlayerTransform() != null);
 
         while (true)
         {
@@ -262,7 +262,7 @@ public class BulletSpawner : NetworkBehaviour
             }
             timeStamp = 0;
 
-            Transform player = SpawnManager.Instance.GetRandomPlayerTransform();
+            Transform player = GameManager.Instance.GetRandomPlayerTransform();
 
             // interval 만큼 쉬기
             if (player == null)
@@ -323,96 +323,30 @@ public class BulletSpawner : NetworkBehaviour
 
 
     /*── 가두기 ─────────────────────────────────────────────────────────────*/
+    // 즉시 시행패턴
     private IEnumerator CorPatternCage()
     {
-        float interval = 5f;
-        float timeStamp = 0f;
-
-        float interval_min = 5f;
-
-        yield return new WaitUntil(() => SpawnManager.Instance.GetRandomPlayerTransform() != null);
-
+        var ready = new WaitUntil(() => CoSpawnBulletCage == null);
+        var wait = new WaitForSeconds(2.5f);
         while (true)
         {
-            if (CoSpawnBulletWinder != null)
-            {
-                yield return null;
-                continue;
-            }
+            // 이미 시동 중일 때 홀드
+            yield return ready;
 
-            // interval 쪽으로 가중치를 둘 것 
-            if (timeStamp < Mathf.Max(interval - (GameManager.Instance.GameLevel + 1), interval_min))
-            {
-                timeStamp += Time.deltaTime;
-                yield return null;
-                continue;
-            }
-            timeStamp = 0;
+            // 1~3 -> 0.1~0.3 변환 대상
+            byte offset = (byte)Random.Range(2, 4);
 
-            Transform player = SpawnManager.Instance.GetRandomPlayerTransform();
-
-            // interval 만큼 쉬기
-            if (player == null)
-            {
-                yield return new WaitForSeconds(interval);
-                continue;
-            }
-
-            List<BulletSpawnData> data = new();
-
-            var pattern = (int)BulletPattern.Winder;
+            // 패턴 영역은 중앙만
+            // 케이지 영역을 화면 구석으로 놓을 수록 타 패턴 피하기가 힘드므로
+            AddBulletData(Vector2.zero, Vector2.zero, BulletPattern.Cage, offset);
 
 
-            // 1) 네 모서리 활성 플래그(0/1) 준비
-            List<ushort> activeData = new() { 0, 0, 0, 0 };   // 11시·1시·5시·7시
-
-            // 2) 첫 번째 인덱스
-            int idxA = Random.Range(0, 4);
-
-            // 3) 두 번째 인덱스 (idxA와 겹치지 않도록)
-            int idxB = (idxA + Random.Range(1, 4)) & 3;       // 1~3 더한 뒤 0~3 래핑
-
-            // 4) 두 자리만 1로 설정
-            activeData[idxA] = 1;
-            activeData[idxB] = 1;
-
-            // Linq
-            //activeData = activeData
-            // .Select(b => b                           // 이미 true ? 유지 : 랜덤
-            //              ? true
-            //              : Random.value > 0.5f)
-            // .ToList();
-
-            // activeData[] 는 0/1 · ushort -> float 로 캐스팅
-            CompressedVector2 activeOffsetOne = CompressedVector2.FromVector2(
-                new Vector2(activeData[0], activeData[1]));
-
-            CompressedVector2 activeOffsetTwo = CompressedVector2.FromVector2(
-                new Vector2(activeData[2], activeData[3]));
+            // 시동 후에 패턴 완전 종료까지 홀드
+            yield return ready;
 
 
-            // position 의 x, y 와
-            // direction 의 x, y 순으로
-            // 11시, 1시, 5시, 7시의 활성화 데이터를 담는다.
-
-            // 0~4 + 4
-            int seperateCount = Random.Range(4, 8);
-            data.Add(new BulletSpawnData
-            {
-                bulletId = GenerateBulletId(),
-                position = activeOffsetOne,
-                direction = activeOffsetTwo,
-                patternIndex = (byte)pattern,
-                patternOffset = BitPackerUtil.PackWinderOffset(seperateCount, 0.1f)
-            });
-
-
-            foreach (var item in data)
-            {
-                m_BulletSpawnDataQueue.Enqueue(item);
-            }
-
-            yield return null;
+            // 첫 패턴은 즉발, 이후 패턴 인터벌 추가
+            yield return new WaitForSeconds(Random.Range(60f, 90f));
         }
     }
 
@@ -424,7 +358,7 @@ public class BulletSpawner : NetworkBehaviour
 
         float interval_min = 5f;
 
-        yield return new WaitUntil(() => SpawnManager.Instance.GetRandomPlayerTransform() != null);
+        yield return new WaitUntil(() => GameManager.Instance.GetRandomPlayerTransform() != null);
 
         while (true)
         {
@@ -443,7 +377,7 @@ public class BulletSpawner : NetworkBehaviour
             }
             timeStamp = 0;
 
-            Transform player = SpawnManager.Instance.GetRandomPlayerTransform();
+            Transform player = GameManager.Instance.GetRandomPlayerTransform();
 
             // interval 만큼 쉬기
             if (player == null)
@@ -501,7 +435,7 @@ public class BulletSpawner : NetworkBehaviour
 
         float interval_min = 5f;
 
-        yield return new WaitUntil(() => SpawnManager.Instance.GetRandomPlayerTransform() != null);
+        yield return new WaitUntil(() => GameManager.Instance.GetRandomPlayerTransform() != null);
 
         while (true)
         {
@@ -514,7 +448,7 @@ public class BulletSpawner : NetworkBehaviour
             }
             timeStamp = 0;
 
-            Transform player = SpawnManager.Instance.GetRandomPlayerTransform();
+            Transform player = GameManager.Instance.GetRandomPlayerTransform();
 
             // interval 만큼 쉬기
             if (player == null)
@@ -542,7 +476,7 @@ public class BulletSpawner : NetworkBehaviour
     }
     #endregion
 
-    public int maxsender = 30;
+    public int m_MaxPacketSendCount = 30;
     public override void FixedUpdateNetwork()
     {
         if (!Runner.IsServer) return;      // Host 전용
@@ -554,24 +488,23 @@ public class BulletSpawner : NetworkBehaviour
             m_SendIntervalTimeStamp = 0f;               // 잔여 오차 버리고 리셋
 
             // 큐에서 최대 30발 꺼내 RPC 전송
-            var batch = m_BulletSpawnDataQueue.DequeueSafe(maxsender);
+            var batch = m_BulletSpawnDataQueue.DequeueSafe(m_MaxPacketSendCount);
 
             if (batch == null || batch.Count == 0) return;
 
-            const int MaxPerPacket = 41;               // 512 B 한계에 안전한 발수
+            const int MAX_PER_PACKET = 41;               // 512 B 한계에 안전한 발수
 
             // ── 41발 단위로 분할 전송 ─────────────────────────────
-            for (int i = 0; i < batch.Count; i += MaxPerPacket)
+            for (int i = 0; i < batch.Count; i += MAX_PER_PACKET)
             {
-                int len = Math.Min(MaxPerPacket, batch.Count - i);
+                int len = Math.Min(MAX_PER_PACKET, batch.Count - i);
 
                 // List<T>.GetRange는 내부 배열 복사 1회라 부담이 적습니다.
                 var slice = batch.GetRange(i, len);
 
                 // RPC 호출, 횟수당 512B
-                // 탄환 개당 20B
+                // 탄환 개당 약 20B
                 RPC_SpawnBullets(CommonUtil.EncodeBulletSpawn(slice));
-                //Debug.Log($"{i} 번째 잘림! {i}/{batch.Count}");
             }
         }
     }
@@ -676,6 +609,7 @@ public class BulletSpawner : NetworkBehaviour
                 CoSpawnBulletWinder = StartCoroutine(CorSpawnBulletWinder(bulletId, position, direction, pattern, patternOffset));
                 break;
             case BulletPattern.Cage:
+                CoSpawnBulletCage = StartCoroutine(CorSpawnBulletCage(bulletId, position, direction, pattern, patternOffset));
                 break;
             default:
                 break;
@@ -903,6 +837,93 @@ public class BulletSpawner : NetworkBehaviour
         CoSpawnBulletWinder = null;
     }
 
+    private Coroutine CoSpawnBulletCage;
+
+    // ─────────────────────────────────────────────────────
+    //  Cage 패턴  :  화면 직선 탄막 변당 1개 -> 범위 좁히기
+    // ─────────────────────────────────────────────────────
+    private IEnumerator CorSpawnBulletCage(
+        ushort bulletId,
+        Vector3 position,
+        Vector2 direction,
+        BulletPattern pattern,
+        byte patternOffset)
+    {
+        float timeStamp = 0;
+        const float READY_SEC = 5;
+        const float BULLET_TIME_SEC = 60f;
+        const float SHOT_SPEED = 3f;
+
+        /* 1. 화면 변당 탄막 라인 좌표 ───────────────────── */
+        var cam = CommonUtil.GetMainCamera();
+        Vector2 leftUp = cam.ViewportToWorldPoint(Vector2.up);
+        Vector2 rightUp = cam.ViewportToWorldPoint(Vector2.one);
+        Vector2 leftDown = cam.ViewportToWorldPoint(Vector2.zero);
+        Vector2 rightDown = cam.ViewportToWorldPoint(Vector2.right);
+
+
+        float t = patternOffset * 0.1f;
+
+        var wait = new WaitForSeconds(0.1f);
+
+        List<(Vector2 start, Vector2 goal, Vector2 shotDir, Vector2 moveDir)> bulletLines = new()
+        {
+            (leftUp, Vector2.Lerp(leftUp, rightUp, t), Vector2.down, Vector2.right),
+            (rightUp, Vector2.Lerp(rightUp, rightDown, t) , Vector2.left, Vector2.down),
+            (rightDown, Vector2.Lerp(rightDown, leftDown, t) , Vector2.up, Vector2.left),
+            (leftDown, Vector2.Lerp(leftDown, leftUp, t) , Vector2.right, Vector2.up)
+        };
+
+        /* 1. 메인 루프 ─────────────────────────────────────── */
+        float timeStampReverseTick = 1 / READY_SEC;
+        while (timeStamp < READY_SEC)
+        {
+            foreach (var bulletData in bulletLines)
+            {
+                Vector2 startPos = Vector2.Lerp(bulletData.start, bulletData.goal, timeStamp * timeStampReverseTick);
+                GameObject bulletObj = LocalObjectPool.Instance.Get(
+                                            m_BulletPrefab.name,
+                                            startPos,
+                                            Quaternion.identity);
+
+                var bullet = bulletObj.GetComponent<Bullet>();
+                if (bullet == null) { Debug.LogError("Bullet component missing"); yield break; }
+
+                bullet.SetId(bulletId++);
+                bullet.SetPattern(pattern, bulletData.shotDir, SHOT_SPEED);
+            }
+
+            timeStamp += Time.deltaTime;
+            yield return null;
+        }
+
+        timeStamp = 0;
+
+        while (timeStamp < BULLET_TIME_SEC)
+        {
+            foreach (var bulletData in bulletLines)
+            {
+                Vector2 startPos = bulletData.goal;
+                GameObject bulletObj = LocalObjectPool.Instance.Get(
+                                            m_BulletPrefab.name,
+                                            startPos,
+                                            Quaternion.identity);
+
+                var bullet = bulletObj.GetComponent<Bullet>();
+                if (bullet == null) { Debug.LogError("Bullet component missing"); yield break; }
+
+                bullet.SetId(bulletId++);
+                bullet.SetPattern(pattern, bulletData.shotDir, SHOT_SPEED);
+            }
+
+            timeStamp += Time.deltaTime;
+            yield return null;
+        }
+        // 여기에 마지막 탄을 이용한 패턴 회수 넣을 것
+        Debug.LogWarning($"End SpawnBulletCage");
+        CoSpawnBulletCage = null;
+    }
+
     public ushort GenerateBulletId()
     {
         m_BulletId++;
@@ -1096,11 +1117,11 @@ namespace BulletPatterns
             pk = Set(pk, Corner.LU, ShotDir.CW);
             pk = Set(pk, Corner.RD, ShotDir.CCW);
 
-            Debug.Log($"Packet bits : {ToBitString(pk)}");      // 00100001
-            Debug.Log($"LU = {Get(pk, Corner.LU)}");            // CW
-            Debug.Log($"RU = {Get(pk, Corner.RU)}");            // None
-            Debug.Log($"RD = {Get(pk, Corner.RD)}");            // CCW
-            Debug.Log($"LD = {Get(pk, Corner.LD)}");            // None
+            //Debug.Log($"Packet bits : {ToBitString(pk)}");      // 00100001
+            //Debug.Log($"LU = {Get(pk, Corner.LU)}");            // CW
+            //Debug.Log($"RU = {Get(pk, Corner.RU)}");            // None
+            //Debug.Log($"RD = {Get(pk, Corner.RD)}");            // CCW
+            //Debug.Log($"LD = {Get(pk, Corner.LD)}");            // None
         }
         #endregion
     }
