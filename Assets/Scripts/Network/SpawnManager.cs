@@ -3,14 +3,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+public class PoolKey
+{
+    public const string BULLET = "bullet";
+    public const string EXPLOSION = "explosion";
+}
+
 public class SpawnManager : NetworkBehaviour
 {
     public GameObject m_PlayerPrefab;
-    public MasterInputController m_MasterInputManagerPrefab;
 
     public List<Sprite> m_AircraftSprites;
     private int m_AircraftIdx = 0;
@@ -24,20 +30,7 @@ public class SpawnManager : NetworkBehaviour
 
     private void Start()
     {
-        LocalObjectPool.Instance.RegisterPrefab(m_ExplosionPrefab);
-    }
-
-
-    public void RequestSpawnPlayer(PlayerRef _playerRef)
-    {
-        if (Runner.IsServer)
-        {
-            SpawnPlayer(_playerRef);
-        }
-        else
-        {
-            RpcRequestSpawnPlayer(_playerRef);
-        }
+        LocalObjectPool.Instance.RegisterPrefab(PoolKey.EXPLOSION, m_ExplosionPrefab);
     }
 
     [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
@@ -51,59 +44,11 @@ public class SpawnManager : NetworkBehaviour
         var playerObject = Runner.Spawn(m_PlayerPrefab, Vector2.zero, Quaternion.identity, _playerRef,
         (runner, obj) =>
         {
-            obj.GetComponent<SpaceshipController>().SetAircraft(m_AircraftSprites[m_AircraftIdx++ % m_AircraftSprites.Count]);
-            Debug.Log($"{obj.name} // {runner.LocalPlayer.PlayerId} is spawned.");
-        });
-    }
-
-    public NetworkObject SpawnPlayerMasterController(PlayerRef player)
-    {
-        // 테스트용
-        //SpawnPlayer(player);
-        var playerObject = Runner.Spawn(m_MasterInputManagerPrefab, Vector2.zero, Quaternion.identity, player,
-        (runner, obj) =>
-        {
-            Debug.Log($"{obj.name} // {runner.LocalPlayer.PlayerId} is spawned.");
+            obj.GetComponent<SpaceshipController>().SetAircraft(m_AircraftIdx++ % m_AircraftSprites.Count);
+            Debug.Log($"{obj.name} // {_playerRef} is spawned.");
         });
 
-        var no = playerObject.GetComponent<NetworkObject>();
-        Runner.SetPlayerObject(player, no);
-        return no;
-    }
-
-
-    public void PlayDestroyAnim(PlayerRef _playerRef)
-    {
-        var po = Runner.GetPlayerObject(_playerRef);
-        StartCoroutine(CorPlayDestroyAnim(po.transform));
-    }
-
-    IEnumerator CorPlayDestroyAnim(Transform _target)
-    {
-        if (_target == null) yield break;
-
-        float timeStamp = 0;
-        Vector2 pos = _target.position;
-
-        // 기존
-        //_target.GetComponent<SpaceshipController>().PlayDestroyAnim();
-
-        // MIC -> m_Player -> DestroyAnim();
-        Transform p = _target.GetComponent<MasterInputController>().Player.transform;
-
-        while (timeStamp  <= 2.0f)
-        {
-            if (p != null)
-            {
-                pos = p.position;
-            }
-
-            var explosion = LocalObjectPool.Instance.Get(m_ExplosionPrefab.name, pos, quaternion.identity);
-            explosion.SetActive(true);
-
-            float interval = Random.Range(0, 0.2f);
-            timeStamp += interval;
-            yield return new WaitForSeconds(interval);
-        }
+        Runner.SetPlayerObject(_playerRef, playerObject.GetComponent<NetworkObject>());
+        GameManager.Instance.AddPlayer(_playerRef, playerObject.transform);
     }
 }

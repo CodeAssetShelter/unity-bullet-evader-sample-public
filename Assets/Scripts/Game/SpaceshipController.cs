@@ -1,154 +1,279 @@
-using Fusion;
+Ôªøusing Fusion;
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public interface BaseActions
-{
-    public void Hit();
-    public void Destroy();
-}
 
-public class SpaceshipController : NetworkBehaviour, BaseActions, ISpawned, IGameDestroyPlayer
+public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
 {
+    [Networked] public int Life { get; set; } = 3;
+
     [SerializeField] private SpriteRenderer m_AircraftSpr;
+    [SerializeField] private List<SpriteRenderer> m_SpriteList;
     [SerializeField] private CircleCollider2D m_Collider;
     [SerializeField] Rigidbody2D m_Rigidbody;
 
-    [SerializeField] public bool m_IsAlive = false;
-    [SerializeField] private bool m_IsMine = false;
+    [Networked] public NetworkBool m_Hide { get; set; } = false;
+    [Networked] public NetworkBool m_Invincible { get; set; } = false;
 
-    private MasterInputController m_MIC;
 
-    private void OnEnable()
-    {
-        ActiveInvincible();
-    }
+    // *-------- Timer ----------------------------
+    [Networked] private TickTimer m_InvincibleTick { get; set; }
+    private const float m_InvincibleTime = 4.5f;
+    [Networked] private TickTimer m_RebornTick { get; set; }
+    private const float m_RebornTime = 2.5f;
+
+    [Networked] private int m_SprIdx { get; set; } = 0;
+
+    [Networked] public NetworkBool m_IsAlive { get; set; } = false;
+    [Networked] public NetworkBool m_CanControl { get; set; } = false;
+
+    private ChangeDetector m_ChangeDetector;
 
     public override void Spawned()
     {
         base.Spawned();
 
+        // *-------- Init -----------------------------
+        m_ChangeDetector = GetChangeDetector(ChangeDetector.Source.SimulationState);
+
+        // *-------- Settings -------------------------
+        m_AircraftSpr.sprite = GameManager.Instance.GetAircraftSprite(m_SprIdx);
         if (Object.HasInputAuthority)
         {
+            Debug.Log($"{Object.InputAuthority} SPAWN");
             Runner.SetIsSimulated(Object, true);
-            m_MIC = Runner.GetPlayerObject(Runner.LocalPlayer).GetComponent<MasterInputController>();
-            m_MIC.RegisterPlayer(gameObject);
-
-            GameManager.Instance.ConnectPlayer(Object);
-            m_IsMine = true;
-        }
-        else
-        {
-            m_IsMine = false;
-            m_Collider.enabled = false;
         }
 
         m_IsAlive = true;
     }
 
-    public void SetAircraft(Sprite _spr)
+    public void AfterSpawned()
     {
-        m_AircraftSpr.sprite = _spr;
+        if (Object.HasInputAuthority)
+        {
+            m_IsAlive = true;
+            RpcActiveInvincible(Object.InputAuthority);
+        }
+    }
+
+    public override void Render()
+    {
+        foreach (var change in m_ChangeDetector.DetectChanges(this, out var previousBuffer, out var currentBuffer))
+        {
+            switch (change)
+            {
+                case nameof(m_Hide):
+                    var reader_hide = GetPropertyReader<NetworkBool>(nameof(m_Hide));
+                    var (previous_hide, current_hide)= reader_hide.Read(previousBuffer, currentBuffer);
+                    ToggleHide(previous_hide, current_hide);
+                    break;
+                case nameof(m_Invincible):
+                    var reader_invincible = GetPropertyReader<NetworkBool>(nameof(m_Invincible));
+                    var (previous_invin, current_invin) = reader_invincible.Read(previousBuffer, currentBuffer);
+                    ActiveInvincible(current_invin);
+                    break;
+                case nameof(m_IsAlive):
+                    var reader_alive = GetPropertyReader<NetworkBool>(nameof(m_IsAlive));
+                    var (previous_alive, current_alive) = reader_alive.Read(previousBuffer, currentBuffer);
+                    ToggleVisual(current_alive);
+                    break;
+            }
+        }
+    }
+
+    public override void FixedUpdateNetwork()
+    {
+        if (!Object.HasStateAuthority) return;
+        
+        if (m_InvincibleTick.Expired(Runner))
+        {
+            Debug.Log($"{Object.InputAuthority} : Reborn - {Object.InputAuthority}");
+            m_InvincibleTick = default;
+            m_Invincible = false;
+        }
+        if (m_RebornTick.Expired(Runner))
+        {
+            RpcActiveInvincible(Object.InputAuthority);
+            FadePlayer(0);
+            m_IsAlive = true;
+            m_RebornTick = default;
+        }
+    }
+
+    private void UpdateScore()
+    {
+        if (m_CanControl && m_IsAlive)
+        {
+            GameManager.Instance.UpdateScore();
+        }
+    }
+
+    private void ActiveInvincible(bool _isOn, bool _isActiveTimer = true)
+    {
+        if (!Runner.IsServer) return;
+        m_Invincible = _isOn;
+        m_Hide = _isOn;
+        m_Collider.enabled = !m_Invincible;
+
+        if (!_isActiveTimer) return;
+        if (m_InvincibleTick.ExpiredOrNotRunning(Runner) && m_Invincible)
+        {
+            Debug.Log($"Start Reborn - {Object.InputAuthority}");
+            m_InvincibleTick = TickTimer.CreateFromSeconds(Runner, m_InvincibleTime);
+        }
+    }
+
+    private void ToggleHide(bool _isPrevHide, bool _isCurrHide)
+    {
+        if (_isCurrHide == _isPrevHide) return;
+        m_Hide = _isCurrHide;
+        
+        if (m_CoHideAnim != null) StopCoroutine(m_CoHideAnim);
+        if (m_Hide)
+        {
+            m_CoHideAnim = StartCoroutine(CorHideAnim());
+        }
+        else
+        {
+            ToggleVisual(true);
+        }
+    }
+
+    Coroutine m_CoHideAnim;
+    IEnumerator CorHideAnim()
+    {
+        var wait = new WaitForSeconds(0.1f);
+        bool on = false;
+        while (true)
+        {
+            on = !on;
+            ToggleVisual(on);
+            yield return wait;
+        }
+    }
+
+
+    private void ToggleVisual(bool _isShow)
+    {
+        m_AircraftSpr.enabled = _isShow;
+        m_SpriteList.ForEach(x => x.enabled = _isShow);
+    }
+
+
+    private void PlayDestroyAnim(PlayerRef _playerRef)
+    {
+        StartCoroutine(CorPlayDestroyAnim(_playerRef));
+    }
+    IEnumerator CorPlayDestroyAnim(PlayerRef _playerRef)
+    {
+        const float playTime = 2.5f;
+        float timeStamp = 0;
+        float delay = UnityEngine.Random.Range(0.1f, 0.15f);
+        var wait = new WaitForSeconds(delay);
+
+        ActiveInvincible(false, false);
+        SetConstVelocity(new Vector2(0.2f, -0.2f));
+
+        Transform transform = GameManager.Instance.GetPlayer(_playerRef).transform;
+
+        if (Object.HasStateAuthority)
+            m_CanControl = false;
+
+        while (timeStamp < playTime)
+        {
+            if (transform == null)
+            {
+                yield break;
+            }
+
+            float t = timeStamp / playTime;
+
+            FadePlayer(t);
+            GameManager.Instance.GetExplosionEffect(transform.position, 0.1f, 0.1f);
+            timeStamp += delay;
+            yield return wait;
+        }
+
+        SetConstVelocity(Vector2.zero);
+        FadePlayer(1);
+
+        if (Life <= 0 && Object.HasInputAuthority)
+        {
+            yield return new WaitForSeconds(2.0f);
+            GameManager.Instance.ActiveGameOverUI();
+        }
+
+        if (Object.HasStateAuthority)
+        {
+            m_IsAlive = false;
+            if (Life > 0)
+            {
+                m_RebornTick = TickTimer.CreateFromSeconds(Runner, m_RebornTime);
+            }
+        }
+
+        // ÌôúÏÑ±Ìôî ÏïàÌï¥ÎèÑ Îê†ÎìØ
+        // Ïñ¥Ï∞®Ìîº Î∂ÄÌôú Î¨¥Ï†Å ÌÉÄÏù¥Î∞ç Ïù¥ÌõÑ ÏûêÎèô ÌôúÏÑ±Ìôî
+        //ActiveInvincible(true, false);
+    }
+
+    private void FadePlayer(float _t)
+    {
+        m_AircraftSpr.color = Color.Lerp(Color.white, Color.clear, _t);
+        m_SpriteList[0].color = Color.Lerp(Color.red, Color.clear, _t);
+        m_SpriteList[1].color = Color.Lerp(Color.white, Color.clear, _t);
+    }
+
+    public void SetAircraft(int _Idx)
+    {
+        if (Object.HasStateAuthority)
+            m_SprIdx = _Idx;
+    }
+
+    private void SetConstVelocity(Vector2 _vel)
+    {
+        if (!Runner.IsServer) return;
+        m_Rigidbody.linearVelocity = _vel;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!Object.HasInputAuthority) return;
-        Debug.Log($"{collision.gameObject.tag} IN");
-        if (collision.CompareTag("Bullet") && m_IsAlive)
+        if (collision.CompareTag("Bullet") && m_IsAlive && m_CanControl)
         {
-            m_IsAlive = false;
-            Hit();
+            //m_IsAlive = false;
+            //RpcActiveInvincible(Object.InputAuthority);
+            RpcHit(Object.InputAuthority);
         }
     }
-    public void Hit()
+
+
+    #region *---------- RPC ---------------------------------
+    [Rpc (RpcSources.All, RpcTargets.StateAuthority)]
+    public void RpcActiveInvincible(PlayerRef _playerRef)
     {
-        // «√∑π¿ÃæÓ∞° √º∑¬¿ª ∞°¡ˆ∞Ì ¿÷¥Ÿ∏È, æ∆∑°ø°º≠ ¡∂∞«∫–±‚ ¿€º∫
-        Destroy();
-    }
-
-    public void Destroy()
-    {
-        GameManager.Instance.Life--;
-        m_Collider.enabled = false;
-        m_Collider.gameObject.SetActive(false);
-        m_IsAlive = false;
-        m_MIC.DestroyPlayer(Runner.LocalPlayer);
-    }
-
-    public void ActiveInvincible()
-    {
-        StartCoroutine(CorActiveInvincible());
-    }
-
-    IEnumerator CorActiveInvincible()
-    {
-        if (!m_AircraftSpr) yield break;
-
-        float interval = 0.1f;
-        float timer = 0f;
-        float duration = 4.5f;
-        bool on = true;
-        // WaitForSeconds ƒ≥ΩÃ °Ê GC Zero
-        var wait = new WaitForSeconds(interval);
-
-        m_Collider.enabled = false;
-
-        while (timer < duration)
+        if (!Runner.IsServer) return;
+        if (Object.InputAuthority == _playerRef)
         {
-            on = !on;
-            m_AircraftSpr.enabled = on;
-
-            yield return wait;
-            timer += interval;
+            m_CanControl = true;
+            ActiveInvincible(true);
         }
-
-        m_AircraftSpr.enabled = true;            // ¡æ∑· Ω√ ø¯ªÛ ∫π±∏
-        m_Collider.enabled = true;
+        Debug.Log($"{Object.InputAuthority} : Call Rpc Invincible - {_playerRef}");
     }
 
-    public void DestroyPlayer(PlayerRef _playerRef)
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    public void RpcHit(PlayerRef _playerRef)
     {
-        StartCoroutine(CorDestroyAnimation());
-    }
-
-    //public void PlayDestroyAnim()
-    //{
-    //    StartCoroutine(CorDestroyAnimation());
-    //}
-
-    IEnumerator CorDestroyAnimation()
-    {
-        float timeStamp = 0;
-        var wait = new WaitForFixedUpdate();
-
-        m_Rigidbody.linearVelocity = (Vector2.right + Vector2.down) * 0.2f;
-
-        // π´æ∞° √≥∏Æ«œ∞Ì ΩÕ¿∫∞‘ ¿÷¥Ÿ∏È ø©±‚º≠
-        while (timeStamp < 2.0f)
+        if (!Runner.IsServer) return;
+        if (Object.InputAuthority == _playerRef)
         {
-            timeStamp += Time.fixedDeltaTime;
-            m_AircraftSpr.color = Color.Lerp(Color.white, Color.clear, timeStamp * 0.5f);
-            yield return wait;
+            Life = Mathf.Clamp(--Life, 0, 3);
+            PlayDestroyAnim(_playerRef);
         }
-        m_AircraftSpr.color = Color.clear;
-
-        GameManager.Instance.Reborn();
-        gameObject.SetActive(false);
-        ResetPlayerState();
+        Debug.Log($"{Object.InputAuthority} : Call Rpc Invincible - {_playerRef}");
     }
-
-    public void ResetPlayerState()
-    {
-        m_Rigidbody.transform.position = Vector3.zero;
-        m_Rigidbody.linearVelocity = Vector2.zero;
-        m_AircraftSpr.color = Color.white;
-        m_Collider.gameObject.SetActive(true);
-
-        if (m_IsMine)
-        {
-            m_Collider.enabled = true;
-            m_IsAlive = true;
-        }
-    }
+    #endregion
 }

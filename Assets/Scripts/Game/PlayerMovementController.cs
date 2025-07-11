@@ -33,32 +33,32 @@ public class PlayerMovementController : NetworkBehaviour, IGamePlayerMove
         if (Object.HasStateAuthority == false) return;
     }
 
-    //public override void FixedUpdateNetwork()
-    //{
-        // Bail out of FUN() if this spaceship does not currently accept input
+
+    // Host 기준
+    // 로컬 함수(FixedUpdated 등)에서 Move 를 하는 경우
+    // 네트워크를 통해 입력 패킷을 전송하는게 아니므로
+    // 다음 스냅샷에서 Host 위치 기준으로 롤백됨
+    public override void FixedUpdateNetwork()
+    {
+        //Bail out of FUN() if this spaceship does not currently accept input
         //if (_spaceshipController.AcceptInput == false) return;
 
-        // GetInput() can only be called from NetworkBehaviours.
-        // In SimulationBehaviours, either TryGetInputForPlayer<T>() or GetInputForPlayer<T>() has to be called.
-        // This will only return true on the Client with InputAuthority for this Object and the Host.
+        //GetInput() can only be called from NetworkBehaviours.
+        //In SimulationBehaviours, either TryGetInputForPlayer<T>() or GetInputForPlayer<T>() has to be called.
+        //This will only return true on the Client with InputAuthority for this Object and the Host.
         //if (Runner.TryGetInputForPlayer<PlayerInputBase>(Object.InputAuthority, out var input))
 
-        //if (!m_MainController.m_IsAlive) return;
-        // GetInput() 은 다른 유저가 아닌 내 입력권한만 검사
-        //if (m_MainController.m_IsAlive && GetInput<PlayerInputBase>(out var input))
-        //{
-        //    Move(input);
-        //}
-    //}
+        //GetInput() 은 다른 유저가 아닌 내 입력권한만 검사
+        if (m_MainController.m_CanControl && GetInput<PlayerInputBase>(out var input))
+        {
+            Move(input);
+        }
+    }
+
 
     // Moves the spaceship RB using the input for the client with InputAuthority over the object
     public void Move(PlayerInputBase input)
     {
-        if (!m_MainController.m_IsAlive)
-        {
-            return;
-        }
-
         float dx = input.x * m_MovementSpeed;
         float dy = input.y * m_MovementSpeed;
 
@@ -67,7 +67,7 @@ public class PlayerMovementController : NetworkBehaviour, IGamePlayerMove
 
         if (view.x < 0f || view.x > 1f) dx = 0f;
         if (view.y < 0f || view.y > 1f) dy = 0f;
-
+        
         m_Rigidbody.linearVelocityX = dx;
         m_Rigidbody.linearVelocityY = dy;
     }

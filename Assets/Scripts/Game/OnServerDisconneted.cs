@@ -53,6 +53,11 @@ public class OnServerDisconneted : MonoBehaviour, INetworkRunnerCallbacks
 
     public void OnPlayerLeft(NetworkRunner runner, PlayerRef player)
     {
+        Debug.Log($"Left - {player}");
+        if (runner.IsServer)
+        {
+            runner.Despawn(runner.GetPlayerObject(player));
+        }
     }
 
     public void OnReliableDataProgress(NetworkRunner runner, PlayerRef player, ReliableKey key, float progress)

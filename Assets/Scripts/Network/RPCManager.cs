@@ -8,7 +8,4 @@ public class RPCManager : NetworkBehaviour
         base.Spawned();
         Debug.Log($"{Runner.UserId} RPC Manager is spawned");
     }
-
-
-
 }

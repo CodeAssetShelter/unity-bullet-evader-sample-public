@@ -149,7 +149,7 @@ public class BulletSpawner : NetworkBehaviour
     public void Start()
     {
         m_LocalObjectPool = gameObject.AddComponent<LocalObjectPool>();
-        m_LocalObjectPool.RegisterPrefab(m_BulletPrefab);
+        m_LocalObjectPool.RegisterPrefab(PoolKey.BULLET, m_BulletPrefab);
 
         //RunPattern(BulletPattern.Fan);
         //RunPattern(BulletPattern.Normal);
@@ -209,7 +209,7 @@ public class BulletSpawner : NetworkBehaviour
         while (true)
         {
             // interval 쪽으로 가중치를 둘 것 
-            if (timeStamp < Mathf.Max(interval - (GameManager.Instance.GameLevel + 1), interval_min))
+            if (timeStamp < Mathf.Max(interval - (GameManager.Instance.GetGameLevel() + 1), interval_min))
             {
                 timeStamp += Time.deltaTime;
                 yield return null;
@@ -254,7 +254,7 @@ public class BulletSpawner : NetworkBehaviour
         while (true)
         {
             // interval 쪽으로 가중치를 둘 것 
-            if (timeStamp < Mathf.Max(interval - (GameManager.Instance.GameLevel + 1), interval_min))
+            if (timeStamp < Mathf.Max(interval - (GameManager.Instance.GetGameLevel() + 1), interval_min))
             {
                 timeStamp += Time.deltaTime;
                 yield return null;
@@ -273,7 +273,7 @@ public class BulletSpawner : NetworkBehaviour
 
             var (pos, dir) = GetBulletVector(player.position);
             byte offset = (byte)(Mathf.Clamp
-                (spreadIntervalMax - (GameManager.Instance.GameLevel - 1),
+                (spreadIntervalMax - (GameManager.Instance.GetGameLevel() - 1),
                 spreadIntervalMin,
                 spreadIntervalMax) * 10f); // 타이머 역할
 
@@ -369,7 +369,7 @@ public class BulletSpawner : NetworkBehaviour
             }
 
             // interval 쪽으로 가중치를 둘 것 
-            if (timeStamp < Mathf.Max(interval - (GameManager.Instance.GameLevel + 1), interval_min))
+            if (timeStamp < Mathf.Max(interval - (GameManager.Instance.GetGameLevel() + 1), interval_min))
             {
                 timeStamp += Time.deltaTime;
                 yield return null;
@@ -440,7 +440,7 @@ public class BulletSpawner : NetworkBehaviour
         while (true)
         {
             // interval 쪽으로 가중치를 둘 것 
-            if (timeStamp < Mathf.Max(interval - (GameManager.Instance.GameLevel + 1), interval_min))
+            if (timeStamp < Mathf.Max(interval - (GameManager.Instance.GetGameLevel() + 1), interval_min))
             {
                 timeStamp += Time.deltaTime;
                 yield return null;
@@ -618,7 +618,7 @@ public class BulletSpawner : NetworkBehaviour
 
     private void SpawnBulletNormal(ushort bulletId, Vector3 position, Vector2 direction, BulletPattern pattern, byte patternOffset)
     {
-        bulletObj = LocalObjectPool.Instance.Get(m_BulletPrefab.name, position, Quaternion.identity);
+        bulletObj = LocalObjectPool.Instance.Get(PoolKey.BULLET, position, Quaternion.identity);
         bullet = bulletObj.GetComponent<Bullet>();
         if (bullet == null)
         {
@@ -675,7 +675,7 @@ public class BulletSpawner : NetworkBehaviour
 
             foreach (var spawnPoint in spawnPoints)
             {
-                bulletObj = LocalObjectPool.Instance.Get(m_BulletPrefab.name, spawnPoint, Quaternion.identity);
+                bulletObj = LocalObjectPool.Instance.Get(PoolKey.BULLET, spawnPoint, Quaternion.identity);
                 bullet = bulletObj.GetComponent<Bullet>();
                 if (bullet == null)
                 {
@@ -798,7 +798,7 @@ public class BulletSpawner : NetworkBehaviour
                                           sin * baseDir.x + cos * baseDir.y);
 
                     GameObject bulletObj = LocalObjectPool.Instance.Get(
-                                                m_BulletPrefab.name,
+                                                PoolKey.BULLET,
                                                 startPos,
                                                 Quaternion.identity);
 
@@ -882,7 +882,7 @@ public class BulletSpawner : NetworkBehaviour
             {
                 Vector2 startPos = Vector2.Lerp(bulletData.start, bulletData.goal, timeStamp * timeStampReverseTick);
                 GameObject bulletObj = LocalObjectPool.Instance.Get(
-                                            m_BulletPrefab.name,
+                                            PoolKey.BULLET,
                                             startPos,
                                             Quaternion.identity);
 
@@ -905,7 +905,7 @@ public class BulletSpawner : NetworkBehaviour
             {
                 Vector2 startPos = bulletData.goal;
                 GameObject bulletObj = LocalObjectPool.Instance.Get(
-                                            m_BulletPrefab.name,
+                                            PoolKey.BULLET,
                                             startPos,
                                             Quaternion.identity);
 

@@ -19,10 +19,8 @@ public class LocalObjectPool : MonoBehaviour
         Instance = this;
     }
 
-    public void RegisterPrefab(GameObject prefab, int prewarmCount = 0)
+    public void RegisterPrefab(string key, GameObject prefab, int prewarmCount = 0)
     {
-        string key = prefab.name;
-
         if (m_PrefabMap.ContainsKey(key)) return;
 
         m_PrefabMap[key] = prefab;
