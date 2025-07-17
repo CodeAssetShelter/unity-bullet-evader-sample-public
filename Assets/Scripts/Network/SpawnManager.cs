@@ -39,7 +39,7 @@ public class SpawnManager : NetworkBehaviour
         SpawnPlayer(_playerRef);
     }
 
-    private void SpawnPlayer(PlayerRef _playerRef)
+    public void SpawnPlayer(PlayerRef _playerRef)
     {
         var playerObject = Runner.Spawn(m_PlayerPrefab, Vector2.zero, Quaternion.identity, _playerRef,
         (runner, obj) =>

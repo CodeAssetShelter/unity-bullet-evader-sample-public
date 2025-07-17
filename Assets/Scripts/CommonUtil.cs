@@ -141,4 +141,31 @@ public static class CommonUtil
         var values = Enum.GetValues(typeof(T));
         return (T)values.GetValue(Random.Range(0, _max == -1 ? values.Length : _max));
     }
+
+    /// <summary>
+    /// 화살표(RectTransform)의 오른쪽 끝을 타겟의 왼쪽 끝 - offset 에 위치
+    /// </summary>
+    public static void PositionArrowLeftOfTMP(RectTransform tmp, RectTransform arrow, float offset = 15f)
+    {
+        /* 1) TMP의 월드 공간 4 코너 가져오기 */
+        Vector3[] c = new Vector3[4];
+        tmp.GetWorldCorners(c);   // 0=좌하, 1=좌상, 2=우상, 3=우하
+
+        /* 2) 왼쪽‑가운데(Left Middle) 좌표 계산
+              └ X : 좌하.x (또는 좌상.x 동일)
+              └ Y : (좌하.y + 좌상.y) / 2  → 정확히 중간 */
+        float leftWorldX = c[0].x;
+        float midWorldY = (c[0].y + c[1].y) * 0.5f;
+
+        /* 3) 화살표 폭(스케일 포함)과 Pivot → 오른쪽 경계 거리 */
+        float arrowWidthWorld = arrow.rect.width * arrow.lossyScale.x;
+        float pivotToRight = (1f - arrow.pivot.x) * arrowWidthWorld;
+
+        /* 4) 화살표 Pivot 이 위치해야 할 월드 좌표 */
+        Vector3 worldPos = arrow.position;
+        worldPos.x = leftWorldX - offset - pivotToRight; // X : 왼쪽‑가운데에서 왼쪽으로(offset+오른쪽경계)
+        worldPos.y = midWorldY;                          // Y : 항상 가운데 맞춤
+
+        arrow.position = worldPos;  // 부모 계층이 달라도 정확히 배치
+    }
 }

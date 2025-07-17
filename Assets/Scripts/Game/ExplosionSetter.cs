@@ -20,7 +20,7 @@ public class ExplosionSetter : MonoBehaviour
         transform.localScale = new Vector2(newScale, newScale);
 
         var soundType = Random.Range(0, 2);
-        SoundManager.Instance.PlayMusic((SoundManager.SoundType) soundType);
+        SoundManager.Instance.PlayEfxSound((SoundManager.SoundType) soundType);
 
         m_Animator.speed = Random.Range(m_AnimatorSpeed.x, m_AnimatorSpeed.y);
         m_Animator.SetFloat("Blend", Random.Range(0, 1.0f));

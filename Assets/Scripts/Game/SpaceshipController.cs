@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
 public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
@@ -17,6 +18,7 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
 
     [Networked] public NetworkBool m_Hide { get; set; } = false;
     [Networked] public NetworkBool m_Invincible { get; set; } = false;
+    [Networked] public NetworkBool m_Destroying { get; set; } = false;
 
 
     // *-------- Timer ----------------------------
@@ -41,6 +43,12 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
 
         // *-------- Settings -------------------------
         m_AircraftSpr.sprite = GameManager.Instance.GetAircraftSprite(m_SprIdx);
+
+        // *-------- Debug ----------------------------
+        //if (Object.HasStateAuthority)
+        //    Life = 1;
+
+        // *-------- Init -----------------------------
         if (Object.HasInputAuthority)
         {
             Debug.Log($"{Object.InputAuthority} SPAWN");
@@ -48,6 +56,7 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
         }
 
         m_IsAlive = true;
+        m_Destroying = false;
     }
 
     public void AfterSpawned()
@@ -80,12 +89,19 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
                     var (previous_alive, current_alive) = reader_alive.Read(previousBuffer, currentBuffer);
                     ToggleVisual(current_alive);
                     break;
+                case nameof(m_Destroying):
+                    var reader_destroy = GetPropertyReader<NetworkBool>(nameof(m_Destroying));
+                    var (previous_destroy, current_destroy) = reader_destroy.Read(previousBuffer, currentBuffer);
+                    ToggleDestroyAnim(previous_destroy, current_destroy);
+                    break;
             }
         }
     }
 
     public override void FixedUpdateNetwork()
     {
+        UpdateScore();
+
         if (!Object.HasStateAuthority) return;
         
         if (m_InvincibleTick.Expired(Runner))
@@ -105,7 +121,7 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
 
     private void UpdateScore()
     {
-        if (m_CanControl && m_IsAlive)
+        if (m_CanControl && m_IsAlive && Runner != null)
         {
             GameManager.Instance.UpdateScore();
         }
@@ -163,61 +179,94 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
     }
 
 
-    private void PlayDestroyAnim(PlayerRef _playerRef)
+    private void ToggleDestroyAnim(bool _prevBool, bool _currBool)
     {
-        StartCoroutine(CorPlayDestroyAnim(_playerRef));
+        if (_prevBool == _currBool)
+            return;
+
+        if (_currBool)
+        {
+            if (m_CoActiveDestroyAnim != null) StopCoroutine(CorActiveDestroyAnim());
+            m_CoActiveDestroyAnim = StartCoroutine(CorActiveDestroyAnim());
+        }
     }
-    IEnumerator CorPlayDestroyAnim(PlayerRef _playerRef)
+
+    Coroutine m_CoActiveDestroyAnim;
+    IEnumerator CorActiveDestroyAnim()
     {
+        if (!m_Destroying) yield break;
+        float delay = Random.Range(0.1f, 0.15f);
+        float timeStamp = 0;
+        var wait = new WaitForSeconds(delay);
+
+        while (m_Destroying || timeStamp < m_RebornTime)
+        {
+            if (gameObject == null)
+            {
+                yield break;
+            }
+            float t = timeStamp / m_RebornTime;
+
+            GameManager.Instance.GetExplosionEffect(transform.position, 0.1f, 0.1f);
+            FadePlayer(t);
+            timeStamp += delay;
+            yield return wait;
+        }
+    }
+
+
+    private void ActiveDestroyBehavior(PlayerRef _playerRef)
+    {
+        StartCoroutine(CorActiveDestroyBehavior(_playerRef));
+    }
+    IEnumerator CorActiveDestroyBehavior(PlayerRef _playerRef)
+    {
+        // 아예 로컬에서 전부 처리하고 싶다면 이쪽으로
+        // 중간 입장시 싱크 X
         const float playTime = 2.5f;
         float timeStamp = 0;
-        float delay = UnityEngine.Random.Range(0.1f, 0.15f);
+        float delay = Random.Range(0.1f, 0.15f);
         var wait = new WaitForSeconds(delay);
 
         ActiveInvincible(false, false);
         SetConstVelocity(new Vector2(0.2f, -0.2f));
 
-        Transform transform = GameManager.Instance.GetPlayer(_playerRef).transform;
+        //Transform transform = GameManager.Instance.GetPlayer(_playerRef).transform;
 
         if (Object.HasStateAuthority)
+        {
+            m_Destroying = true;
             m_CanControl = false;
+        }
 
         while (timeStamp < playTime)
         {
-            if (transform == null)
+            if (gameObject == null)
             {
                 yield break;
             }
-
-            float t = timeStamp / playTime;
-
-            FadePlayer(t);
-            GameManager.Instance.GetExplosionEffect(transform.position, 0.1f, 0.1f);
-            timeStamp += delay;
-            yield return wait;
+            timeStamp += Time.deltaTime;
+            yield return null;
         }
 
         SetConstVelocity(Vector2.zero);
-        FadePlayer(1);
 
-        if (Life <= 0 && Object.HasInputAuthority)
-        {
-            yield return new WaitForSeconds(2.0f);
-            GameManager.Instance.ActiveGameOverUI();
-        }
 
-        if (Object.HasStateAuthority)
+        if (HasStateAuthority)
         {
+            m_Destroying = false;
+            if (Life <= 0)
+            {
+                yield return new WaitForSeconds(2.0f);
+                RpcYouAreGameOver(Object.InputAuthority);
+            }
+
             m_IsAlive = false;
             if (Life > 0)
             {
                 m_RebornTick = TickTimer.CreateFromSeconds(Runner, m_RebornTime);
             }
         }
-
-        // 활성화 안해도 될듯
-        // 어차피 부활 무적 타이밍 이후 자동 활성화
-        //ActiveInvincible(true, false);
     }
 
     private void FadePlayer(float _t)
@@ -267,13 +316,21 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
     [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
     public void RpcHit(PlayerRef _playerRef)
     {
-        if (!Runner.IsServer) return;
         if (Object.InputAuthority == _playerRef)
         {
             Life = Mathf.Clamp(--Life, 0, 3);
-            PlayDestroyAnim(_playerRef);
+            ActiveDestroyBehavior(_playerRef);
         }
         Debug.Log($"{Object.InputAuthority} : Call Rpc Invincible - {_playerRef}");
+    }
+
+    [Rpc(RpcSources.StateAuthority, RpcTargets.InputAuthority)]
+    public void RpcYouAreGameOver(PlayerRef _playerRef)
+    {
+        if (Object.InputAuthority == _playerRef)
+        {
+            GameManager.Instance.ActiveGameOverUI();
+        }
     }
     #endregion
 }

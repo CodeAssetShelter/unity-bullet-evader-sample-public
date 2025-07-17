@@ -11,32 +11,46 @@ using Random = UnityEngine.Random;
 using NUnit.Framework;
 using Unity.VisualScripting;
 using TMPro;
+using System.Runtime.CompilerServices;
+using static Fusion.Editor.FusionHubWindow;
 
-public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft
+public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterSpawned
 {
     public static GameManager Instance;
 
     public enum GameState
     {
         Ready = 0,
+        ReadyMultiplay,
         Play,
         GameOverAll,
         StateCount
     }
 
-    public GameState m_State = GameState.Ready;
+    [Networked] public GameState m_State { get; set; } = GameState.Ready;
 
     /// <summary>
     /// 1이 기본값
     /// </summary>
     [Networked] public float GameLevel { get; private set; } = 1;
+    [Networked] public int ReadyPlayerCount { get; set; } = 0;
+
 
     // *――――― 플레이 관련 전역변수 ―――――――――――――――
-    [Space(10)]
-    [SerializeField] private GameObject m_ReadyText;
+    [Header("- UI Text")]
+    [SerializeField] private TextMeshProUGUI m_ReadyText;
+    [SerializeField] private TextMeshProUGUI m_ReadyMultiText;
+    [SerializeField] private TextMeshProUGUI m_ReadyMultiGetReadyText;
+    [SerializeField] private TextMeshProUGUI m_ReadyMultiPlayerCountText;
+    [SerializeField] private TextMeshProUGUI m_MultiplayWaitForOthers;
+    [SerializeField] private TextMeshProUGUI m_MultiplayNowAvailableText;
+
+    [Space(5)]
     [SerializeField] private GameObject m_GameOverText;
     [SerializeField] private GameObject m_GameOverDetailText;
+    [Space(5)]
     [SerializeField] private GameObject m_ObserverModeText;
+    [Space(5)]
     [SerializeField] private TextMeshProUGUI m_ScoreHeadText;
     [SerializeField] private TextMeshProUGUI m_ScoreTailText;
 
@@ -45,32 +59,95 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft
 
     private const float m_DifficultyPlus = 0.3f;
 
-    [Space(10)]
+    [Space(20)]
     [SerializeField] private SpawnManager m_SpawnManager;
 
-    [Space(10)]
+    [Space(20)]
     [SerializeField] private int m_ScoreHead = 0;
     [SerializeField] private int m_ScoreTail = 0;
     private const int SCORE_HEAD_MAX = 1000000;
     private const int SCORE_TAIL_MAX = 1000000;
     private const string SCORE_FORMAT = "{0}";
+    private const string READYCOUNT_FORMAT = "{0}/{1}";
 
-    //[Space(10)]
-    //[SerializeField] private int m_Life = 3;
-    //public int Life { get { return m_Life; } set { m_Life = Mathf.Max(0, value); } }
-
-    [Space(10)]
+    [Space(20)]
     [SerializeField] private NetworkObject m_MyPlayer;
 
     public Dictionary<PlayerRef, Transform> m_PlayerList = new();
+    public Dictionary<PlayerRef, bool> m_ReadyPlayerList = new();
     public List<Transform> m_PlayerTransformList = new();
+
+    private bool m_NowPlaying = false;
 
     private readonly System.Random m_Rng = new();
 
+    private ChangeDetector m_ChangeDetector;
     public override void Spawned()
     {
         base.Spawned();
+
+        // *-------- Init -----------------------------
+        m_ChangeDetector = GetChangeDetector(ChangeDetector.Source.SimulationState);
+        InitScoreText();
+
         Debug.Log("GameManager Spawned()");
+    }
+
+    private void Start()
+    {
+        SoundManager.Instance.PreloadSound(SoundManager.SoundType.ExplosionSmall_000);
+        SoundManager.Instance.PreloadSound(SoundManager.SoundType.ExplosionSmall_001);
+        SoundManager.Instance.PreloadSound(SoundManager.SoundType.BGM_001);
+    }
+    public void AfterSpawned()
+    {
+        ShowActiveMultiplayWaitingUI(m_State);
+    }
+
+    private void ShowActiveMultiplayWaitingUI(GameState _state)
+    {
+        if (m_NowPlaying) return;
+
+        m_ReadyText.gameObject.SetActive(_state == GameState.Ready || _state == GameState.Play);
+        m_ReadyMultiText.gameObject.SetActive(_state == GameState.ReadyMultiplay);
+        m_ReadyMultiGetReadyText.gameObject.SetActive(_state == GameState.ReadyMultiplay);
+        m_ReadyMultiPlayerCountText.gameObject.SetActive(_state == GameState.ReadyMultiplay);
+        RefreshReadyCountText();
+    }
+    public override void Render()
+    {
+        foreach (var change in m_ChangeDetector.DetectChanges(this, out var previousBuffer, out var currentBuffer))
+        {
+            switch (change)
+            {
+                case nameof(ReadyPlayerCount):
+                    if (m_State != GameState.ReadyMultiplay) break;
+                    var reader_count = GetPropertyReader<int>(nameof(ReadyPlayerCount));
+                    var (previous_count, current_count) = reader_count.Read(previousBuffer, currentBuffer);
+                    RefreshReadyPlayerCount(previous_count, current_count);
+                    break;
+            }
+        }
+    }
+
+    private void RefreshReadyPlayerCount(int _prevCount, int _currCount)
+    {
+        if (_prevCount == _currCount) return;
+        ReadyPlayerCount = Mathf.Clamp(0, _currCount, Runner.ActivePlayers.Count());
+        RefreshReadyCountText();
+    }
+
+    private void RefreshReadyCountText()
+    {
+        m_ReadyMultiPlayerCountText.SetText(READYCOUNT_FORMAT, ReadyPlayerCount, Runner.ActivePlayers.Count());
+        if (Runner.IsServer && ReadyPlayerCount >= Runner.ActivePlayers.Count())
+        {
+            m_MultiplayWaitForOthers.gameObject.SetActive(ReadyPlayerCount < Runner.ActivePlayers.Count());
+            m_MultiplayNowAvailableText.gameObject.SetActive(ReadyPlayerCount >= Runner.ActivePlayers.Count());
+
+            if (m_CoHostToPlayGame == null && m_State == GameState.ReadyMultiplay)
+                m_CoHostToPlayGame = StartCoroutine(CorHostToPlayGame());
+        }
     }
 
     private void Awake()
@@ -113,6 +190,12 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft
         }
     }
 
+    private void InitScoreText()
+    {
+        m_ScoreHeadText.SetText(SCORE_FORMAT, 0);
+        m_ScoreTailText.SetText(SCORE_FORMAT, 0);
+    }
+
     public void UpdateScore()
     {
         if (m_State != GameState.Play) return;
@@ -141,6 +224,7 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft
     public void SpawnPlayer()
     {
         if (m_MyPlayer != null) return;
+        m_NowPlaying = true;
         m_SpawnManager.RpcRequestSpawnPlayer(Runner.LocalPlayer);
     }
 
@@ -166,13 +250,18 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft
 
     private void GameStart()
     {
+        if (m_CoHostToPlayGame != null)
+            StopCoroutine(m_CoHostToPlayGame);
         m_State = GameState.Play;
+
+        SoundManager.Instance.PlayMusic(SoundManager.SoundType.BGM_001);
         // 테스트 패턴 시작
         BulletSpawner.Instance.RunPattern(BulletPattern.Normal);
         //BulletSpawner.Instance.RunPattern(BulletPattern.Spread);
         //BulletSpawner.Instance.RunPattern(BulletPattern.Winder);
         //BulletSpawner.Instance.RunPattern(BulletPattern.Cage);
     }
+
 
     #region ---------- R P C --------------------------------------
     /// <summary>
@@ -185,47 +274,127 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft
         GameLevel = _value;
     }
 
-    [Rpc(sources: RpcSources.All, RpcTargets.StateAuthority)]
-    public void RpcTestRequest(PlayerRef _player)
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    public void RpcNowPrepared(PlayerRef _player)
     {
-        Debug.Log($"Request by {_player}!");
-        RpcTestResponse(Runner.LocalPlayer);
+        if (Runner.IsServer)
+        {
+            ++ReadyPlayerCount;
+        }
     }
 
-    [Rpc(sources: RpcSources.StateAuthority, RpcTargets.All)]
-    public void RpcTestResponse(PlayerRef _player)
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    public void RpcStartGameAll()
     {
-        Debug.Log($"I'm {_player} : Response All!");
+        m_ReadyText.gameObject.SetActive(false);
+        m_ReadyMultiText.gameObject.SetActive(false);
+        m_MultiplayWaitForOthers.gameObject.SetActive(false);
+        m_ReadyMultiGetReadyText.gameObject.SetActive(false);
+        m_ScoreHeadText.gameObject.SetActive(true);
+        m_ScoreTailText.gameObject.SetActive(true);
+
+        if (Runner.IsServer)
+        {
+            foreach (var playerRef in Runner.ActivePlayers)
+            {
+                m_SpawnManager.SpawnPlayer(playerRef);
+            }
+            GameStart();
+        }
     }
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     public void RpcInitWaitGame(PlayerRef _player)
     {
-        if (Runner.LocalPlayer == _player && m_CoWaitStart == null)
+        if (Runner.LocalPlayer == _player && m_CoWaitforOthers == null)
         {
-            m_CoWaitStart = StartCoroutine(CorWaitStart());
+            if (m_State == GameState.Play)
+                m_CoLateJoin = StartCoroutine(CorLateJoin());
+            else
+                m_CoWaitforOthers = StartCoroutine(CorWaitForOthers());
         }
     }
     #endregion
 
 
 
-    Coroutine m_CoWaitStart;
-    IEnumerator CorWaitStart()
+    Coroutine m_CoWaitforOthers;
+    IEnumerator CorWaitForOthers()
     {
         while (true)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                m_CoWaitStart = null;
-                m_ReadyText.SetActive(false);
-                m_ScoreHeadText.gameObject.SetActive(true);
-                m_ScoreTailText.gameObject.SetActive(true);
-                SpawnPlayer();
+                m_CoWaitforOthers = null;
+                if (m_State == GameState.Ready || m_State == GameState.Play)
+                {
+                    m_ReadyText.gameObject.SetActive(false);
+                    m_ScoreHeadText.gameObject.SetActive(true);
+                    m_ScoreTailText.gameObject.SetActive(true);
+                    SpawnPlayer();
+                }
+                else if (m_State == GameState.ReadyMultiplay)
+                {
+                    RpcNowPrepared(Runner.LocalPlayer);
+                    m_ReadyText.gameObject.SetActive(false);
+                    m_MultiplayWaitForOthers.gameObject.SetActive(true);
+                    m_ReadyMultiGetReadyText.gameObject.SetActive(false);
+                }
                 yield break;
             }
             yield return null;
         }
+    }
+
+    Coroutine m_CoHostToPlayGame;
+    IEnumerator CorHostToPlayGame()
+    {
+        while (true)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && ReadyPlayerCount >= Runner.ActivePlayers.Count())
+            {
+                m_ReadyText.gameObject.SetActive(false);
+                m_MultiplayWaitForOthers.gameObject.SetActive(false);
+                m_ReadyMultiGetReadyText.gameObject.SetActive(false);
+                m_ScoreHeadText.gameObject.SetActive(true);
+                m_ScoreTailText.gameObject.SetActive(true);
+                RpcStartGameAll();
+            }
+            yield return null;
+        }
+    }
+
+    Coroutine m_CoLateJoin;
+    IEnumerator CorLateJoin()
+    {
+        float timeStamp = 0;
+        float waitTimeMax = 30f;
+
+        void StartGame()
+        {
+            m_CoLateJoin = null;
+            if (m_State == GameState.Play)
+            {
+                m_ReadyText.gameObject.SetActive(false);
+                m_ScoreHeadText.gameObject.SetActive(true);
+                m_ScoreTailText.gameObject.SetActive(true);
+                SpawnPlayer();
+                SoundManager.Instance.PlayMusic(SoundManager.SoundType.BGM_001);
+            }
+        }
+
+        while (timeStamp < waitTimeMax)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                StartGame();
+                yield break;
+            }
+            timeStamp += Time.deltaTime;
+            yield return null;
+        }
+
+        StartGame();
     }
 
     Coroutine m_CoWaitObserber;
@@ -235,10 +404,9 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                m_CoWaitObserber = null;
-                m_ObserverModeText.SetActive(true);
-                m_GameOverText.SetActive(false);
-                m_GameOverDetailText.SetActive(false);
+                m_ObserverModeText.gameObject.SetActive(true);
+                m_GameOverText.gameObject.SetActive(false);
+                m_GameOverDetailText.gameObject.SetActive(false);
                 yield break;
             }
             yield return null;
@@ -251,17 +419,29 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft
         //var networkObject = m_SpawnManager.SpawnPlayerMasterController(player);
         //GameManager.Instance.RpcTestRequest(player);
         Debug.Log($"Joined - {player}");
+        m_ReadyPlayerList[player] = false;
+        if (Runner.ActivePlayers.Count() > 1 && m_State == GameState.Ready)
+        {
+            m_State = GameState.ReadyMultiplay;
+        }
+
         RpcInitWaitGame(player);
+        ShowActiveMultiplayWaitingUI(m_State);
     }
+
     public void PlayerLeft(PlayerRef player)
     {
         Debug.Log("Some Left - " + player);
-        if (Runner.IsServer)
-            Runner.Despawn(m_PlayerList[player].GetComponent<NetworkObject>());
+        if (Runner.IsServer && m_PlayerList.TryGetValue(player, out var playerTransform))
+            Runner.Despawn(playerTransform.GetComponent<NetworkObject>());
         m_PlayerList.Remove(player);
+        m_ReadyPlayerList.Remove(player);
         m_PlayerTransformList = m_PlayerList.Values.ToList();
-    }
 
+        if (Runner.IsServer)
+            --ReadyPlayerCount;
+        RefreshReadyCountText();
+    }
     #endregion
 
     #region *------- Utils -----------------------------------
