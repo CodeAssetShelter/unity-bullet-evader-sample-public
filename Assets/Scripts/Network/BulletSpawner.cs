@@ -167,8 +167,75 @@ public class BulletSpawner : NetworkBehaviour
         m_PatternConatiner.Add(BulletPattern.Cage, new(CorPatternCage));
     }
 
-    public void RunPattern(BulletPattern _pattern)
+    public void RunLevelPatterns(LevelData _data)
     {
+        if (!Runner.IsServer) return;
+
+        // ─────────────────────────────────────────────────────
+        // 0) 최종 결과 컨테이너 (중복 방지용)
+        // ─────────────────────────────────────────────────────
+        List<BulletPattern> activePatterns = new();
+
+        // ─────────────────────────────────────────────────────
+        // 1) 고정 패턴 먼저 등록
+        // ─────────────────────────────────────────────────────
+        if (_data.categories != null)
+        {
+            foreach (BulletPattern p in _data.categories)
+            {
+                // None / State_Count 필터 + 중복 방지
+                if (p != BulletPattern.None &&
+                    p != BulletPattern.State_Count &&
+                    !activePatterns.Contains(p))
+                {
+                    activePatterns.Add(p);
+                }
+            }
+        }
+
+        // ─────────────────────────────────────────────────────
+        // 2) 남은 패턴 중에서 _data.value 개 랜덤 추가
+        //    (None, State_Count, 이미 선택된 패턴은 제외)
+        // ─────────────────────────────────────────────────────
+        List<BulletPattern> pool = new();
+
+        int first = 1;                                    // None 다음 인덱스
+        int lastExcl = (int)BulletPattern.State_Count;       // State_Count 직전까지
+
+        for (int idx = first; idx < lastExcl; idx++)
+        {
+            BulletPattern p = (BulletPattern)idx;
+            if (!activePatterns.Contains(p)) pool.Add(p);
+        }
+
+        int pickCount = Mathf.Clamp(_data.value, 0, pool.Count);
+
+        for (int i = 0; i < pickCount; i++)
+        {
+            int r = Random.Range(0, pool.Count);               // [0, pool.Count)
+            activePatterns.Add(pool[r]);
+            pool.RemoveAt(r);                                  // 중복 방지
+        }
+
+        // 새 패턴 실행 전 전부 정지
+        for (int idx = 1; idx < (int)BulletPattern.State_Count; idx++)
+        {
+            StopPattern((BulletPattern)idx);
+        }
+
+        // 실행
+        foreach (var item in activePatterns)
+        {
+            RunPattern(item);
+        }
+        Debug.Log($"Now Running - {string.Join(", ", activePatterns)}");
+    }
+
+    private void RunPattern(BulletPattern _pattern)
+    {
+        // Guest 에게 필요없음
+        if (!Runner.IsServer) return;
+
         if (!m_PatternConatiner.TryGetValue(_pattern, out var corDat))
         {
             Debug.LogError($"{_pattern} is not registered.");

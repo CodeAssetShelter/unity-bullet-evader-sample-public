@@ -5,14 +5,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
 using Input = UnityEngine.Input;
-using UnityEngine.UIElements;
 using Fusion.Sockets;
 using Random = UnityEngine.Random;
-using NUnit.Framework;
-using Unity.VisualScripting;
 using TMPro;
-using System.Runtime.CompilerServices;
-using static Fusion.Editor.FusionHubWindow;
+using System.Runtime.Serialization;
+
+public static class Defines
+{
+    public const string HIGH_SCORE_HEAD = "highScoreHead";
+    public const string HIGH_SCORE_TAIL = "highScoreTail";
+}
 
 public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterSpawned
 {
@@ -24,6 +26,7 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
         ReadyMultiplay,
         Play,
         GameOverAll,
+        Result,
         StateCount
     }
 
@@ -34,7 +37,7 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
     /// </summary>
     [Networked] public float GameLevel { get; private set; } = 1;
     [Networked] public int ReadyPlayerCount { get; set; } = 0;
-
+    [Networked] public int GameOverUserCount { get; set; } = 0;
 
     // *――――― 플레이 관련 전역변수 ―――――――――――――――
     [Header("- UI Text")]
@@ -48,6 +51,9 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
     [Space(5)]
     [SerializeField] private GameObject m_GameOverText;
     [SerializeField] private GameObject m_GameOverDetailText;
+    [SerializeField] private TextMeshProUGUI m_AllGameOverText;
+    [SerializeField] private TextMeshProUGUI m_AllGameOverDetailText;
+
     [Space(5)]
     [SerializeField] private GameObject m_ObserverModeText;
     [Space(5)]
@@ -57,17 +63,22 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
     private const float m_LevelUpInterval = 30f;
     private float m_LevelUpTimeStamp = 0;
 
+    private const float m_GameOverAllCheckInterval = 2f;
+    private float m_GameOverAllCheckTimeStamp = 0;
+
     private const float m_DifficultyPlus = 0.3f;
 
     [Space(20)]
     [SerializeField] private SpawnManager m_SpawnManager;
+
+    [SerializeField] private LevelContainerAsset m_LevelContainerAsset;
 
     [Space(20)]
     [SerializeField] private int m_ScoreHead = 0;
     [SerializeField] private int m_ScoreTail = 0;
     private const int SCORE_HEAD_MAX = 1000000;
     private const int SCORE_TAIL_MAX = 1000000;
-    private const string SCORE_FORMAT = "{0}";
+    private const string SCORE_FORMAT = "{0:D6}";
     private const string READYCOUNT_FORMAT = "{0}/{1}";
 
     [Space(20)]
@@ -82,6 +93,9 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
     private readonly System.Random m_Rng = new();
 
     private ChangeDetector m_ChangeDetector;
+    [Networked] private TickTimer m_SessionCloseTick { get; set; }
+    private const float m_SessionCloseTime = 2.5f;
+
     public override void Spawned()
     {
         base.Spawned();
@@ -95,8 +109,8 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
 
     private void Start()
     {
-        SoundManager.Instance.PreloadSound(SoundManager.SoundType.ExplosionSmall_000);
-        SoundManager.Instance.PreloadSound(SoundManager.SoundType.ExplosionSmall_001);
+        SoundManager.Instance.PreloadSound(SoundManager.SoundType.EFX_ExplosionSmall_000);
+        SoundManager.Instance.PreloadSound(SoundManager.SoundType.EFX_ExplosionSmall_001);
         SoundManager.Instance.PreloadSound(SoundManager.SoundType.BGM_001);
     }
     public void AfterSpawned()
@@ -158,6 +172,13 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
     public override void FixedUpdateNetwork()
     {
         base.FixedUpdateNetwork();
+
+        if (m_SessionCloseTick.Expired(Runner) && Runner.IsServer)
+        {
+            Runner.SessionInfo.IsOpen = false;
+            m_SessionCloseTick = default;
+        }
+
         GamePlay();
     }
 
@@ -174,12 +195,17 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
                 }
                 break;
             case GameState.Play:
-                if (m_LevelUpTimeStamp > m_LevelUpInterval)
+                if (m_LevelUpTimeStamp > m_LevelUpInterval && Runner.IsServer)
                 {
                     m_LevelUpTimeStamp = 0;
                     RpcUpdateGameLevel(Mathf.Clamp(GetGameLevel() + m_DifficultyPlus, 1, 5));
                 }
-                m_ScoreTail++;
+                else m_LevelUpTimeStamp += Runner.DeltaTime;
+                if (m_GameOverAllCheckTimeStamp > m_GameOverAllCheckInterval && Runner.IsServer)
+                {
+                    GameOverCheck();
+                }
+                else m_GameOverAllCheckTimeStamp += Runner.DeltaTime;
                 break;
             case GameState.GameOverAll:
                 break;
@@ -187,6 +213,16 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
                 break;
             default:
                 break;
+        }
+    }
+
+    private void GameOverCheck()
+    {
+        m_GameOverAllCheckTimeStamp = 0;
+        if (GameOverUserCount >= Runner.ActivePlayers.Count())
+        {
+            RpcActiveAllGameOver();
+            m_State = GameState.GameOverAll;
         }
     }
 
@@ -213,11 +249,24 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
 
     public void ActiveGameOverUI()
     {
-        m_GameOverText.SetActive(true);
-        m_GameOverDetailText.SetActive(true);
+        SaveScore();
+        RpcPlayerGameOver(Runner.LocalPlayer);
 
-        if (m_CoWaitObserber != null) StopCoroutine(m_CoWaitObserber);
-        m_CoWaitObserber = StartCoroutine(CorWaitObserber());
+        if (GameOverUserCount < Runner.ActivePlayers.Count())
+        {
+            m_GameOverText.SetActive(true);
+            m_GameOverDetailText.SetActive(true);
+
+            if (m_CoWaitObserber != null) StopCoroutine(m_CoWaitObserber);
+            m_CoWaitObserber = StartCoroutine(CorWaitObserber());
+        }
+    }
+
+    private void SaveScore()
+    {
+        // m_ScoreHeadText
+        PlayerPrefs.SetInt(Defines.HIGH_SCORE_HEAD, m_ScoreHead);
+        PlayerPrefs.SetInt(Defines.HIGH_SCORE_TAIL, m_ScoreTail);
     }
 
     #endregion
@@ -255,11 +304,97 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
         m_State = GameState.Play;
 
         SoundManager.Instance.PlayMusic(SoundManager.SoundType.BGM_001);
+        m_SessionCloseTick = TickTimer.CreateFromSeconds(Runner, m_SessionCloseTime);
+        RunLevelPatterns();
+
         // 테스트 패턴 시작
-        BulletSpawner.Instance.RunPattern(BulletPattern.Normal);
+        //BulletSpawner.Instance.RunPattern(BulletPattern.Normal);
         //BulletSpawner.Instance.RunPattern(BulletPattern.Spread);
         //BulletSpawner.Instance.RunPattern(BulletPattern.Winder);
         //BulletSpawner.Instance.RunPattern(BulletPattern.Cage);
+    }
+
+    private void RunLevelPatterns()
+    {
+        var data = m_LevelContainerAsset.GetLevel(GameLevel);
+        BulletSpawner.Instance.RunLevelPatterns(data);
+    }
+
+
+    public void ShowAllGameOver()
+    {
+        m_GameOverDetailText.SetActive(false);
+        m_GameOverText.SetActive(false);
+        m_ObserverModeText.SetActive(false);
+
+        StartCoroutine(CorAllGameOver());
+    }
+
+    IEnumerator CorAllGameOver()
+    {
+        float timeStamp = 0;
+        float animTime = 1.5f;
+        Vector2 startRectPos = new Vector2(0, -Screen.height);
+
+        m_AllGameOverText.gameObject.SetActive(true);
+        SoundManager.Instance.PlayEfxSound(SoundManager.SoundType.EFX_GameOver);
+        while (timeStamp < animTime)
+        {
+            float t = timeStamp / animTime;
+            m_AllGameOverText.rectTransform.anchoredPosition = 
+                Vector2.Lerp(startRectPos, Vector2.zero, t);
+            timeStamp += Time.deltaTime;
+            yield return null;
+        }
+
+        m_AllGameOverText.rectTransform.anchoredPosition = Vector2.zero;
+
+        yield return new WaitForSeconds(0.5f);
+        float exitTimer = 5;
+        int shownSec = -1;
+
+        string format = m_AllGameOverDetailText.text;
+        m_AllGameOverDetailText.SetText(format, exitTimer);
+        m_AllGameOverDetailText.gameObject.SetActive(true);
+
+        while (exitTimer > 0f)
+        {
+            exitTimer -= Time.deltaTime;
+
+            // 현재 남은 시간을 올림(Ceil)해서 5,4,3,2,1 순으로 보이게
+            int sec = Mathf.CeilToInt(exitTimer);
+
+            // 값이 바뀔 때만 텍스트 갱신
+            if (sec != shownSec)
+            {
+                shownSec = sec;
+                // "5", "4" … 단순 숫자만 표시
+                // 필요하면 포맷 문자열로 변경: $"{sec}초 남음" 등
+                m_AllGameOverDetailText.SetText(format, sec);
+            }
+
+            yield return null;                  // 프레임 대기
+        }
+
+        KickAllClients();
+    }
+
+    /// <summary>Host 가 호출 – 모든 게스트를 강제 퇴장시킨다.</summary>
+    public void KickAllClients(NetDisconnectReason reason = NetDisconnectReason.Unknown)
+    {
+        if (!Runner.IsServer)   // Host 판단 (Host ≡ StateAuthority=Server)
+        {
+            Debug.LogWarning("This is not Host; can't kick players.");
+            return;
+        }
+
+        foreach (var player in Runner.ActivePlayers)
+        {
+            if (player == Runner.LocalPlayer) continue;        // Host 자신 제외
+            Runner.Disconnect(player);
+        }
+
+        Runner.Shutdown();
     }
 
 
@@ -313,6 +448,19 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
             else
                 m_CoWaitforOthers = StartCoroutine(CorWaitForOthers());
         }
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    public void RpcPlayerGameOver(PlayerRef _player)
+    {
+        GameOverUserCount = Mathf.Clamp(++GameOverUserCount, 0, 4);
+        Debug.Log($"CALL GAMEOVER {GameOverUserCount}, {Runner.ActivePlayers.Count()}");
+    }
+
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    public void RpcActiveAllGameOver()
+    {
+        ShowAllGameOver();
     }
     #endregion
 
@@ -420,9 +568,17 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
         //GameManager.Instance.RpcTestRequest(player);
         Debug.Log($"Joined - {player}");
         m_ReadyPlayerList[player] = false;
-        if (Runner.ActivePlayers.Count() > 1 && m_State == GameState.Ready)
+
+        if (Runner.IsServer)
         {
-            m_State = GameState.ReadyMultiplay;
+            if (Runner.ActivePlayers.Count() > 1 && m_State == GameState.Ready)
+            {
+                m_State = GameState.ReadyMultiplay;
+            }
+            if (Runner.ActivePlayers.Count() >= Runner.SessionInfo.MaxPlayers)
+            {
+                Runner.SessionInfo.IsOpen = false;
+            }
         }
 
         RpcInitWaitGame(player);

@@ -9,8 +9,9 @@ public class SoundManager : MonoBehaviour
 
     public enum SoundType
     {
-        ExplosionSmall_000, ExplosionSmall_001,
+        EFX_ExplosionSmall_000, EFX_ExplosionSmall_001,
         BGM_001, BGM_002,
+        EFX_GameOver,
         StateCount
     }
 
@@ -64,6 +65,7 @@ public class SoundManager : MonoBehaviour
 
     public void PreloadSound(SoundType _type)
     {
+        if (_type.ToString().Contains("EFX_")) return;
         var data = FindSoundData(_type);
         if (data == null) return;
 

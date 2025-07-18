@@ -8,8 +8,8 @@ public class OptionSetterPlaySound : MonoBehaviour
     {
         switch (m_Type)
         {
-            case SoundManager.SoundType.ExplosionSmall_000:
-            case SoundManager.SoundType.ExplosionSmall_001:
+            case SoundManager.SoundType.EFX_ExplosionSmall_000:
+            case SoundManager.SoundType.EFX_ExplosionSmall_001:
                 SoundManager.Instance.PlayEfxSound(m_Type);
                 break;
             case SoundManager.SoundType.BGM_001:

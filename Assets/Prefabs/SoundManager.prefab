@@ -355,6 +355,9 @@ MonoBehaviour:
   - type: 3
     clip: {fileID: 0}
     bgmAsset: {fileID: 11400000, guid: 49bd7d7cc17001145a4bcff9da0e1a81, type: 2}
+  - type: 4
+    clip: {fileID: 8300000, guid: 1d8a3037ef1eb3e4b91af59c9dbc33c7, type: 3}
+    bgmAsset: {fileID: 0}
   m_SourceMusicFrontBuffer: {fileID: 4388207228803529135}
   m_SourceMusicBackBuffer: {fileID: 3744943509585446252}
   m_SourceEfx: {fileID: 8996483390857646925}

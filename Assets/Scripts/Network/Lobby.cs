@@ -9,6 +9,7 @@ using System.Linq;
 using NUnit.Framework;
 using static Fusion.Sockets.NetBitBuffer;
 using static UnityEngine.GraphicsBuffer;
+using JetBrains.Annotations;
 
 
 // A utility class which defines the behaviour of the various buttons and input fields found in the Menu scene
@@ -26,6 +27,11 @@ public class StartMenu : MonoBehaviour
     [Header("- UI")]
     public RectTransform m_Title;
     [SerializeField] private LobbyState m_LobbyState = LobbyState.Intro;
+
+    [Space(10)]
+    [SerializeField] private GameObject m_HighScore;
+    [SerializeField] private TextMeshProUGUI m_HighScoreHeadText;
+    [SerializeField] private TextMeshProUGUI m_HighScoreTailText;
 
     [Space(5)]
     [SerializeField] private GameSettings m_GameSettings;
@@ -52,12 +58,17 @@ public class StartMenu : MonoBehaviour
         {
             Instantiate(m_SoundManagerPrefab);
         }
+        else
+        {
+            SoundManager.Instance.StopAllSound();
+        }
     }
 
     public void OnEnable()
     {
         ShowLobbyMainUI(false);
         UpdateArrowPos();          // 처음 화살표 위치 결정
+        LoadHighScore();
         //m_MainMenuBtns[m_BtnIdx].Select();
 
         switch (m_LobbyState)
@@ -180,12 +191,27 @@ public class StartMenu : MonoBehaviour
     {
         m_MainMenuBtns.ForEach(x => x.gameObject.SetActive(_show));
         m_Arrow.gameObject.SetActive(_show);
+        m_HighScore.SetActive(_show);
 
         if (_show)
         {
             Canvas.ForceUpdateCanvases(); // 레이아웃 즉시 갱신
             UpdateArrowPos();             // 갱신 후 화살표 스냅
         }
+    }
+
+    private void LoadHighScore()
+    {
+        int highScoreHead = 0;
+        int highScoreTail = 1000;
+        if (PlayerPrefs.HasKey(Defines.HIGH_SCORE_HEAD))
+            highScoreHead = PlayerPrefs.GetInt(Defines.HIGH_SCORE_HEAD);
+        
+        if (PlayerPrefs.HasKey(Defines.HIGH_SCORE_TAIL))
+            highScoreHead = PlayerPrefs.GetInt(Defines.HIGH_SCORE_TAIL);
+
+        m_HighScoreHeadText.text = highScoreHead > 0 ? highScoreHead.ToString() : "";
+        m_HighScoreTailText.text = highScoreTail.ToString();
     }
     #endregion
 

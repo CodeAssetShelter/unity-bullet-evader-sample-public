@@ -27,6 +27,7 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
     [Networked] private TickTimer m_RebornTick { get; set; }
     private const float m_RebornTime = 2.5f;
 
+
     [Networked] private int m_SprIdx { get; set; } = 0;
 
     [Networked] public NetworkBool m_IsAlive { get; set; } = false;
@@ -45,8 +46,8 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
         m_AircraftSpr.sprite = GameManager.Instance.GetAircraftSprite(m_SprIdx);
 
         // *-------- Debug ----------------------------
-        //if (Object.HasStateAuthority)
-        //    Life = 1;
+        // if (Object.HasStateAuthority)
+            // Life = 1;
 
         // *-------- Init -----------------------------
         if (Object.HasInputAuthority)

@@ -1,4 +1,4 @@
-ï»¿using System.Collections.Generic;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,33 +22,33 @@ public class OptionSetter : MonoBehaviour, ISettingInput
     [SerializeField] private TextMeshProUGUI m_SettingName;
 
     [Header("- Design")]
-    public Image m_SegmentPrefab;      // 1ì¹¸ì§œë¦¬ í”„ë¦¬íŒ¹
+    public Image m_SegmentPrefab;      // 1Ä­Â¥¸® ÇÁ¸®ÆÕ
     public int m_Count = 10;
     public float m_Gap = 2f;
 
     [Header("Colors")]
-    public Color startColor = Color.red; // 0ë²ˆ ì¸ë±ìŠ¤
-    public Color endColor = Color.green; // ë§ˆì§€ë§‰ ì¸ë±ìŠ¤
+    public Color startColor = Color.red; // 0¹ø ÀÎµ¦½º
+    public Color endColor = Color.green; // ¸¶Áö¸· ÀÎµ¦½º
     [Range(0f, 1f)]
-    public float emptyAlpha = 0.25f;      // ë¹„ì–´ ìˆëŠ” ì¡°ê° íˆ¬ëª…ë„
+    public float emptyAlpha = 0.25f;      // ºñ¾î ÀÖ´Â Á¶°¢ Åõ¸íµµ
 
     [Header("- Hierarchy")]
-    [Tooltip("Segmentë“¤ì„ ë„£ì–´ ë‘˜ ì»¨í…Œì´ë„ˆ(ë¹„ì›Œ ë‘ë©´ ìê¸° ìì‹ )")]
-    public Transform m_Container;        // â† ì¶”ê°€
+    [Tooltip("SegmentµéÀ» ³Ö¾î µÑ ÄÁÅ×ÀÌ³Ê(ºñ¿ö µÎ¸é ÀÚ±â ÀÚ½Å)")]
+    public Transform m_Container;        // ¡ç Ãß°¡
 
     readonly List<Image> m_Segments = new();
-    readonly List<Color> _baseColors = new(); // ê·¸ë¼ë””ì–¸íŠ¸ ë³¸ìƒ‰ ì €ì¥
+    readonly List<Color> _baseColors = new(); // ±×¶óµğ¾ğÆ® º»»ö ÀúÀå
 
     void OnEnable() => BuildSegments();
 
-    /*â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ public API â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€*/
+    /*¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡ public API ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡*/
 
     public void SetUnits(int n)
     {
         m_CurrentUnits = Mathf.Clamp(n, 0, m_Count);
         for (int i = 0; i < m_Segments.Count; i++)
         {
-            // í™œì„±/ë¹„í™œì„±ì— ë”°ë¼ ì•ŒíŒŒë§Œ ì¡°ì ˆ
+            // È°¼º/ºñÈ°¼º¿¡ µû¶ó ¾ËÆÄ¸¸ Á¶Àı
             Color c = _baseColors[i];
             c.a = (i < m_CurrentUnits) ? 1f : emptyAlpha;
             m_Segments[i].color = c;
@@ -81,7 +81,7 @@ public class OptionSetter : MonoBehaviour, ISettingInput
         ApplySettings();
         Debug.Log($"Apply {m_SettingKey} : {PlayerPrefs.GetInt(m_SettingKey)}");
     }
-    /*â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ internal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€*/
+    /*¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡ internal ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡*/
 
     void BuildSegments()
     {
@@ -94,18 +94,18 @@ public class OptionSetter : MonoBehaviour, ISettingInput
         m_Segments.Clear();
         _baseColors.Clear();
 
-        float w = m_SegmentPrefab.rectTransform.rect.width; // ì„¸ê·¸ë¨¼íŠ¸ í­
+        float w = m_SegmentPrefab.rectTransform.rect.width; // ¼¼±×¸ÕÆ® Æø
 
         for (int i = 0; i < m_Count; i++)
         {
             var seg = Instantiate(m_SegmentPrefab, m_Container);
             seg.transform.localScale = Vector3.one;
 
-            // 0ë²ˆì§¸ = (0,0)  /  ì´í›„ = (í­ + gap)ì”© ì˜¤ë¥¸ìª½ìœ¼ë¡œ ì´ë™
+            // 0¹øÂ° = (0,0)  /  ÀÌÈÄ = (Æø + gap)¾¿ ¿À¸¥ÂÊÀ¸·Î ÀÌµ¿
             float x = i * (w + m_Gap);
             seg.rectTransform.anchoredPosition = new Vector2(x, 0);
 
-            // 3) ê·¸ë¼ë””ì–¸íŠ¸ ìƒ‰ ê³„ì‚°
+            // 3) ±×¶óµğ¾ğÆ® »ö °è»ê
             float t = (m_Count == 1) ? 0f : i / (float)(m_Count - 1);
             Color baseCol = Color.Lerp(startColor, endColor, t);
             seg.color = baseCol;
@@ -115,7 +115,7 @@ public class OptionSetter : MonoBehaviour, ISettingInput
         }
 
         LoadSettings();
-        SetUnits(m_CurrentUnits);  // ì´ˆê¸° í‘œì‹œ
+        SetUnits(m_CurrentUnits);  // ÃÊ±â Ç¥½Ã
     }
 
     public RectTransform GetTMPRect()
