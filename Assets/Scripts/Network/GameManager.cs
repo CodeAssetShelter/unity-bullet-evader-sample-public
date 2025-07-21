@@ -78,7 +78,7 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
     [SerializeField] private int m_ScoreTail = 0;
     private const int SCORE_HEAD_MAX = 1000000;
     private const int SCORE_TAIL_MAX = 1000000;
-    private const string SCORE_FORMAT = "{0:D6}";
+    private const string SCORE_FORMAT = "{0:000000}";
     private const string READYCOUNT_FORMAT = "{0}/{1}";
 
     [Space(20)]

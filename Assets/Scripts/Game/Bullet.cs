@@ -14,10 +14,23 @@ public enum BulletPattern
 
 public class Bullet : MonoBehaviour
 {
+    [Header("- Bullet Options")]
     [SerializeField] private Rigidbody2D m_Rb;
     [SerializeField] private float m_Speed = 5f;
     [SerializeField] private float m_LevelSpeed = 1f;
     [SerializeField] private float m_Lifespan = 15f;
+
+    [Header("Target Transform (Sprite)")]
+    [SerializeField] private Transform m_Body;         // Body
+    [SerializeField] private SpriteRenderer m_BodySpr;         // Body
+    [SerializeField] private Sprite[] m_BulletSprArray;
+
+    [Header("Rotation Settings")]
+    [SerializeField] private float m_TickIntervalMax = 0.35f; // N 초마다
+    private float m_TickInterval = 0.35f; // N 초마다
+    [SerializeField] private bool m_RotateCW = true;   // true=시계
+
+    private float m_RotateTimer;
 
     public bool IsLaunched => m_Launch;
 
@@ -42,10 +55,13 @@ public class Bullet : MonoBehaviour
 
     private float m_InvFixedDT = 0.02f;
 
+    private bool m_IsHit;
+
     private void Awake()
     {
         m_Cam = Camera.main;
         m_InvFixedDT = 1f / Time.fixedDeltaTime;
+
     }
 
     private void OnEnable()
@@ -54,7 +70,9 @@ public class Bullet : MonoBehaviour
         m_WasInScreen = false;
         m_LifeTimer = 0f;
         m_SpreadTimer = 0f;
+        m_IsHit = false;
         m_Pattern = BulletPattern.None;
+        m_TickInterval = Mathf.Min(0.15f, m_TickIntervalMax / GameManager.Instance.GameLevel);
     }
 
     private void FixedUpdate()
@@ -72,7 +90,7 @@ public class Bullet : MonoBehaviour
                 MoveBullet();
                 break;
         }
-
+        RotateBullet();
         CheckScreenBoundary();
 
         m_LifeTimer += Time.fixedDeltaTime;
@@ -82,14 +100,44 @@ public class Bullet : MonoBehaviour
 
     private void MoveBullet()
     {
-        //m_Rb.linearVelocity = m_Dir * m_Speed * m_LevelSpeed;
-        transform.position += m_LevelSpeed * m_Speed * Time.fixedDeltaTime * (Vector3)m_Dir;
+        Vector2 delta = m_LevelSpeed * m_Speed * Time.fixedDeltaTime * m_Dir;
+        Vector2 targetPos = m_Rb.position + delta;
+        m_Rb.MovePosition(targetPos);
+
+        //transform.position += m_LevelSpeed * m_Speed * Time.fixedDeltaTime * (Vector3)m_Dir;
     }
 
-    private void MoveBullet(Vector2 _vector)
+    private void MoveBullet(Vector2 _velocity)
     {
-        //m_Rb.linearVelocity = _vector;
-        transform.position += (Vector3)_vector * Time.fixedDeltaTime;
+        Vector2 delta = _velocity;
+        Vector2 targetPos = m_Rb.position + delta * Time.fixedDeltaTime;
+        m_Rb.MovePosition(targetPos);
+
+        // 순간 이동 처리
+        //transform.position += (Vector3)_velocity * Time.fixedDeltaTime;
+    }
+
+    private void RotateBullet()
+    {
+        m_RotateTimer += Time.fixedDeltaTime;
+        if (m_RotateTimer < m_TickInterval) return;
+        m_RotateTimer -= m_TickInterval;                      // 오차 최소화
+
+        // 45° * 부호(±1)
+        float deltaAngle = 45f * (m_RotateCW ? -1f : 1f);
+
+        // 현재 각도 + Δθ  (Z‑축만 회전)
+        m_Body.localRotation *= Quaternion.Euler(0f, 0f, deltaAngle);
+    }
+
+    private void ChangeBulletSprite(BulletPattern pattern)
+    {
+        int idx = (int)pattern - 1;            // Normal→0, Spread→1 …
+
+        if (idx >= 0 && idx < m_BulletSprArray.Length)
+            m_BodySpr.sprite = m_BulletSprArray[idx];
+        else
+            Debug.LogWarning($"No sprite mapped for {pattern}");
     }
 
     const float VIEWPORT_MARGIN = 0.08f;
@@ -171,6 +219,7 @@ public class Bullet : MonoBehaviour
         m_Pattern = pattern;
         m_PlayerTransform = null;
 
+        ChangeBulletSprite(pattern);
         switch (pattern)
         {
             // Normal : 일반탄
@@ -215,9 +264,10 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !m_IsHit)
         {
+            m_IsHit = true;
             BulletSpawner.Instance.RPC_ReleaseBullet(m_BulletId);
-        }        
+        }
     }
 }

@@ -208,7 +208,7 @@ public class StartMenu : MonoBehaviour
             highScoreHead = PlayerPrefs.GetInt(Defines.HIGH_SCORE_HEAD);
         
         if (PlayerPrefs.HasKey(Defines.HIGH_SCORE_TAIL))
-            highScoreHead = PlayerPrefs.GetInt(Defines.HIGH_SCORE_TAIL);
+            highScoreTail = PlayerPrefs.GetInt(Defines.HIGH_SCORE_TAIL);
 
         m_HighScoreHeadText.text = highScoreHead > 0 ? highScoreHead.ToString() : "";
         m_HighScoreTailText.text = highScoreTail.ToString();

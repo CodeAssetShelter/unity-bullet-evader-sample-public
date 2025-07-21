@@ -497,12 +497,23 @@ public class BulletSpawner : NetworkBehaviour
     /*── 날개접기 ─────────────────────────────────────────────────────────────*/
     IEnumerator CorPatternFan()
     {
-        float interval = 25f;
+        float interval = 4f;
         float timeStamp = 0f;
 
-        float interval_min = 5f;
+        float interval_min = 1.5f;
+        bool first = false;
 
         yield return new WaitUntil(() => GameManager.Instance.GetRandomPlayerTransform() != null);
+
+        // 방향 지정자
+        List<ShotDir> dirs = new List<ShotDir>()
+            {
+                (ShotDir)Random.Range(1, 3),
+                CommonUtil.GetRandomEnumValueUnity<ShotDir>(),
+                CommonUtil.GetRandomEnumValueUnity<ShotDir>(),
+                CommonUtil.GetRandomEnumValueUnity<ShotDir>(),
+            };
+        dirs.Sort((_, _) => Random.Range(-1, 2));
 
         while (true)
         {
@@ -514,7 +525,7 @@ public class BulletSpawner : NetworkBehaviour
                 continue;
             }
             timeStamp = 0;
-
+            first = true;
             Transform player = GameManager.Instance.GetRandomPlayerTransform();
 
             // interval 만큼 쉬기
@@ -523,15 +534,6 @@ public class BulletSpawner : NetworkBehaviour
                 yield return new WaitForSeconds(interval);
                 continue;
             }
-
-            // 방향 지정자
-            List<ShotDir> dirs = new List<ShotDir>()
-            {
-                CommonUtil.GetRandomEnumValueUnity<ShotDir>(),
-                CommonUtil.GetRandomEnumValueUnity<ShotDir>(),
-                CommonUtil.GetRandomEnumValueUnity<ShotDir>(),
-                CommonUtil.GetRandomEnumValueUnity<ShotDir>(),
-            };
 
             var (pos, dir) = GetBulletVector(player.position);
             byte offset = BitPackerUtil.EncodeShotDir(dirs[0], dirs[1], dirs[2], dirs[3]);
