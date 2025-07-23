@@ -17,7 +17,7 @@ Photon Fusion 2 기반 멀티플레이 탄막 슈팅
 1. **멀티플레이 실시간 탄막**
 2. **TMP 캐릭터 애니메이터** – UI 텍스트에 초경량 애니메이션 효과 적용
 3. **RPC 데이터 전송 인코딩** – RPC 회당 512byte 고려, 전송 데이터 인코딩/디코딩
-4. **Host Migration ** - 게임에 중간 Host.Shutdown() 시 필요 데이터 이관 후 플레이.
+4. **Host Migration** - 게임에 중간 Host.Shutdown() 시 필요 데이터 이관 후 플레이.
 
 ---
 
