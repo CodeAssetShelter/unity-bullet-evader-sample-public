@@ -131,7 +131,13 @@ public class StartMenu : MonoBehaviour
             m_LobbyState = LobbyState.Lobby;
         }
 
+        m_MainMenuBtns.ForEach(x => x.enabled = false);
         ShowLobbyMainUI(true);
+
+        // 연속 클릭 방지를 위함
+        yield return new WaitForSeconds(0.5f);
+        m_MainMenuBtns.ForEach(x => x.enabled = true);
+
         ActiveLobby();
     }
 

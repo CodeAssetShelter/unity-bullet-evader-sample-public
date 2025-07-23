@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3454396858997689576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4326683378235537999}
+  - component: {fileID: 8922077650695043780}
+  - component: {fileID: 4895736549907574471}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4326683378235537999
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3454396858997689576}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.94277847, y: 0.03796544, z: -0.013798025}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8922077650695043780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3454396858997689576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75df3a480bd05074cad8a27c5a3c4267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PlayerPrefab: {fileID: 8074526386374853640, guid: 92731de2f5afad04c969ae4e1e0458fb, type: 3}
+  m_AircraftSprites:
+  - {fileID: 1077580260, guid: 1c0f466013f780849a6a6a3c22c5cf4b, type: 3}
+  - {fileID: 696038029, guid: 1c0f466013f780849a6a6a3c22c5cf4b, type: 3}
+  - {fileID: -1687530911, guid: 1c0f466013f780849a6a6a3c22c5cf4b, type: 3}
+  - {fileID: -949014950, guid: 1c0f466013f780849a6a6a3c22c5cf4b, type: 3}
+  m_ExplosionPrefab: {fileID: 847686591853625970, guid: 3f2ffc62350a0b64fac19110578326b6, type: 3}
+--- !u!114 &4895736549907574471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3454396858997689576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SortKey: 3498273215
+  ObjectInterest: 1
+  Flags: 2561
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 8922077650695043780}
+  ForceRemoteRenderTimeframe: 0

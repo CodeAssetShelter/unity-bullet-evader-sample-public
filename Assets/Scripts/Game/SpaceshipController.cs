@@ -35,6 +35,8 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
 
     private ChangeDetector m_ChangeDetector;
 
+    private Dictionary<string, object> m_ResumeData;
+
     public override void Spawned()
     {
         base.Spawned();
@@ -54,6 +56,11 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
         {
             Debug.Log($"{Object.InputAuthority} SPAWN");
             Runner.SetIsSimulated(Object, true);
+        }
+
+        if (Object.HasStateAuthority && GameManager.Instance != null)
+        {
+            Life = (int)GameManager.Instance.GetResumeData(Object.InputAuthority, Defines.MIG_PLAYER_LIFE);
         }
 
         m_IsAlive = true;
@@ -99,10 +106,13 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
         }
     }
 
-    public override void FixedUpdateNetwork()
+    private void FixedUpdate()
     {
         UpdateScore();
+    }
 
+    public override void FixedUpdateNetwork()
+    {
         if (!Object.HasStateAuthority) return;
         
         if (m_InvincibleTick.Expired(Runner))
@@ -122,7 +132,7 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
 
     private void UpdateScore()
     {
-        if (m_CanControl && m_IsAlive && Runner != null)
+        if (GameManager.Instance != null && m_CanControl && m_IsAlive && Runner != null)
         {
             GameManager.Instance.UpdateScore();
         }
@@ -162,19 +172,26 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
     Coroutine m_CoHideAnim;
     IEnumerator CorHideAnim()
     {
-        var wait = new WaitForSeconds(0.1f);
+        int interval = 4;
+        int timeStamp = 0;
         bool on = false;
         while (true)
         {
-            on = !on;
-            ToggleVisual(on);
-            yield return wait;
+            timeStamp++;
+            if (timeStamp > interval)
+            {
+                on = !on;
+                ToggleVisual(on);
+                timeStamp = 0;
+            }
+            yield return null;
         }
     }
 
 
     private void ToggleVisual(bool _isShow)
     {
+        // 오늘 고칠거
         m_AircraftSpr.enabled = _isShow;
         m_SpriteList.ForEach(x => x.enabled = _isShow);
     }
@@ -259,6 +276,7 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
             if (Life <= 0)
             {
                 yield return new WaitForSeconds(2.0f);
+                GameManager.Instance.AddGameUserCount();
                 RpcYouAreGameOver(Object.InputAuthority);
             }
 

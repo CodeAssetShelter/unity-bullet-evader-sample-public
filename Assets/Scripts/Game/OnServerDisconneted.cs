@@ -25,10 +25,65 @@ public class OnServerDisconneted : MonoBehaviour, INetworkRunnerCallbacks
 
     public void OnDisconnectedFromServer(NetworkRunner runner, NetDisconnectReason reason)
     {
+        Debug.LogError($"Disconnect By {reason}");
+        if (reason == NetDisconnectReason.Requested)
+            SceneManager.LoadScene("Lobby");
     }
 
-    public void OnHostMigration(NetworkRunner runner, HostMigrationToken hostMigrationToken)
+    public async void OnHostMigration(NetworkRunner runner, HostMigrationToken hostMigrationToken)
     {
+        Debug.LogWarning($"OnHostMigration! {runner.UserId} - {hostMigrationToken}");
+        if (hostMigrationToken == null)
+        {
+            Debug.LogWarning("No HostMigrationToken. Normal shutdown or rejoin flow.");
+            await runner.Shutdown();
+            return;
+        }
+
+        // 1) 기존 Runner 종료
+        await runner.Shutdown(true, ShutdownReason.HostMigration);
+
+        // 2) 새 Runner 생성
+        var newRunner = Instantiate(Resources.Load<NetworkRunner>("NetworkRunner"));
+
+        // 3) HostMigrationToken 과 Resume 콜백을 전달해 시작
+        var result = await newRunner.StartGame(new StartGameArgs
+        {
+            HostMigrationToken = hostMigrationToken,
+            HostMigrationResume = HostMigrationResume
+        });
+
+        if (!result.Ok)
+            Debug.LogWarning(result.ShutdownReason);
+    }
+
+    // Step 3.
+    // Resume Simulation on the new Runner
+    void HostMigrationResume(NetworkRunner runner)
+    {
+        Dictionary<PlayerRef, Dictionary<string, object>> resume_data = new();
+        // Get a temporary reference for each NO from the old Host
+        foreach (var snapObj in runner.GetResumeSnapshotNetworkObjects())
+        {
+            Debug.Log($"old snap - {snapObj.name} - {snapObj.Runner.UserId}");
+            if (snapObj.TryGetComponent<SpaceshipController>(out var sc))
+            {
+                Debug.Log("SpaceShip is not respawn target, but data will copy");
+                resume_data[snapObj.InputAuthority][Defines.MIG_PLAYER_LIFE] = sc.Life;
+                continue;
+            }
+
+            runner.Spawn(snapObj, onBeforeSpawned: (r, newObj) =>
+            {
+                newObj.CopyStateFrom(snapObj); // 모든 NetworkBehaviour 상태 통째 복원
+                if (newObj.TryGetComponent(out GameManager gameManager))
+                {
+                    gameManager.m_State = GameManager.GameState.Ready;
+                    gameManager.LoadScore(true);
+                    gameManager.SetResumeData(resume_data);
+                }
+            });
+        }
     }
 
     public void OnInput(NetworkRunner runner, NetworkInput input)
@@ -70,6 +125,8 @@ public class OnServerDisconneted : MonoBehaviour, INetworkRunnerCallbacks
 
     public void OnSceneLoadDone(NetworkRunner runner)
     {
+        if (runner.IsServer)
+            FindAnyObjectByType<GameStarter>().GameStart(runner);
     }
 
     public void OnSceneLoadStart(NetworkRunner runner)
@@ -83,7 +140,8 @@ public class OnServerDisconneted : MonoBehaviour, INetworkRunnerCallbacks
     public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason)
     {
         // 임시로 여기서 돌아감
-        SceneManager.LoadScene("Lobby");
+        if (shutdownReason != ShutdownReason.HostMigration)
+            SceneManager.LoadScene("Lobby");
     }
 
     public void OnUserSimulationMessage(NetworkRunner runner, SimulationMessagePtr message)

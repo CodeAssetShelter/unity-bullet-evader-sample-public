@@ -8,15 +8,19 @@ using Input = UnityEngine.Input;
 using Fusion.Sockets;
 using Random = UnityEngine.Random;
 using TMPro;
-using System.Runtime.Serialization;
+using System.Threading.Tasks;
 
 public static class Defines
 {
     public const string HIGH_SCORE_HEAD = "highScoreHead";
     public const string HIGH_SCORE_TAIL = "highScoreTail";
+    public const string HIGH_SCORE_HEAD_TEMP = "highScoreHeadTemp";
+    public const string HIGH_SCORE_TAIL_TEMP = "highScoreTailTemp";
+
+    public const string MIG_PLAYER_LIFE = "playerLife";
 }
 
-public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterSpawned
+public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterSpawned, INetworkRunnerCallbacks
 {
     public static GameManager Instance;
 
@@ -88,7 +92,7 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
     public Dictionary<PlayerRef, bool> m_ReadyPlayerList = new();
     public List<Transform> m_PlayerTransformList = new();
 
-    private bool m_NowPlaying = false;
+    [SerializeField] private bool m_NowPlaying = false;
 
     private readonly System.Random m_Rng = new();
 
@@ -96,9 +100,13 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
     [Networked] private TickTimer m_SessionCloseTick { get; set; }
     private const float m_SessionCloseTime = 2.5f;
 
+    private Dictionary<PlayerRef, Dictionary<string, object>> m_ResumeData;
+
     public override void Spawned()
     {
         base.Spawned();
+
+        Runner.AddCallbacks(this);
 
         // *-------- Init -----------------------------
         m_ChangeDetector = GetChangeDetector(ChangeDetector.Source.SimulationState);
@@ -128,6 +136,7 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
         m_ReadyMultiPlayerCountText.gameObject.SetActive(_state == GameState.ReadyMultiplay);
         RefreshReadyCountText();
     }
+
     public override void Render()
     {
         foreach (var change in m_ChangeDetector.DetectChanges(this, out var previousBuffer, out var currentBuffer))
@@ -166,7 +175,7 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
+        Instance = this;
     }
 
     public override void FixedUpdateNetwork()
@@ -235,7 +244,6 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
     public void UpdateScore()
     {
         if (m_State != GameState.Play) return;
-
         m_ScoreTail++;
 
         if (m_ScoreTail >= SCORE_TAIL_MAX)
@@ -250,7 +258,7 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
     public void ActiveGameOverUI()
     {
         SaveScore();
-        RpcPlayerGameOver(Runner.LocalPlayer);
+        //RpcPlayerGameOver(Runner.LocalPlayer);
 
         if (GameOverUserCount < Runner.ActivePlayers.Count())
         {
@@ -262,11 +270,20 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
         }
     }
 
-    private void SaveScore()
+    private void SaveScore(bool _isCrash = false)
     {
         // m_ScoreHeadText
-        PlayerPrefs.SetInt(Defines.HIGH_SCORE_HEAD, m_ScoreHead);
-        PlayerPrefs.SetInt(Defines.HIGH_SCORE_TAIL, m_ScoreTail);
+        PlayerPrefs.SetInt(_isCrash ? Defines.HIGH_SCORE_HEAD_TEMP : Defines.HIGH_SCORE_HEAD, m_ScoreHead);
+        PlayerPrefs.SetInt(_isCrash ? Defines.HIGH_SCORE_TAIL_TEMP : Defines.HIGH_SCORE_TAIL, m_ScoreTail);
+    }
+
+    public void LoadScore(bool _isCrash = false)
+    {
+        // m_ScoreHeadText
+        m_ScoreHead = PlayerPrefs.GetInt(_isCrash ? Defines.HIGH_SCORE_HEAD_TEMP : Defines.HIGH_SCORE_HEAD);
+        m_ScoreTail = PlayerPrefs.GetInt(_isCrash ? Defines.HIGH_SCORE_TAIL_TEMP : Defines.HIGH_SCORE_TAIL);
+        PlayerPrefs.SetInt(_isCrash ? Defines.HIGH_SCORE_HEAD_TEMP : Defines.HIGH_SCORE_HEAD, 0);
+        PlayerPrefs.SetInt(_isCrash ? Defines.HIGH_SCORE_TAIL_TEMP : Defines.HIGH_SCORE_TAIL, 0);
     }
 
     #endregion
@@ -338,12 +355,14 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
 
         m_AllGameOverText.gameObject.SetActive(true);
         SoundManager.Instance.PlayEfxSound(SoundManager.SoundType.EFX_GameOver);
+
         while (timeStamp < animTime)
         {
             float t = timeStamp / animTime;
             m_AllGameOverText.rectTransform.anchoredPosition = 
                 Vector2.Lerp(startRectPos, Vector2.zero, t);
             timeStamp += Time.deltaTime;
+            Debug.LogError(2);
             yield return null;
         }
 
@@ -376,16 +395,17 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
             yield return null;                  // 프레임 대기
         }
 
-        KickAllClients();
+        if (Runner.IsServer)
+            StartCoroutine(KickAllClients());
     }
 
     /// <summary>Host 가 호출 – 모든 게스트를 강제 퇴장시킨다.</summary>
-    public void KickAllClients(NetDisconnectReason reason = NetDisconnectReason.Unknown)
+    IEnumerator KickAllClients()
     {
         if (!Runner.IsServer)   // Host 판단 (Host ≡ StateAuthority=Server)
         {
             Debug.LogWarning("This is not Host; can't kick players.");
-            return;
+            yield break;
         }
 
         foreach (var player in Runner.ActivePlayers)
@@ -394,9 +414,28 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
             Runner.Disconnect(player);
         }
 
+        yield return new WaitUntil(()
+            =>
+        Runner.ActivePlayers.Count() == 1 && Runner.ActivePlayers.First() == Runner.LocalPlayer);
+
         Runner.Shutdown();
     }
 
+    public void SetResumeData(Dictionary<PlayerRef, Dictionary<string, object>> _data)
+    {
+        m_ResumeData = new(_data);
+    }
+
+    public object GetResumeData(PlayerRef _player, string _defineKey)
+    {
+        object res = null;
+
+        if (!m_ResumeData.ContainsKey(_player)) return null;
+        if (!m_ResumeData[_player].ContainsKey(_defineKey)) return null;
+
+        res = m_ResumeData[_player][_defineKey];
+        return res;
+    }
 
     #region ---------- R P C --------------------------------------
     /// <summary>
@@ -443,6 +482,14 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
     {
         if (Runner.LocalPlayer == _player && m_CoWaitforOthers == null)
         {
+            if (m_ResumeData.TryGetValue(Runner.LocalPlayer, out var innerDict) &&
+                innerDict.TryGetValue(Defines.MIG_PLAYER_LIFE, out var lifeObj) &&
+                lifeObj is int life && life == 0)
+            {
+                ActiveGameOverUI();
+                return;
+            }
+
             if (m_State == GameState.Play)
                 m_CoLateJoin = StartCoroutine(CorLateJoin());
             else
@@ -454,12 +501,13 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
     public void RpcPlayerGameOver(PlayerRef _player)
     {
         GameOverUserCount = Mathf.Clamp(++GameOverUserCount, 0, 4);
-        Debug.Log($"CALL GAMEOVER {GameOverUserCount}, {Runner.ActivePlayers.Count()}");
+        Debug.Log($"{_player} - CALL GAMEOVER {GameOverUserCount}/{Runner.ActivePlayers.Count()}");
     }
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     public void RpcActiveAllGameOver()
     {
+        Debug.LogError("RPC GAMEOVER ALL");
         ShowAllGameOver();
     }
     #endregion
@@ -636,6 +684,10 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
         return res == null ? Vector2.zero : res.position;
     }
 
+    public void AddGameUserCount()
+    {
+        GameOverUserCount = Mathf.Clamp(++GameOverUserCount, 0, Runner.ActivePlayers.Count());
+    }
     public SpaceshipController GetPlayer(PlayerRef _playerRef)
     {
         // 이미 캐시돼 있으면 바로 반환 ─ O(1)
@@ -652,6 +704,86 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
 
         // 아직 스폰되지 않았거나 룸에 없음
         return null;
+    }
+
+    void INetworkRunnerCallbacks.OnObjectExitAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player)
+    {
+    }
+
+    void INetworkRunnerCallbacks.OnObjectEnterAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player)
+    {
+    }
+
+    void INetworkRunnerCallbacks.OnPlayerJoined(NetworkRunner runner, PlayerRef player)
+    {
+    }
+
+    void INetworkRunnerCallbacks.OnPlayerLeft(NetworkRunner runner, PlayerRef player)
+    {
+    }
+
+    void INetworkRunnerCallbacks.OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason)
+    {
+        if (shutdownReason == ShutdownReason.HostMigration)
+        {
+            SaveScore(true);
+        }
+    }
+
+    void INetworkRunnerCallbacks.OnDisconnectedFromServer(NetworkRunner runner, NetDisconnectReason reason)
+    {
+    }
+
+    void INetworkRunnerCallbacks.OnConnectRequest(NetworkRunner runner, NetworkRunnerCallbackArgs.ConnectRequest request, byte[] token)
+    {
+    }
+
+    void INetworkRunnerCallbacks.OnConnectFailed(NetworkRunner runner, NetAddress remoteAddress, NetConnectFailedReason reason)
+    {
+    }
+
+    void INetworkRunnerCallbacks.OnUserSimulationMessage(NetworkRunner runner, SimulationMessagePtr message)
+    {
+    }
+
+    void INetworkRunnerCallbacks.OnReliableDataReceived(NetworkRunner runner, PlayerRef player, ReliableKey key, ArraySegment<byte> data)
+    {
+    }
+
+    void INetworkRunnerCallbacks.OnReliableDataProgress(NetworkRunner runner, PlayerRef player, ReliableKey key, float progress)
+    {
+    }
+
+    void INetworkRunnerCallbacks.OnInput(NetworkRunner runner, NetworkInput input)
+    {
+    }
+
+    void INetworkRunnerCallbacks.OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input)
+    {
+    }
+
+    void INetworkRunnerCallbacks.OnConnectedToServer(NetworkRunner runner)
+    {
+    }
+
+    void INetworkRunnerCallbacks.OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList)
+    {
+    }
+
+    void INetworkRunnerCallbacks.OnCustomAuthenticationResponse(NetworkRunner runner, Dictionary<string, object> data)
+    {
+    }
+
+    async void INetworkRunnerCallbacks.OnHostMigration(NetworkRunner runner, HostMigrationToken hostMigrationToken)
+    {
+    }
+
+    void INetworkRunnerCallbacks.OnSceneLoadDone(NetworkRunner runner)
+    {
+    }
+
+    void INetworkRunnerCallbacks.OnSceneLoadStart(NetworkRunner runner)
+    {
     }
     #endregion
 }

@@ -137,12 +137,11 @@ public class BulletSpawner : NetworkBehaviour
     public override void Spawned()
     {
         base.Spawned();
-        Instance = Instance != null ? Instance : this;
     }
 
     private void Awake()
     {
-        Instance = Instance != null ? Instance : this;
+        Instance = this;
         InitPatternContainer();
     }
 
@@ -687,6 +686,7 @@ public class BulletSpawner : NetworkBehaviour
 
     private void SpawnBulletNormal(ushort bulletId, Vector3 position, Vector2 direction, BulletPattern pattern, byte patternOffset)
     {
+        if (LocalObjectPool.Instance == null) return;
         bulletObj = LocalObjectPool.Instance.Get(PoolKey.BULLET, position, Quaternion.identity);
         bullet = bulletObj.GetComponent<Bullet>();
         if (bullet == null)
