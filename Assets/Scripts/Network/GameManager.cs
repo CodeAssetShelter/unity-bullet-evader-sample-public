@@ -100,7 +100,7 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
     [Networked] private TickTimer m_SessionCloseTick { get; set; }
     private const float m_SessionCloseTime = 2.5f;
 
-    private Dictionary<PlayerRef, Dictionary<string, object>> m_ResumeData;
+    private Dictionary<PlayerRef, Dictionary<string, object>> m_ResumeData = new();
 
     public override void Spawned()
     {
@@ -124,6 +124,11 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
     public void AfterSpawned()
     {
         ShowActiveMultiplayWaitingUI(m_State);
+
+        if (m_State == GameState.GameOverAll)
+        {
+            ShowAllGameOver();
+        }
     }
 
     private void ShowActiveMultiplayWaitingUI(GameState _state)
@@ -134,6 +139,10 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
         m_ReadyMultiText.gameObject.SetActive(_state == GameState.ReadyMultiplay);
         m_ReadyMultiGetReadyText.gameObject.SetActive(_state == GameState.ReadyMultiplay);
         m_ReadyMultiPlayerCountText.gameObject.SetActive(_state == GameState.ReadyMultiplay);
+
+        // 강제 비활성화 부분
+        m_GameOverText.SetActive(false);
+        m_GameOverDetailText.SetActive(false);
         RefreshReadyCountText();
     }
 
@@ -362,7 +371,6 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
             m_AllGameOverText.rectTransform.anchoredPosition = 
                 Vector2.Lerp(startRectPos, Vector2.zero, t);
             timeStamp += Time.deltaTime;
-            Debug.LogError(2);
             yield return null;
         }
 
@@ -507,7 +515,6 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     public void RpcActiveAllGameOver()
     {
-        Debug.LogError("RPC GAMEOVER ALL");
         ShowAllGameOver();
     }
     #endregion
@@ -531,11 +538,11 @@ public class GameManager : NetworkBehaviour, IPlayerJoined, IPlayerLeft, IAfterS
                 }
                 else if (m_State == GameState.ReadyMultiplay)
                 {
-                    RpcNowPrepared(Runner.LocalPlayer);
                     m_ReadyText.gameObject.SetActive(false);
                     m_MultiplayWaitForOthers.gameObject.SetActive(true);
                     m_ReadyMultiGetReadyText.gameObject.SetActive(false);
                 }
+                RpcNowPrepared(Runner.LocalPlayer);
                 yield break;
             }
             yield return null;

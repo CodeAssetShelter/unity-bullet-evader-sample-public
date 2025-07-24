@@ -60,7 +60,8 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
 
         if (Object.HasStateAuthority && GameManager.Instance != null)
         {
-            Life = (int)GameManager.Instance.GetResumeData(Object.InputAuthority, Defines.MIG_PLAYER_LIFE);
+            var res = GameManager.Instance.GetResumeData(Object.InputAuthority, Defines.MIG_PLAYER_LIFE);
+            Life = res == null ? Life : (int)res;
         }
 
         m_IsAlive = true;
@@ -82,11 +83,11 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
         {
             switch (change)
             {
-                case nameof(m_Hide):
-                    var reader_hide = GetPropertyReader<NetworkBool>(nameof(m_Hide));
-                    var (previous_hide, current_hide)= reader_hide.Read(previousBuffer, currentBuffer);
-                    ToggleHide(previous_hide, current_hide);
-                    break;
+                //case nameof(m_Hide):
+                //    var reader_hide = GetPropertyReader<NetworkBool>(nameof(m_Hide));
+                //    var (previous_hide, current_hide)= reader_hide.Read(previousBuffer, currentBuffer);
+                //    ToggleHide(previous_hide, current_hide);
+                //    break;
                 case nameof(m_Invincible):
                     var reader_invincible = GetPropertyReader<NetworkBool>(nameof(m_Invincible));
                     var (previous_invin, current_invin) = reader_invincible.Read(previousBuffer, currentBuffer);
@@ -108,6 +109,7 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
 
     private void FixedUpdate()
     {
+        ToggleHide(m_Hide);
         UpdateScore();
     }
 
@@ -153,18 +155,22 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
         }
     }
 
-    private void ToggleHide(bool _isPrevHide, bool _isCurrHide)
+    private void ToggleHide(bool _isCurrHide)
     {
-        if (_isCurrHide == _isPrevHide) return;
-        m_Hide = _isCurrHide;
-        
-        if (m_CoHideAnim != null) StopCoroutine(m_CoHideAnim);
+        //if (_isCurrHide == _isPrevHide) return;
+
         if (m_Hide)
         {
+            if (m_CoHideAnim != null) return;
             m_CoHideAnim = StartCoroutine(CorHideAnim());
+            FadePlayer(0);
+            m_Hide = _isCurrHide;
         }
         else
         {
+            if (m_CoHideAnim != null)
+                StopCoroutine(m_CoHideAnim);
+            m_CoHideAnim = null;
             ToggleVisual(true);
         }
     }
@@ -175,6 +181,7 @@ public class SpaceshipController : NetworkBehaviour, ISpawned, IAfterSpawned
         int interval = 4;
         int timeStamp = 0;
         bool on = false;
+        Debug.Log($"{Object.InputAuthority} Hide Anim IN");
         while (true)
         {
             timeStamp++;

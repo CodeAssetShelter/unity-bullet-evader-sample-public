@@ -9,6 +9,8 @@ public class LocalObjectPool : MonoBehaviour
     private Dictionary<string, GameObject> m_PrefabMap = new();
     private Dictionary<ushort, GameObject> m_ActiveBulletsById = new();
 
+    private Transform m_BulletContainer;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -17,6 +19,11 @@ public class LocalObjectPool : MonoBehaviour
             return;
         }
         Instance = this;
+
+        if (m_BulletContainer == null)
+        {
+            m_BulletContainer = new GameObject("DeactiveConatiner").transform;
+        }
     }
 
     public void RegisterPrefab(string key, GameObject prefab, int prewarmCount = 0)
@@ -67,6 +74,7 @@ public class LocalObjectPool : MonoBehaviour
         }
 
         m_Pools[key].Enqueue(obj);
+        obj.transform.SetParent(m_BulletContainer != null ? m_BulletContainer : null);
     }
 
     public void ReleaseBulletById(ushort id)

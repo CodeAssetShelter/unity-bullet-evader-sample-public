@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using BulletPatterns;
-using static Fusion.Sockets.NetBitBuffer;
-using static UnityEditor.Progress;
 
 public enum BulletPacketType : byte
 {

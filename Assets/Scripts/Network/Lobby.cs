@@ -32,6 +32,7 @@ public class StartMenu : MonoBehaviour
     [SerializeField] private GameObject m_HighScore;
     [SerializeField] private TextMeshProUGUI m_HighScoreHeadText;
     [SerializeField] private TextMeshProUGUI m_HighScoreTailText;
+    [SerializeField] private GameObject m_Block;
 
     [Space(5)]
     [SerializeField] private GameSettings m_GameSettings;
@@ -62,6 +63,8 @@ public class StartMenu : MonoBehaviour
         {
             SoundManager.Instance.StopAllSound();
         }
+
+        Application.targetFrameRate = 60;
     }
 
     public void OnEnable()
@@ -151,7 +154,7 @@ public class StartMenu : MonoBehaviour
     Coroutine m_CoLobby;
     IEnumerator CorLobby()
     {
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(0.2f);
         while (true)
         {
             if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
@@ -236,6 +239,7 @@ public class StartMenu : MonoBehaviour
     bool m_Starting = false;
     private async void StartGame(GameMode mode, string roomName, string sceneName)
     {
+        m_Block.SetActive(true);
         m_RunnerInstance = FindFirstObjectByType<NetworkRunner>();
         if (m_RunnerInstance == null)
         {
@@ -268,6 +272,7 @@ public class StartMenu : MonoBehaviour
         else
         {
             Debug.LogError(res.ShutdownReason);
+            m_Block.SetActive(false);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

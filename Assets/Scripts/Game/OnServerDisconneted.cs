@@ -2,6 +2,7 @@ using Fusion;
 using Fusion.Sockets;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -32,7 +33,7 @@ public class OnServerDisconneted : MonoBehaviour, INetworkRunnerCallbacks
 
     public async void OnHostMigration(NetworkRunner runner, HostMigrationToken hostMigrationToken)
     {
-        Debug.LogWarning($"OnHostMigration! {runner.UserId} - {hostMigrationToken}");
+        Debug.LogWarning($"OnHostMigration! {runner.LocalPlayer} - {hostMigrationToken}");
         if (hostMigrationToken == null)
         {
             Debug.LogWarning("No HostMigrationToken. Normal shutdown or rejoin flow.");
@@ -50,7 +51,7 @@ public class OnServerDisconneted : MonoBehaviour, INetworkRunnerCallbacks
         var result = await newRunner.StartGame(new StartGameArgs
         {
             HostMigrationToken = hostMigrationToken,
-            HostMigrationResume = HostMigrationResume
+            HostMigrationResume = HostMigrationResume,
         });
 
         if (!result.Ok)
@@ -62,14 +63,35 @@ public class OnServerDisconneted : MonoBehaviour, INetworkRunnerCallbacks
     void HostMigrationResume(NetworkRunner runner)
     {
         Dictionary<PlayerRef, Dictionary<string, object>> resume_data = new();
+
         // Get a temporary reference for each NO from the old Host
         foreach (var snapObj in runner.GetResumeSnapshotNetworkObjects())
         {
-            Debug.Log($"old snap - {snapObj.name} - {snapObj.Runner.UserId}");
+            Debug.Log($"old snap - {snapObj.name} - {snapObj.InputAuthority}");
             if (snapObj.TryGetComponent<SpaceshipController>(out var sc))
             {
                 Debug.Log("SpaceShip is not respawn target, but data will copy");
-                resume_data[snapObj.InputAuthority][Defines.MIG_PLAYER_LIFE] = sc.Life;
+
+                var player = snapObj.InputAuthority;
+
+                // 1) 바깥 딕셔너리 보장
+                if (!resume_data.TryGetValue(player, out var dict))
+                {
+                    dict = new Dictionary<string, object>();
+                    resume_data[player] = dict;
+                }
+
+                // 2) 값 기록
+                dict[Defines.MIG_PLAYER_LIFE] = sc.Life;
+
+                continue;
+            }
+        }
+
+        foreach (var snapObj in runner.GetResumeSnapshotNetworkObjects())
+        {
+            if (snapObj.TryGetComponent<SpaceshipController>(out var sc))
+            {
                 continue;
             }
 
@@ -78,7 +100,9 @@ public class OnServerDisconneted : MonoBehaviour, INetworkRunnerCallbacks
                 newObj.CopyStateFrom(snapObj); // 모든 NetworkBehaviour 상태 통째 복원
                 if (newObj.TryGetComponent(out GameManager gameManager))
                 {
-                    gameManager.m_State = GameManager.GameState.Ready;
+                    var oldGM = snapObj.GetComponent<GameManager>();
+                    bool wasGameOver = oldGM.GameOverUserCount >= oldGM.ReadyPlayerCount - 1;
+                    gameManager.m_State = wasGameOver ? GameManager.GameState.GameOverAll : GameManager.GameState.Ready;
                     gameManager.LoadScore(true);
                     gameManager.SetResumeData(resume_data);
                 }
